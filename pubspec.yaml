@@ -20,6 +20,7 @@ dependencies:
 
   # UI & Animation
   cupertino_icons: ^1.0.8
+  flutter_native_splash: ^2.4.6
 
   # Fonts & Styling
   google_fonts: ^6.2.1
