@@ -1,5 +1,9 @@
 import "package:flutter/material.dart";
 
+import "../shared/themes/buttons_theme.dart";
+import "../shared/themes/checkbox_theme.dart";
+import "../shared/themes/input_decoration_theme.dart";
+
 class MaterialTheme {
   final TextTheme textTheme;
   const MaterialTheme(this.textTheme);
@@ -124,6 +128,10 @@ class MaterialTheme {
     ),
     scaffoldBackgroundColor: colorScheme.surface,
     canvasColor: colorScheme.surface,
+    inputDecorationTheme: inputDecorationTheme(colorScheme),
+    checkboxTheme: checkboxTheme(colorScheme),
+    filledButtonTheme: ButtonsTheme.filledButtonThemeData(colorScheme),
+    textButtonTheme: ButtonsTheme.textButtonThemeData(colorScheme),
   );
 
   List<ExtendedColor> get extendedColors => [];

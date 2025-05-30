@@ -1,0 +1,86 @@
+import 'package:flutter/material.dart';
+
+import '../../../../core/shared/components/email_text_field.dart';
+import '../../../../core/shared/components/loading_button.dart';
+import '../../../../core/shared/components/password_text_field.dart';
+import '../../../../core/utils/extensions/constants_extension.dart';
+import '../../../../core/utils/extensions/intl_extension.dart';
+import '../../../../core/utils/extensions/theme_extension.dart';
+import '../widgets/auth_footer.dart';
+import '../widgets/auth_header.dart';
+import '../widgets/remember_me.dart';
+
+class SignInPage extends StatefulWidget {
+  const SignInPage({super.key});
+
+  @override
+  State<SignInPage> createState() => _SignInPageState();
+}
+
+class _SignInPageState extends State<SignInPage> {
+  final _formKey = GlobalKey<FormState>();
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
+
+  @override
+  void dispose() {
+    _emailController.dispose();
+    _passwordController.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: SafeArea(
+        child: CustomScrollView(
+          slivers: [
+            SliverFillRemaining(
+              hasScrollBody: false,
+              child: Padding(
+                padding: context.padding.pH24,
+                child: Column(
+                  spacing: context.spacing.s24,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    AuthHeader(title: context.l10n.signInTitle),
+                    Form(
+                      key: _formKey,
+                      child: Column(
+                        spacing: context.spacing.s24,
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: [
+                          EmailTextField(controller: _emailController),
+                          PasswordTextField(controller: _passwordController),
+                          const RememberMe(),
+                          LoadingButton(
+                            text: context.l10n.signIn,
+                            isLoading: false,
+                            loaderColor: context.colorScheme.primary,
+                            onPressed: () {},
+                          ),
+                        ],
+                      ),
+                    ),
+                    Center(
+                      child: TextButton(
+                        onPressed: () {},
+                        child: Text(context.l10n.forgotPassword),
+                      ),
+                    ),
+                    AuthFooter(
+                      promptText: context.l10n.signInPrompt,
+                      actionText: context.l10n.signUp,
+                      onRedirectPressed: () {},
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}

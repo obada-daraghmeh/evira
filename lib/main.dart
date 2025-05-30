@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'core/controllers/theme_mode/theme_mode_cubit.dart';
+import 'core/localization/generated/l10n.dart';
 import 'core/services/get_it_service.dart';
 import 'core/services/storage_service.dart';
 import 'core/theme/theme.dart';
 import 'core/utils/controllers/bloc_observer.dart';
 import 'core/utils/create_text_theme.dart';
+import 'features/auth/presentation/pages/sign_in_page.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -37,23 +40,15 @@ class MyApp extends StatelessWidget {
           theme: theme.light(),
           darkTheme: theme.dark(),
           themeMode: themeMode,
-          home: Scaffold(
-            body: Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  // Test Toggle Theme
-                  Text('Welcome to Evira'),
-                  Switch(
-                    value: themeMode == ThemeMode.dark,
-                    onChanged: (value) {
-                      context.read<ThemeModeCubit>().toggleThemeMode;
-                    },
-                  ),
-                ],
-              ),
-            ),
-          ),
+          home: SignInPage(),
+          locale: const Locale('en'),
+          localizationsDelegates: [
+            FlutterIntl.delegate,
+            GlobalMaterialLocalizations.delegate,
+            GlobalWidgetsLocalizations.delegate,
+            GlobalCupertinoLocalizations.delegate,
+          ],
+          supportedLocales: FlutterIntl.delegate.supportedLocales,
           debugShowCheckedModeBanner: false,
         );
       },

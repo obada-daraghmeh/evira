@@ -1,0 +1,21 @@
+{
+  "signInTitle": "Login to your\nAccount",
+  "email": "Email",
+  "enterYourField": "Enter your {field}",
+  "password": "Password",
+  "confirmPassword": "Confirm Password",
+  "name": "Name",
+  "filedIsRequired": "{filed} field is required",
+  "invalidField": "Enter a valid {filed}",
+  "minimumLength": "{filed} must be at least {length} characters long",
+  "invalidPassword": "Password must contain uppercase, lowercase, number, and special character",
+  "passwordsDoNotMatch": "Passwords do not match",
+  "invalidName": "Name can only contain letters and spaces",
+  "filedNotUnique": "This {filed} is already taken",
+  "rememberMe": "Remember me",
+  "signIn": "Sign In",
+  "forgotPassword": "Forgot the password?",
+  "signInPrompt": "Don’t have an account?",
+  "signUp": "Sign Up",
+  "orContinueWith": "or continue with"
+}
