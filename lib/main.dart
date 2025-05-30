@@ -2,16 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'core/controllers/theme_mode/theme_mode_cubit.dart';
+import 'core/services/get_it_service.dart';
 import 'core/services/storage_service.dart';
 import 'core/theme/theme.dart';
+import 'core/utils/controllers/bloc_observer.dart';
 import 'core/utils/create_text_theme.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await GetItService().init();
   await StorageService().init();
+  Bloc.observer = AppBlocObserver();
+
   runApp(
     MultiBlocProvider(
-      providers: [BlocProvider(create: (context) => ThemeModeCubit())],
+      providers: [BlocProvider(create: (context) => getIt<ThemeModeCubit>())],
       child: const MyApp(),
     ),
   );
