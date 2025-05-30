@@ -48,3 +48,22 @@ flutter:
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         style: italic
   #         weight: 700
+
+flutter_native_splash:
+  color: "#ffffff"
+  color_dark: "#191a1f"
+  image: assets/images/logo/light_logo.png
+  image_dark: assets/images/logo/dark_logo.png
+
+  android_12:
+    color: "#ffffff"
+    color_dark: "#191a1f"
+    image: assets/images/logo/light_logo.png
+    image_dark: assets/images/logo/dark_logo.png
+
+  android: true
+  ios: true
+  web: false
+
+  android_gravity: center
+  ios_content_mode: scaleAspectFill
