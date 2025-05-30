@@ -239,6 +239,46 @@ class FlutterIntl {
       args: [],
     );
   }
+
+  /// `Create your\nAccount`
+  String get signUpTitle {
+    return Intl.message(
+      'Create your\nAccount',
+      name: 'signUpTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Re-enter your password`
+  String get reEnterYourPassword {
+    return Intl.message(
+      'Re-enter your password',
+      name: 'reEnterYourPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Already have an account?`
+  String get signUpPrompt {
+    return Intl.message(
+      'Already have an account?',
+      name: 'signUpPrompt',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Back`
+  String get back {
+    return Intl.message(
+      'Back',
+      name: 'back',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<FlutterIntl> {

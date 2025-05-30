@@ -34,7 +34,18 @@ class LoadingButton extends StatelessWidget {
       backgroundColor: backgroundColor,
     );
 
-    final child = isLoading ? CustomLoader(color: loaderColor) : Text(text);
+    final child = AnimatedSwitcher(
+      duration: const Duration(milliseconds: 300),
+      switchInCurve: Curves.easeOut,
+      switchOutCurve: Curves.easeIn,
+      transitionBuilder: (Widget child, Animation<double> animation) {
+        return FadeTransition(
+          opacity: animation,
+          child: ScaleTransition(scale: animation, child: child),
+        );
+      },
+      child: isLoading ? CustomLoader(color: loaderColor) : Text(text),
+    );
 
     if (icon != null && !isLoading) {
       return FilledButton.icon(

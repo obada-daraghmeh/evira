@@ -17,5 +17,9 @@
   "forgotPassword": "Forgot the password?",
   "signInPrompt": "Don’t have an account?",
   "signUp": "Sign Up",
-  "orContinueWith": "or continue with"
+  "orContinueWith": "or continue with",
+  "signUpTitle": "Create your\nAccount",
+  "reEnterYourPassword": "Re-enter your password",
+  "signUpPrompt": "Already have an account?",
+  "back": "Back"
 }

@@ -5,20 +5,20 @@ import '../../utils/extensions/intl_extension.dart';
 import '../../utils/validations/validations.dart';
 import '../widgets/custom_text_field.dart';
 
-class EmailTextField extends StatelessWidget {
+class NameTextField extends StatelessWidget {
   final TextEditingController controller;
-  const EmailTextField({super.key, required this.controller});
+  const NameTextField({super.key, required this.controller});
 
   @override
   Widget build(BuildContext context) {
     return CustomTextField(
       controller: controller,
-      label: context.l10n.email,
-      hint: context.l10n.enterYourField(context.l10n.email),
-      prefixIcon: AssetsConst.messageBold,
-      keyboardType: TextInputType.emailAddress,
+      label: context.l10n.name,
+      hint: context.l10n.enterYourField(context.l10n.name),
+      prefixIcon: AssetsConst.profileBold,
+      keyboardType: TextInputType.name,
       textInputAction: TextInputAction.next,
-      validator: (value) => Validations.email(value),
+      validator: (value) => Validations.name(value),
     );
   }
 }

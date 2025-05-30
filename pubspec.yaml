@@ -19,6 +19,7 @@ dependencies:
   provider: ^6.1.5
   equatable: ^2.0.7
   get_it: ^8.0.3
+  go_router: ^15.1.2
 
   # UI & Animation
   cupertino_icons: ^1.0.8
@@ -45,7 +46,9 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets/icons/
+    - assets/icons/bold/
+    - assets/icons/outline/
+    - assets/icons/colored/
     - assets/animations/
     - assets/images/
     - assets/images/logo/

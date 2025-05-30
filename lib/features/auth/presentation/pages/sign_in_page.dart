@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
+import '../../../../core/constants/routes_const.dart';
 import '../../../../core/shared/components/email_text_field.dart';
 import '../../../../core/shared/components/loading_button.dart';
 import '../../../../core/shared/components/password_text_field.dart';
@@ -34,6 +36,7 @@ class _SignInPageState extends State<SignInPage> {
     return Scaffold(
       body: SafeArea(
         child: CustomScrollView(
+          physics: const BouncingScrollPhysics(),
           slivers: [
             SliverFillRemaining(
               hasScrollBody: false,
@@ -57,7 +60,7 @@ class _SignInPageState extends State<SignInPage> {
                           LoadingButton(
                             text: context.l10n.signIn,
                             isLoading: false,
-                            loaderColor: context.colorScheme.primary,
+                            loaderColor: context.colorScheme.onPrimary,
                             onPressed: () {},
                           ),
                         ],
@@ -72,7 +75,8 @@ class _SignInPageState extends State<SignInPage> {
                     AuthFooter(
                       promptText: context.l10n.signInPrompt,
                       actionText: context.l10n.signUp,
-                      onRedirectPressed: () {},
+                      onRedirectPressed: () =>
+                          context.pushNamed(RoutesConst.signUp),
                     ),
                   ],
                 ),

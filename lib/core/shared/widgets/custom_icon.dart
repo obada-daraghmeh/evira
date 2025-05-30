@@ -24,7 +24,7 @@ class CustomIcon extends StatelessWidget {
       if (customColor != null) {
         return ColorFilter.mode(customColor!, BlendMode.srcIn);
       }
-      return ColorFilter.mode(context.colorScheme.primary, BlendMode.srcIn);
+      return ColorFilter.mode(context.colorScheme.onSurface, BlendMode.srcIn);
     }
 
     return SvgPicture.asset(
