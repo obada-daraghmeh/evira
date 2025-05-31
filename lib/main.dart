@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'core/controllers/theme_mode/theme_mode_cubit.dart';
@@ -13,6 +14,7 @@ import 'core/utils/create_text_theme.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await dotenv.load(fileName: ".env");
   await GetItService().init();
   await StorageService().init();
   Bloc.observer = AppBlocObserver();
