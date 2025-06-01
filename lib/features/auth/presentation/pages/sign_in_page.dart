@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../core/constants/routes_const.dart';
@@ -8,6 +9,8 @@ import '../../../../core/shared/components/password_text_field.dart';
 import '../../../../core/utils/extensions/constants_extension.dart';
 import '../../../../core/utils/extensions/intl_extension.dart';
 import '../../../../core/utils/extensions/theme_extension.dart';
+import '../../../../core/utils/helpers/show_toast.dart';
+import '../bloc/auth_bloc.dart';
 import '../widgets/auth_footer.dart';
 import '../widgets/auth_header.dart';
 import '../widgets/remember_me.dart';
@@ -48,23 +51,48 @@ class _SignInPageState extends State<SignInPage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     AuthHeader(title: context.l10n.signInTitle),
-                    Form(
-                      key: _formKey,
-                      child: Column(
-                        spacing: context.spacing.s24,
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        children: [
-                          EmailTextField(controller: _emailController),
-                          PasswordTextField(controller: _passwordController),
-                          const RememberMe(),
-                          LoadingButton(
-                            text: context.l10n.signIn,
-                            isLoading: false,
-                            loaderColor: context.colorScheme.onPrimary,
-                            onPressed: () {},
+                    BlocConsumer<AuthBloc, AuthState>(
+                      listener: (context, state) {
+                        if (state is AuthFailure) {
+                          ShowToast.showErrorToast(message: state.message);
+                        }
+                      },
+                      builder: (context, state) {
+                        final bool isLoading = state is AuthLoading;
+                        return Form(
+                          key: _formKey,
+                          child: Column(
+                            spacing: context.spacing.s24,
+                            crossAxisAlignment: CrossAxisAlignment.stretch,
+                            children: [
+                              EmailTextField(controller: _emailController),
+                              PasswordTextField(
+                                controller: _passwordController,
+                              ),
+                              const RememberMe(),
+                              LoadingButton(
+                                text: context.l10n.signIn,
+                                isLoading: isLoading,
+                                loaderColor: context.colorScheme.primary,
+                                onPressed: isLoading
+                                    ? null
+                                    : () async {
+                                        if (!_formKey.currentState!
+                                            .validate()) {
+                                          return;
+                                        }
+                                        context.read<AuthBloc>().add(
+                                          AuthSignIn(
+                                            email: _emailController.text,
+                                            password: _passwordController.text,
+                                          ),
+                                        );
+                                      },
+                              ),
+                            ],
                           ),
-                        ],
-                      ),
+                        );
+                      },
                     ),
                     Center(
                       child: TextButton(

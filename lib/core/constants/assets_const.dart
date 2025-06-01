@@ -22,6 +22,9 @@ class AssetsConst {
   static const String messageBold = '${_boldIconsPath}message_bold$_svg';
   static const String profileBold = '${_boldIconsPath}profile_bold$_svg';
   static const String arrowLeftBold = '${_boldIconsPath}arrow_left_bold$_svg';
+  static const String closeBold = '${_boldIconsPath}close_bold$_svg';
+  static const String checkInSquareBold =
+      '${_boldIconsPath}check_in_square_bold$_svg';
 
   /// `Colored Icons`
   static const String facebook = '${_coloredIconsPath}facebook$_svg';

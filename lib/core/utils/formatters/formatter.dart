@@ -16,4 +16,8 @@ class Formatter {
   static String firstName(String value) {
     return value.split(' ')[0];
   }
+
+  static String trimLower(String value) {
+    return value.trim().toLowerCase();
+  }
 }

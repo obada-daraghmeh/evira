@@ -279,6 +279,56 @@ class FlutterIntl {
       args: [],
     );
   }
+
+  /// `Sign-in failed. Please check your credentials or try again later.`
+  String get signInFailedMessage {
+    return Intl.message(
+      'Sign-in failed. Please check your credentials or try again later.',
+      name: 'signInFailedMessage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Unable to retrieve user data. Please try again.`
+  String get fetchUserFailedMessage {
+    return Intl.message(
+      'Unable to retrieve user data. Please try again.',
+      name: 'fetchUserFailedMessage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Account creation failed. Please check your email to confirm your account or try again later.`
+  String get accountCreationFailedMessage {
+    return Intl.message(
+      'Account creation failed. Please check your email to confirm your account or try again later.',
+      name: 'accountCreationFailedMessage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your session has expired. Please sign in again.`
+  String get sessionExpiredMessage {
+    return Intl.message(
+      'Your session has expired. Please sign in again.',
+      name: 'sessionExpiredMessage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Something went wrong. Please try again.`
+  String get unknownErrorMessage {
+    return Intl.message(
+      'Something went wrong. Please try again.',
+      name: 'unknownErrorMessage',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<FlutterIntl> {

@@ -33,11 +33,15 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "accountCreationFailedMessage": MessageLookupByLibrary.simpleMessage(
+            "Account creation failed. Please check your email to confirm your account or try again later."),
         "back": MessageLookupByLibrary.simpleMessage("Back"),
         "confirmPassword":
             MessageLookupByLibrary.simpleMessage("Confirm Password"),
         "email": MessageLookupByLibrary.simpleMessage("Email"),
         "enterYourField": m0,
+        "fetchUserFailedMessage": MessageLookupByLibrary.simpleMessage(
+            "Unable to retrieve user data. Please try again."),
         "filedIsRequired": m1,
         "filedNotUnique": m2,
         "forgotPassword":
@@ -57,7 +61,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "reEnterYourPassword":
             MessageLookupByLibrary.simpleMessage("Re-enter your password"),
         "rememberMe": MessageLookupByLibrary.simpleMessage("Remember me"),
+        "sessionExpiredMessage": MessageLookupByLibrary.simpleMessage(
+            "Your session has expired. Please sign in again."),
         "signIn": MessageLookupByLibrary.simpleMessage("Sign In"),
+        "signInFailedMessage": MessageLookupByLibrary.simpleMessage(
+            "Sign-in failed. Please check your credentials or try again later."),
         "signInPrompt":
             MessageLookupByLibrary.simpleMessage("Don’t have an account?"),
         "signInTitle":
@@ -66,6 +74,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "signUpPrompt":
             MessageLookupByLibrary.simpleMessage("Already have an account?"),
         "signUpTitle":
-            MessageLookupByLibrary.simpleMessage("Create your\nAccount")
+            MessageLookupByLibrary.simpleMessage("Create your\nAccount"),
+        "unknownErrorMessage": MessageLookupByLibrary.simpleMessage(
+            "Something went wrong. Please try again.")
       };
 }

@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:go_router/go_router.dart';
+import 'package:toastification/toastification.dart';
 
+import 'core/controllers/auth_status/auth_status_cubit.dart';
 import 'core/controllers/theme_mode/theme_mode_cubit.dart';
 import 'core/localization/generated/l10n.dart';
 import 'core/routers/go_router.dart';
@@ -11,6 +14,7 @@ import 'core/services/storage_service.dart';
 import 'core/theme/theme.dart';
 import 'core/utils/controllers/bloc_observer.dart';
 import 'core/utils/create_text_theme.dart';
+import 'features/auth/presentation/bloc/auth_bloc.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -21,7 +25,11 @@ Future<void> main() async {
 
   runApp(
     MultiBlocProvider(
-      providers: [BlocProvider(create: (context) => getIt<ThemeModeCubit>())],
+      providers: [
+        BlocProvider(create: (_) => getIt<ThemeModeCubit>()),
+        BlocProvider(create: (_) => getIt<AuthStatusCubit>()),
+        BlocProvider(create: (_) => getIt<AuthBloc>()..add(AuthCheckStatus())),
+      ],
       child: const MyApp(),
     ),
   );
@@ -32,28 +40,35 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    TextTheme textTheme = createTextTheme(context, "Urbanist", "Urbanist");
-    MaterialTheme theme = MaterialTheme(textTheme);
+    final TextTheme textTheme = createTextTheme(
+      context,
+      "Urbanist",
+      "Urbanist",
+    );
+    final MaterialTheme theme = MaterialTheme(textTheme);
+    final GoRouter router = createRouter(context.read<AuthStatusCubit>());
 
-    return BlocBuilder<ThemeModeCubit, ThemeMode>(
-      builder: (context, themeMode) {
-        return MaterialApp.router(
-          title: 'Evira',
-          theme: theme.light(),
-          darkTheme: theme.dark(),
-          themeMode: themeMode,
-          routerConfig: router,
-          locale: const Locale('en'),
-          localizationsDelegates: [
-            FlutterIntl.delegate,
-            GlobalMaterialLocalizations.delegate,
-            GlobalWidgetsLocalizations.delegate,
-            GlobalCupertinoLocalizations.delegate,
-          ],
-          supportedLocales: FlutterIntl.delegate.supportedLocales,
-          debugShowCheckedModeBanner: false,
-        );
-      },
+    return ToastificationWrapper(
+      child: BlocBuilder<ThemeModeCubit, ThemeMode>(
+        builder: (context, themeMode) {
+          return MaterialApp.router(
+            title: 'Evira',
+            theme: theme.light(),
+            darkTheme: theme.dark(),
+            themeMode: themeMode,
+            routerConfig: router,
+            locale: const Locale('en'),
+            localizationsDelegates: [
+              FlutterIntl.delegate,
+              GlobalMaterialLocalizations.delegate,
+              GlobalWidgetsLocalizations.delegate,
+              GlobalCupertinoLocalizations.delegate,
+            ],
+            supportedLocales: FlutterIntl.delegate.supportedLocales,
+            debugShowCheckedModeBanner: false,
+          );
+        },
+      ),
     );
   }
 }

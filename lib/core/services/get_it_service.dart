@@ -2,6 +2,15 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:get_it/get_it.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
+import '../../features/auth/data/datasources/auth_remote_data_source.dart';
+import '../../features/auth/data/repositories/auth_repository_impl.dart';
+import '../../features/auth/domain/repositories/auth_repository.dart';
+import '../../features/auth/domain/usecases/current_user.dart';
+import '../../features/auth/domain/usecases/sign_in.dart';
+import '../../features/auth/domain/usecases/sign_out.dart';
+import '../../features/auth/domain/usecases/sign_up.dart';
+import '../../features/auth/presentation/bloc/auth_bloc.dart';
+import '../controllers/auth_status/auth_status_cubit.dart';
 import '../controllers/theme_mode/theme_mode_cubit.dart';
 import '../errors/exceptions/exception.dart';
 
@@ -29,13 +38,31 @@ class GetItService {
     }
   }
 
-  void _initServices() {}
+  void _initServices() {
+    getIt
+    /// `RemoteDataSources`
+    .registerFactory<AuthRemoteDataSource>(
+      () => AuthRemoteDataSourceImpl(getIt()),
+    );
+  }
 
-  void _initRepositories() {}
+  void _initRepositories() {
+    getIt.registerFactory<AuthRepository>(() => AuthRepositoryImpl());
+  }
 
-  void _initUseCases() {}
+  void _initUseCases() {
+    getIt
+      /// `AuthUseCases`
+      ..registerFactory<SignUpUseCase>(() => SignUpUseCase())
+      ..registerFactory<SignInUseCase>(() => SignInUseCase())
+      ..registerFactory<CurrentUserUseCase>(() => CurrentUserUseCase())
+      ..registerFactory<SignOutUseCase>(() => SignOutUseCase());
+  }
 
   void _initBlocs() {
-    getIt.registerLazySingleton<ThemeModeCubit>(() => ThemeModeCubit());
+    getIt
+      ..registerLazySingleton<ThemeModeCubit>(() => ThemeModeCubit())
+      ..registerLazySingleton<AuthBloc>(() => AuthBloc())
+      ..registerLazySingleton<AuthStatusCubit>(() => AuthStatusCubit());
   }
 }

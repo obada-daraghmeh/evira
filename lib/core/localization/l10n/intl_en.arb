@@ -21,5 +21,10 @@
   "signUpTitle": "Create your\nAccount",
   "reEnterYourPassword": "Re-enter your password",
   "signUpPrompt": "Already have an account?",
-  "back": "Back"
+  "back": "Back",
+  "signInFailedMessage": "Sign-in failed. Please check your credentials or try again later.",
+  "fetchUserFailedMessage": "Unable to retrieve user data. Please try again.",
+  "accountCreationFailedMessage": "Account creation failed. Please check your email to confirm your account or try again later.",
+  "sessionExpiredMessage": "Your session has expired. Please sign in again.",
+  "unknownErrorMessage": "Something went wrong. Please try again."
 }
