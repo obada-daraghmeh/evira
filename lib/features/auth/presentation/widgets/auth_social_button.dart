@@ -27,7 +27,7 @@ class AuthSocialButton extends StatelessWidget {
     return OutlinedButton.styleFrom(
       fixedSize: Size.fromHeight(context.spacing.s60),
       shape: RoundedRectangleBorder(
-        borderRadius: context.borderRadius.radius16,
+        borderRadius: context.borderRadius.borderRadius16,
         side: BorderSide(
           color: context.colorScheme.onSurfaceVariant.withValues(alpha: 0.12),
         ),

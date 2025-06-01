@@ -3,7 +3,7 @@ class AssetsConst {
 
   /// `Paths`
   static const String _boldIconsPath = 'assets/icons/bold/';
-  // static const String _outlineIconsPath = 'assets/icons/outline/';
+  static const String _outlineIconsPath = 'assets/icons/outline/';
   static const String _coloredIconsPath = 'assets/icons/colored/';
   static const String _animationsPath = 'assets/animations/';
 
@@ -25,6 +25,18 @@ class AssetsConst {
   static const String closeBold = '${_boldIconsPath}close_bold$_svg';
   static const String checkInSquareBold =
       '${_boldIconsPath}check_in_square_bold$_svg';
+  static const String homeBold = '${_boldIconsPath}home_bold$_svg';
+  static const String buyBold = '${_boldIconsPath}buy_bold$_svg';
+  static const String cartBold = '${_boldIconsPath}cart_bold$_svg';
+  static const String walletBold = '${_boldIconsPath}wallet_bold$_svg';
+  static const String dangerBold = '${_boldIconsPath}danger_bold$_svg';
+
+  /// `Outline Icons`
+  static const String home = '${_outlineIconsPath}home$_svg';
+  static const String buy = '${_outlineIconsPath}buy$_svg';
+  static const String cart = '${_outlineIconsPath}cart$_svg';
+  static const String wallet = '${_outlineIconsPath}wallet$_svg';
+  static const String profile = '${_outlineIconsPath}profile$_svg';
 
   /// `Colored Icons`
   static const String facebook = '${_coloredIconsPath}facebook$_svg';

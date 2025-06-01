@@ -10,6 +10,12 @@ import '../../features/auth/domain/usecases/sign_in.dart';
 import '../../features/auth/domain/usecases/sign_out.dart';
 import '../../features/auth/domain/usecases/sign_up.dart';
 import '../../features/auth/presentation/bloc/auth_bloc.dart';
+import '../../features/navigation/data/datasources/navigation_local_data_source.dart';
+import '../../features/navigation/data/repositories/navigation_repository_impl.dart';
+import '../../features/navigation/domain/repositories/navigation_repository.dart';
+import '../../features/navigation/domain/usecases/fetch_bottom_bar_items.dart';
+import '../../features/navigation/domain/usecases/fetch_pages.dart';
+import '../../features/navigation/presentation/cubit/navigation_cubit.dart';
 import '../controllers/auth_status/auth_status_cubit.dart';
 import '../controllers/theme_mode/theme_mode_cubit.dart';
 import '../errors/exceptions/exception.dart';
@@ -40,14 +46,20 @@ class GetItService {
 
   void _initServices() {
     getIt
-    /// `RemoteDataSources`
-    .registerFactory<AuthRemoteDataSource>(
-      () => AuthRemoteDataSourceImpl(getIt()),
-    );
+      /// `RemoteDataSources`
+      ..registerFactory<AuthRemoteDataSource>(
+        () => AuthRemoteDataSourceImpl(getIt()),
+      )
+      /// `LocalDataSources`
+      ..registerFactory<NavigationLocalDataSource>(
+        () => NavigationLocalDataSourceImpl(),
+      );
   }
 
   void _initRepositories() {
-    getIt.registerFactory<AuthRepository>(() => AuthRepositoryImpl());
+    getIt
+      ..registerFactory<AuthRepository>(() => AuthRepositoryImpl())
+      ..registerFactory<NavigationRepository>(() => NavigationRepositoryImpl());
   }
 
   void _initUseCases() {
@@ -56,13 +68,19 @@ class GetItService {
       ..registerFactory<SignUpUseCase>(() => SignUpUseCase())
       ..registerFactory<SignInUseCase>(() => SignInUseCase())
       ..registerFactory<CurrentUserUseCase>(() => CurrentUserUseCase())
-      ..registerFactory<SignOutUseCase>(() => SignOutUseCase());
+      ..registerFactory<SignOutUseCase>(() => SignOutUseCase())
+      /// `NavigationUseCases`
+      ..registerFactory<FetchPagesUseCase>(() => FetchPagesUseCase())
+      ..registerFactory<FetchBottomBarItemsUseCase>(
+        () => FetchBottomBarItemsUseCase(),
+      );
   }
 
   void _initBlocs() {
     getIt
       ..registerLazySingleton<ThemeModeCubit>(() => ThemeModeCubit())
       ..registerLazySingleton<AuthBloc>(() => AuthBloc())
-      ..registerLazySingleton<AuthStatusCubit>(() => AuthStatusCubit());
+      ..registerLazySingleton<AuthStatusCubit>(() => AuthStatusCubit())
+      ..registerFactory<NavigationCubit>(() => NavigationCubit());
   }
 }

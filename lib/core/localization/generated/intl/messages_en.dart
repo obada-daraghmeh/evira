@@ -36,6 +36,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "accountCreationFailedMessage": MessageLookupByLibrary.simpleMessage(
             "Account creation failed. Please check your email to confirm your account or try again later."),
         "back": MessageLookupByLibrary.simpleMessage("Back"),
+        "cart": MessageLookupByLibrary.simpleMessage("Cart"),
         "confirmPassword":
             MessageLookupByLibrary.simpleMessage("Confirm Password"),
         "email": MessageLookupByLibrary.simpleMessage("Email"),
@@ -46,6 +47,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "filedNotUnique": m2,
         "forgotPassword":
             MessageLookupByLibrary.simpleMessage("Forgot the password?"),
+        "home": MessageLookupByLibrary.simpleMessage("Home"),
         "invalidField": m3,
         "invalidName": MessageLookupByLibrary.simpleMessage(
             "Name can only contain letters and spaces"),
@@ -55,9 +57,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "name": MessageLookupByLibrary.simpleMessage("Name"),
         "orContinueWith":
             MessageLookupByLibrary.simpleMessage("or continue with"),
+        "orders": MessageLookupByLibrary.simpleMessage("Orders"),
         "password": MessageLookupByLibrary.simpleMessage("Password"),
         "passwordsDoNotMatch":
             MessageLookupByLibrary.simpleMessage("Passwords do not match"),
+        "profile": MessageLookupByLibrary.simpleMessage("Profile"),
         "reEnterYourPassword":
             MessageLookupByLibrary.simpleMessage("Re-enter your password"),
         "rememberMe": MessageLookupByLibrary.simpleMessage("Remember me"),
@@ -76,6 +80,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "signUpTitle":
             MessageLookupByLibrary.simpleMessage("Create your\nAccount"),
         "unknownErrorMessage": MessageLookupByLibrary.simpleMessage(
-            "Something went wrong. Please try again.")
+            "Something went wrong. Please try again."),
+        "wallet": MessageLookupByLibrary.simpleMessage("Wallet")
       };
 }
