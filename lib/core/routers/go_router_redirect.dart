@@ -28,7 +28,7 @@ GoRouterRedirect redirectGuard({
         }
       });
 
-      return PathsConst.signIn;
+      return PathsConst.navigation;
     }
 
     if (isLoggedIn && isGuestPath) {

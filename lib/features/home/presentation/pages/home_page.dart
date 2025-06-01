@@ -12,26 +12,23 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('Home')),
-      body: Column(
-        children: [
-          // Temp widgets for test
-          Switch(
-            value: context.watch<ThemeModeCubit>().state == ThemeMode.dark,
-            onChanged: (value) {
-              context.read<ThemeModeCubit>().toggleThemeMode;
-            },
-          ),
-          LoadingButton(
-            text: 'logout',
-            onPressed: () => context.read<AuthBloc>().add(AuthSignOut()),
-            isLoading: context.read<AuthBloc>().state is AuthLoading,
-            height: context.spacing.s48,
-            backgroundColor: context.colorScheme.error,
-          ),
-        ],
-      ),
+    return Column(
+      children: [
+        // Temp widgets for test
+        Switch(
+          value: context.watch<ThemeModeCubit>().state == ThemeMode.dark,
+          onChanged: (value) {
+            context.read<ThemeModeCubit>().toggleThemeMode;
+          },
+        ),
+        LoadingButton(
+          text: 'logout',
+          onPressed: () => context.read<AuthBloc>().add(AuthSignOut()),
+          isLoading: context.read<AuthBloc>().state is AuthLoading,
+          height: context.spacing.s48,
+          backgroundColor: context.colorScheme.error,
+        ),
+      ],
     );
   }
 }
