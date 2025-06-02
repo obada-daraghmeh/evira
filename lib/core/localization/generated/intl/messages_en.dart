@@ -20,18 +20,26 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'en';
 
-  static String m0(field) => "Enter your ${field}";
+  static String m0(count) => "(${count} reviews)";
 
-  static String m1(filed) => "${filed} field is required";
+  static String m1(count) => "${count} sold";
 
-  static String m2(filed) => "This ${filed} is already taken";
+  static String m2(discountPercent) => "${discountPercent}%";
 
-  static String m3(timeOfDay) => "Good ${timeOfDay} 👋";
+  static String m3(field) => "Enter your ${field}";
 
-  static String m4(filed) => "Enter a valid ${filed}";
+  static String m4(filed) => "${filed} field is required";
 
-  static String m5(filed, length) =>
+  static String m5(filed) => "This ${filed} is already taken";
+
+  static String m6(timeOfDay) => "Good ${timeOfDay} 👋";
+
+  static String m7(filed) => "Enter a valid ${filed}";
+
+  static String m8(filed, length) =>
       "${filed} must be at least ${length} characters long";
+
+  static String m9(price) => "₪${price}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
@@ -42,23 +50,27 @@ class MessageLookup extends MessageLookupByLibrary {
         "cart": MessageLookupByLibrary.simpleMessage("Cart"),
         "confirmPassword":
             MessageLookupByLibrary.simpleMessage("Confirm Password"),
+        "countReviews": m0,
+        "countSold": m1,
+        "discountPercent": m2,
         "email": MessageLookupByLibrary.simpleMessage("Email"),
-        "enterYourField": m0,
+        "enterYourField": m3,
         "fetchUserFailedMessage": MessageLookupByLibrary.simpleMessage(
             "Unable to retrieve user data. Please try again."),
-        "filedIsRequired": m1,
-        "filedNotUnique": m2,
+        "filedIsRequired": m4,
+        "filedNotUnique": m5,
         "forgotPassword":
             MessageLookupByLibrary.simpleMessage("Forgot the password?"),
-        "goodTimeOfDay": m3,
+        "goodTimeOfDay": m6,
         "home": MessageLookupByLibrary.simpleMessage("Home"),
-        "invalidField": m4,
+        "invalidField": m7,
         "invalidName": MessageLookupByLibrary.simpleMessage(
             "Name can only contain letters and spaces"),
         "invalidPassword": MessageLookupByLibrary.simpleMessage(
             "Password must contain uppercase, lowercase, number, and special character"),
-        "minimumLength": m5,
+        "minimumLength": m8,
         "morning": MessageLookupByLibrary.simpleMessage("Morning"),
+        "mostPopular": MessageLookupByLibrary.simpleMessage("Most popular"),
         "name": MessageLookupByLibrary.simpleMessage("Name"),
         "notifications": MessageLookupByLibrary.simpleMessage("Notifications"),
         "orContinueWith":
@@ -67,6 +79,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "password": MessageLookupByLibrary.simpleMessage("Password"),
         "passwordsDoNotMatch":
             MessageLookupByLibrary.simpleMessage("Passwords do not match"),
+        "priceInILS": m9,
         "profile": MessageLookupByLibrary.simpleMessage("Profile"),
         "reEnterYourPassword":
             MessageLookupByLibrary.simpleMessage("Re-enter your password"),

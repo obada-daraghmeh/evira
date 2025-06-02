@@ -459,6 +459,56 @@ class FlutterIntl {
       args: [],
     );
   }
+
+  /// `Most popular`
+  String get mostPopular {
+    return Intl.message(
+      'Most popular',
+      name: 'mostPopular',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `₪{price}`
+  String priceInILS(Object price) {
+    return Intl.message(
+      '₪$price',
+      name: 'priceInILS',
+      desc: '',
+      args: [price],
+    );
+  }
+
+  /// `{count} sold`
+  String countSold(Object count) {
+    return Intl.message(
+      '$count sold',
+      name: 'countSold',
+      desc: '',
+      args: [count],
+    );
+  }
+
+  /// `{discountPercent}%`
+  String discountPercent(Object discountPercent) {
+    return Intl.message(
+      '$discountPercent%',
+      name: 'discountPercent',
+      desc: '',
+      args: [discountPercent],
+    );
+  }
+
+  /// `({count} reviews)`
+  String countReviews(Object count) {
+    return Intl.message(
+      '($count reviews)',
+      name: 'countReviews',
+      desc: '',
+      args: [count],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<FlutterIntl> {

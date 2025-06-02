@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/controllers/category/category_bloc.dart';
+import '../../../../core/controllers/product/product_bloc.dart';
 import '../../../../core/controllers/theme_mode/theme_mode_cubit.dart';
 import '../../../../core/services/get_it_service.dart';
 import '../../../../core/shared/components/loading_button.dart';
@@ -13,6 +14,7 @@ import '../../../auth/presentation/bloc/auth_bloc.dart';
 import '../widgets/category_section.dart';
 import '../widgets/home_app_bar.dart';
 import '../widgets/home_offers_slider.dart';
+import '../widgets/product_section.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -23,6 +25,9 @@ class HomePage extends StatelessWidget {
       providers: [
         BlocProvider(
           create: (_) => getIt<CategoryBloc>()..add(FetchCategories()),
+        ),
+        BlocProvider(
+          create: (_) => getIt<ProductBloc>()..add(ProductsFetched()),
         ),
       ],
       child: CustomScrollView(
@@ -41,7 +46,11 @@ class HomePage extends StatelessWidget {
                   ),
                   const HomeOffersSlider(),
                   const CategorySection(),
-
+                  SectionHeader(
+                    title: context.l10n.mostPopular,
+                    showSeeAll: true,
+                  ),
+                  const ProductSection(),
                   // Temp widgets for test
                   Switch(
                     value:

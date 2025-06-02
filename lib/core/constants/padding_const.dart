@@ -12,6 +12,7 @@ class PaddingConst {
   EdgeInsets get p24 => EdgeInsets.all(_sizes.s24);
 
   /// `Padding Horizontal`
+  EdgeInsets get pH8 => EdgeInsets.symmetric(horizontal: _sizes.s8);
   EdgeInsets get pH10 => EdgeInsets.symmetric(horizontal: _sizes.s10);
   EdgeInsets get pH16 => EdgeInsets.symmetric(horizontal: _sizes.s16);
   EdgeInsets get pH24 => EdgeInsets.symmetric(horizontal: _sizes.s24);

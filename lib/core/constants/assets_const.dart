@@ -56,4 +56,5 @@ class AssetsConst {
   static const String facebook = '${_coloredIconsPath}facebook$_svg';
   static const String google = '${_coloredIconsPath}google$_svg';
   static const String apple = '${_coloredIconsPath}apple$_svg';
+  static const String starBulk = '${_coloredIconsPath}star_bulk$_svg';
 }

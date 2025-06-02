@@ -39,5 +39,10 @@
   "notifications": "Notifications",
   "wishlist": "Wishlist",
   "seeAll": "See all",
-  "specialOffers": "Special Offers"
+  "specialOffers": "Special Offers",
+  "mostPopular": "Most popular",
+  "priceInILS": "₪{price}",
+  "countSold": "{count} sold",
+  "discountPercent": "{discountPercent}%",
+  "countReviews": "({count} reviews)"
 }
