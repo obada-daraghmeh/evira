@@ -44,5 +44,6 @@
   "priceInILS": "₪{price}",
   "countSold": "{count} sold",
   "discountPercent": "{discountPercent}%",
-  "countReviews": "({count} reviews)"
+  "countReviews": "({count} reviews)",
+  "emptyProductMsg": "Still empty — but your next great find is closer than you think."
 }

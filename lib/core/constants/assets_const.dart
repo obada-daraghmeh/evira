@@ -57,4 +57,5 @@ class AssetsConst {
   static const String google = '${_coloredIconsPath}google$_svg';
   static const String apple = '${_coloredIconsPath}apple$_svg';
   static const String starBulk = '${_coloredIconsPath}star_bulk$_svg';
+  static const String emptyBox = '${_coloredIconsPath}empty_box$_svg';
 }

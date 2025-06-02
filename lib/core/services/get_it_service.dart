@@ -14,6 +14,11 @@ import '../../features/category/data/datasources/category_remote_data_source.dar
 import '../../features/category/data/repositories/category_repository_impl.dart';
 import '../../features/category/domain/repositories/category_repository.dart';
 import '../../features/category/domain/usecases/fetch_categories.dart';
+import '../../features/category_products/data/datasources/category_products_remote_data_source.dart';
+import '../../features/category_products/data/repositories/category_products_repository_impl.dart';
+import '../../features/category_products/domain/repositories/category_products_repository.dart';
+import '../../features/category_products/domain/usecases/fetch_products_by_category.dart';
+import '../../features/category_products/presentation/bloc/category_products_bloc.dart';
 import '../../features/navigation/data/datasources/navigation_local_data_source.dart';
 import '../../features/navigation/data/repositories/navigation_repository_impl.dart';
 import '../../features/navigation/domain/repositories/navigation_repository.dart';
@@ -66,6 +71,9 @@ class GetItService {
       ..registerFactory<ProductRemoteDataSource>(
         () => ProductRemoteDataSourceImpl(getIt()),
       )
+      ..registerFactory<CategoryProductsRemoteDataSource>(
+        () => CategoryProductsRemoteDataSourceImpl(getIt()),
+      )
       /// `LocalDataSources`
       ..registerFactory<NavigationLocalDataSource>(
         () => NavigationLocalDataSourceImpl(),
@@ -77,7 +85,10 @@ class GetItService {
       ..registerFactory<AuthRepository>(() => AuthRepositoryImpl())
       ..registerFactory<NavigationRepository>(() => NavigationRepositoryImpl())
       ..registerFactory<CategoryRepository>(() => CategoryRepositoryImpl())
-      ..registerFactory<ProductRepository>(() => ProductRepositoryImpl());
+      ..registerFactory<ProductRepository>(() => ProductRepositoryImpl())
+      ..registerFactory<CategoryProductsRepository>(
+        () => CategoryProductsRepositoryImpl(),
+      );
   }
 
   void _initUseCases() {
@@ -95,7 +106,10 @@ class GetItService {
       /// `CategoryUseCases`
       ..registerFactory<FetchCategoriesUseCase>(() => FetchCategoriesUseCase())
       /// `ProductUseCases`
-      ..registerFactory<FetchProductsUseCase>(() => FetchProductsUseCase());
+      ..registerFactory<FetchProductsUseCase>(() => FetchProductsUseCase())
+      ..registerFactory<FetchProductsByCategoryUseCase>(
+        () => FetchProductsByCategoryUseCase(),
+      );
   }
 
   void _initBlocs() {
@@ -105,6 +119,7 @@ class GetItService {
       ..registerLazySingleton<AuthStatusCubit>(() => AuthStatusCubit())
       ..registerFactory<NavigationCubit>(() => NavigationCubit())
       ..registerLazySingleton<CategoryBloc>(() => CategoryBloc())
-      ..registerLazySingleton<ProductBloc>(() => ProductBloc());
+      ..registerLazySingleton<ProductBloc>(() => ProductBloc())
+      ..registerFactory<CategoryProductsBloc>(() => CategoryProductsBloc());
   }
 }

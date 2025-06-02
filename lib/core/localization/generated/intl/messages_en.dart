@@ -54,6 +54,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "countSold": m1,
         "discountPercent": m2,
         "email": MessageLookupByLibrary.simpleMessage("Email"),
+        "emptyProductMsg": MessageLookupByLibrary.simpleMessage(
+            "Still empty — but your next great find is closer than you think."),
         "enterYourField": m3,
         "fetchUserFailedMessage": MessageLookupByLibrary.simpleMessage(
             "Unable to retrieve user data. Please try again."),

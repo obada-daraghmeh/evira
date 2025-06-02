@@ -509,6 +509,16 @@ class FlutterIntl {
       args: [count],
     );
   }
+
+  /// `Still empty — but your next great find is closer than you think.`
+  String get emptyProductMsg {
+    return Intl.message(
+      'Still empty — but your next great find is closer than you think.',
+      name: 'emptyProductMsg',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<FlutterIntl> {
