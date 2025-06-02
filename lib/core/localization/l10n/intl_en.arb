@@ -31,5 +31,11 @@
   "cart": "Cart",
   "orders": "Orders",
   "wallet": "Wallet",
-  "profile": "Profile"
+  "profile": "Profile",
+  "goodTimeOfDay": "Good {timeOfDay} 👋",
+  "morning": "Morning",
+  "afternoon": "Afternoon",
+  "search": "Search",
+  "notifications": "Notifications",
+  "wishlist": "Wishlist"
 }

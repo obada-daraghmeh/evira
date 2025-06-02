@@ -30,4 +30,7 @@ class BorderRadiusConst {
   BorderRadius get borderRadius24 => BorderRadius.all(radius24);
   BorderRadius get borderRadius30 => BorderRadius.all(radius30);
   BorderRadius get borderRadius40 => BorderRadius.all(radius40);
+
+  /// `CustomBorderRadius`
+  BorderRadius get borderRadiusVB16 => BorderRadius.vertical(bottom: radius16);
 }

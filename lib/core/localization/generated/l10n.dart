@@ -379,6 +379,66 @@ class FlutterIntl {
       args: [],
     );
   }
+
+  /// `Good {timeOfDay} 👋`
+  String goodTimeOfDay(Object timeOfDay) {
+    return Intl.message(
+      'Good $timeOfDay 👋',
+      name: 'goodTimeOfDay',
+      desc: '',
+      args: [timeOfDay],
+    );
+  }
+
+  /// `Morning`
+  String get morning {
+    return Intl.message(
+      'Morning',
+      name: 'morning',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Afternoon`
+  String get afternoon {
+    return Intl.message(
+      'Afternoon',
+      name: 'afternoon',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Search`
+  String get search {
+    return Intl.message(
+      'Search',
+      name: 'search',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Notifications`
+  String get notifications {
+    return Intl.message(
+      'Notifications',
+      name: 'notifications',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Wishlist`
+  String get wishlist {
+    return Intl.message(
+      'Wishlist',
+      name: 'wishlist',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<FlutterIntl> {

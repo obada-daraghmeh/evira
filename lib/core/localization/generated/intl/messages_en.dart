@@ -26,15 +26,18 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m2(filed) => "This ${filed} is already taken";
 
-  static String m3(filed) => "Enter a valid ${filed}";
+  static String m3(timeOfDay) => "Good ${timeOfDay} 👋";
 
-  static String m4(filed, length) =>
+  static String m4(filed) => "Enter a valid ${filed}";
+
+  static String m5(filed, length) =>
       "${filed} must be at least ${length} characters long";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "accountCreationFailedMessage": MessageLookupByLibrary.simpleMessage(
             "Account creation failed. Please check your email to confirm your account or try again later."),
+        "afternoon": MessageLookupByLibrary.simpleMessage("Afternoon"),
         "back": MessageLookupByLibrary.simpleMessage("Back"),
         "cart": MessageLookupByLibrary.simpleMessage("Cart"),
         "confirmPassword":
@@ -47,14 +50,17 @@ class MessageLookup extends MessageLookupByLibrary {
         "filedNotUnique": m2,
         "forgotPassword":
             MessageLookupByLibrary.simpleMessage("Forgot the password?"),
+        "goodTimeOfDay": m3,
         "home": MessageLookupByLibrary.simpleMessage("Home"),
-        "invalidField": m3,
+        "invalidField": m4,
         "invalidName": MessageLookupByLibrary.simpleMessage(
             "Name can only contain letters and spaces"),
         "invalidPassword": MessageLookupByLibrary.simpleMessage(
             "Password must contain uppercase, lowercase, number, and special character"),
-        "minimumLength": m4,
+        "minimumLength": m5,
+        "morning": MessageLookupByLibrary.simpleMessage("Morning"),
         "name": MessageLookupByLibrary.simpleMessage("Name"),
+        "notifications": MessageLookupByLibrary.simpleMessage("Notifications"),
         "orContinueWith":
             MessageLookupByLibrary.simpleMessage("or continue with"),
         "orders": MessageLookupByLibrary.simpleMessage("Orders"),
@@ -65,6 +71,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "reEnterYourPassword":
             MessageLookupByLibrary.simpleMessage("Re-enter your password"),
         "rememberMe": MessageLookupByLibrary.simpleMessage("Remember me"),
+        "search": MessageLookupByLibrary.simpleMessage("Search"),
         "sessionExpiredMessage": MessageLookupByLibrary.simpleMessage(
             "Your session has expired. Please sign in again."),
         "signIn": MessageLookupByLibrary.simpleMessage("Sign In"),
@@ -81,6 +88,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Create your\nAccount"),
         "unknownErrorMessage": MessageLookupByLibrary.simpleMessage(
             "Something went wrong. Please try again."),
-        "wallet": MessageLookupByLibrary.simpleMessage("Wallet")
+        "wallet": MessageLookupByLibrary.simpleMessage("Wallet"),
+        "wishlist": MessageLookupByLibrary.simpleMessage("Wishlist")
       };
 }

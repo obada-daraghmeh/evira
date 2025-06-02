@@ -5,7 +5,7 @@ import '../../domain/entities/navigation_page_type.dart';
 PreferredSizeWidget? navigationAppBar(NavigationPageType type) {
   switch (type) {
     case NavigationPageType.home:
-      return AppBar(title: const Text('Home'));
+      return null;
     case NavigationPageType.cart:
       return AppBar(title: const Text('Cart'));
     case NavigationPageType.orders:

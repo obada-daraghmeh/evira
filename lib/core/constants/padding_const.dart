@@ -23,4 +23,6 @@ class PaddingConst {
   /// `Padding Left/Right`
   EdgeInsets get pL24R16 =>
       EdgeInsets.only(left: _sizes.s24, right: _sizes.s16);
+
+  EdgeInsets get pL8 => EdgeInsets.only(left: _sizes.s8);
 }

@@ -30,6 +30,10 @@ class AssetsConst {
   static const String cartBold = '${_boldIconsPath}cart_bold$_svg';
   static const String walletBold = '${_boldIconsPath}wallet_bold$_svg';
   static const String dangerBold = '${_boldIconsPath}danger_bold$_svg';
+  static const String imageBold = '${_boldIconsPath}image_bold$_svg';
+  static const String imageBrokenBold =
+      '${_boldIconsPath}image_broken_bold$_svg';
+  static const String editBold = '${_boldIconsPath}edit_bold$_svg';
 
   /// `Outline Icons`
   static const String home = '${_outlineIconsPath}home$_svg';
@@ -37,6 +41,10 @@ class AssetsConst {
   static const String cart = '${_outlineIconsPath}cart$_svg';
   static const String wallet = '${_outlineIconsPath}wallet$_svg';
   static const String profile = '${_outlineIconsPath}profile$_svg';
+  static const String heart = '${_outlineIconsPath}heart$_svg';
+  static const String notification = '${_outlineIconsPath}notification$_svg';
+  static const String search = '${_outlineIconsPath}search$_svg';
+  static const String filter = '${_outlineIconsPath}filter$_svg';
 
   /// `Colored Icons`
   static const String facebook = '${_coloredIconsPath}facebook$_svg';
