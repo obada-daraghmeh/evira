@@ -17,7 +17,7 @@ GoRouter createRouter(AuthStatusCubit authCubit) {
     refreshListenable: GoRouterRefreshStream(authCubit.stream),
     redirect: redirectGuard(
       navigatorKey: _rootNavigatorKey,
-      authState: authCubit,
+      authCubit: authCubit,
     ),
     routes: routes,
     errorBuilder: (_, _) =>

@@ -7,10 +7,10 @@ import '../utils/helpers/show_toast.dart';
 
 GoRouterRedirect redirectGuard({
   required GlobalKey<NavigatorState> navigatorKey,
-  required AuthStatusCubit authState,
+  required AuthStatusCubit authCubit,
 }) {
   return (BuildContext context, GoRouterState state) {
-    final isLoggedIn = authState.state is Authenticated;
+    final isLoggedIn = authCubit.state is Authenticated;
 
     // Routes that guests are allowed to access
     const guestAllowedPaths = {PathsConst.signIn, PathsConst.signUp};
@@ -18,7 +18,7 @@ GoRouterRedirect redirectGuard({
 
     if (!isLoggedIn && !isGuestPath) {
       // → User not logged in and tries to access a protected route
-      // → redirect to login.
+      // → redirect to signIn.
       WidgetsBinding.instance.addPostFrameCallback((_) {
         final messengerContext = navigatorKey.currentContext;
         if (messengerContext != null) {
@@ -28,7 +28,7 @@ GoRouterRedirect redirectGuard({
         }
       });
 
-      return PathsConst.navigation;
+      return PathsConst.signIn;
     }
 
     if (isLoggedIn && isGuestPath) {
