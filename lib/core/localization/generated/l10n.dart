@@ -439,6 +439,26 @@ class FlutterIntl {
       args: [],
     );
   }
+
+  /// `See all`
+  String get seeAll {
+    return Intl.message(
+      'See all',
+      name: 'seeAll',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Special Offers`
+  String get specialOffers {
+    return Intl.message(
+      'Special Offers',
+      name: 'specialOffers',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<FlutterIntl> {

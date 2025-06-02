@@ -72,6 +72,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Re-enter your password"),
         "rememberMe": MessageLookupByLibrary.simpleMessage("Remember me"),
         "search": MessageLookupByLibrary.simpleMessage("Search"),
+        "seeAll": MessageLookupByLibrary.simpleMessage("See all"),
         "sessionExpiredMessage": MessageLookupByLibrary.simpleMessage(
             "Your session has expired. Please sign in again."),
         "signIn": MessageLookupByLibrary.simpleMessage("Sign In"),
@@ -86,6 +87,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Already have an account?"),
         "signUpTitle":
             MessageLookupByLibrary.simpleMessage("Create your\nAccount"),
+        "specialOffers": MessageLookupByLibrary.simpleMessage("Special Offers"),
         "unknownErrorMessage": MessageLookupByLibrary.simpleMessage(
             "Something went wrong. Please try again."),
         "wallet": MessageLookupByLibrary.simpleMessage("Wallet"),

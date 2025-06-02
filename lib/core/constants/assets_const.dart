@@ -7,13 +7,19 @@ class AssetsConst {
   static const String _coloredIconsPath = 'assets/icons/colored/';
   static const String _animationsPath = 'assets/animations/';
 
-  // static const String _imagesPath = 'assets/images/';
+  static const String _imagesPath = 'assets/images/promo/';
   static const String _svg = '.svg';
   static const String _json = '.json';
-  // static const String _png = '.png';
+  static const String _png = '.png';
 
   /// `Animations`
   static const String loader = '${_animationsPath}loader$_json';
+
+  /// `Images`
+  static const String promoBanner = '${_imagesPath}promo_banner$_png';
+  static const String promoBanner1 = '${_imagesPath}promo_banner_1$_png';
+  static const String promoBanner2 = '${_imagesPath}promo_banner_2$_png';
+  static const String promoBanner3 = '${_imagesPath}promo_banner_3$_png';
 
   /// `Bold Icons`
   static const String eyeBold = '${_boldIconsPath}eye_bold$_svg';
