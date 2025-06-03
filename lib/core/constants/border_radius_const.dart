@@ -33,4 +33,5 @@ class BorderRadiusConst {
 
   /// `CustomBorderRadius`
   BorderRadius get borderRadiusVB16 => BorderRadius.vertical(bottom: radius16);
+  BorderRadius get borderRadiusVT24 => BorderRadius.vertical(top: radius24);
 }

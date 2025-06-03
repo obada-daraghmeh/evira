@@ -40,6 +40,7 @@ class AssetsConst {
   static const String imageBrokenBold =
       '${_boldIconsPath}image_broken_bold$_svg';
   static const String editBold = '${_boldIconsPath}edit_bold$_svg';
+  static const String checkBold = '${_boldIconsPath}check_bold$_svg';
 
   /// `Outline Icons`
   static const String home = '${_outlineIconsPath}home$_svg';

@@ -29,9 +29,12 @@ import '../../features/product/data/datasources/product_remote_data_source.dart'
 import '../../features/product/data/repositories/product_repository_impl.dart';
 import '../../features/product/domain/repositories/product_repository.dart';
 import '../../features/product/domain/usecases/fetch_products.dart';
+import '../../features/product_details/presentation/controllers/color/color_cubit.dart';
+import '../../features/product_details/presentation/controllers/size/size_cubit.dart';
 import '../controllers/auth_status/auth_status_cubit.dart';
 import '../controllers/category/category_bloc.dart';
 import '../controllers/product/product_bloc.dart';
+import '../controllers/quantity/quantity_cubit.dart';
 import '../controllers/theme_mode/theme_mode_cubit.dart';
 import '../errors/exceptions/exception.dart';
 
@@ -61,7 +64,6 @@ class GetItService {
 
   void _initServices() {
     getIt
-      /// `RemoteDataSources`
       ..registerFactory<AuthRemoteDataSource>(
         () => AuthRemoteDataSourceImpl(getIt()),
       )
@@ -74,7 +76,6 @@ class GetItService {
       ..registerFactory<CategoryProductsRemoteDataSource>(
         () => CategoryProductsRemoteDataSourceImpl(getIt()),
       )
-      /// `LocalDataSources`
       ..registerFactory<NavigationLocalDataSource>(
         () => NavigationLocalDataSourceImpl(),
       );
@@ -93,19 +94,15 @@ class GetItService {
 
   void _initUseCases() {
     getIt
-      /// `AuthUseCases`
       ..registerFactory<SignUpUseCase>(() => SignUpUseCase())
       ..registerFactory<SignInUseCase>(() => SignInUseCase())
       ..registerFactory<CurrentUserUseCase>(() => CurrentUserUseCase())
       ..registerFactory<SignOutUseCase>(() => SignOutUseCase())
-      /// `NavigationUseCases`
       ..registerFactory<FetchPagesUseCase>(() => FetchPagesUseCase())
       ..registerFactory<FetchBottomBarItemsUseCase>(
         () => FetchBottomBarItemsUseCase(),
       )
-      /// `CategoryUseCases`
       ..registerFactory<FetchCategoriesUseCase>(() => FetchCategoriesUseCase())
-      /// `ProductUseCases`
       ..registerFactory<FetchProductsUseCase>(() => FetchProductsUseCase())
       ..registerFactory<FetchProductsByCategoryUseCase>(
         () => FetchProductsByCategoryUseCase(),
@@ -120,6 +117,9 @@ class GetItService {
       ..registerFactory<NavigationCubit>(() => NavigationCubit())
       ..registerLazySingleton<CategoryBloc>(() => CategoryBloc())
       ..registerLazySingleton<ProductBloc>(() => ProductBloc())
-      ..registerFactory<CategoryProductsBloc>(() => CategoryProductsBloc());
+      ..registerFactory<CategoryProductsBloc>(() => CategoryProductsBloc())
+      ..registerFactory<QuantityCubit>(() => QuantityCubit())
+      ..registerFactory<SizeCubit>(() => SizeCubit())
+      ..registerFactory<ColorCubit>(() => ColorCubit());
   }
 }

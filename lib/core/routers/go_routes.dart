@@ -6,8 +6,10 @@ import '../../features/auth/presentation/pages/sign_up_page.dart';
 import '../../features/category_products/presentation/pages/category_products_page.dart';
 import '../../features/home/presentation/pages/home_page.dart';
 import '../../features/navigation/presentation/pages/navigation_page.dart';
+import '../../features/product_details/presentation/pages/product_details_page.dart';
 import '../constants/routes_const.dart';
 import '../shared/features/entities/category.dart';
+import '../shared/features/entities/product.dart';
 
 final _homeShellNavigatorKey = GlobalKey<NavigatorState>();
 final _cartShellNavigatorKey = GlobalKey<NavigatorState>();
@@ -92,6 +94,14 @@ List<RouteBase> routes = [
     builder: (context, state) {
       final category = state.extra as Category;
       return CategoryProductsPage(category: category);
+    },
+  ),
+  GoRoute(
+    path: PathsConst.productDetails,
+    name: RoutesConst.productDetails,
+    builder: (context, state) {
+      final product = state.extra as Product;
+      return ProductDetailsPage(product: product);
     },
   ),
 ];

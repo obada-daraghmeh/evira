@@ -45,13 +45,16 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "accountCreationFailedMessage": MessageLookupByLibrary.simpleMessage(
             "Account creation failed. Please check your email to confirm your account or try again later."),
+        "addToCart": MessageLookupByLibrary.simpleMessage("Add to Cart"),
         "afternoon": MessageLookupByLibrary.simpleMessage("Afternoon"),
         "back": MessageLookupByLibrary.simpleMessage("Back"),
         "cart": MessageLookupByLibrary.simpleMessage("Cart"),
+        "colors": MessageLookupByLibrary.simpleMessage("Colors"),
         "confirmPassword":
             MessageLookupByLibrary.simpleMessage("Confirm Password"),
         "countReviews": m0,
         "countSold": m1,
+        "description": MessageLookupByLibrary.simpleMessage("Description"),
         "discountPercent": m2,
         "email": MessageLookupByLibrary.simpleMessage("Email"),
         "emptyProductMsg": MessageLookupByLibrary.simpleMessage(
@@ -70,6 +73,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Name can only contain letters and spaces"),
         "invalidPassword": MessageLookupByLibrary.simpleMessage(
             "Password must contain uppercase, lowercase, number, and special character"),
+        "less": MessageLookupByLibrary.simpleMessage("Less"),
         "minimumLength": m8,
         "morning": MessageLookupByLibrary.simpleMessage("Morning"),
         "mostPopular": MessageLookupByLibrary.simpleMessage("Most popular"),
@@ -83,8 +87,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Passwords do not match"),
         "priceInILS": m9,
         "profile": MessageLookupByLibrary.simpleMessage("Profile"),
+        "quantity": MessageLookupByLibrary.simpleMessage("Quantity"),
         "reEnterYourPassword":
             MessageLookupByLibrary.simpleMessage("Re-enter your password"),
+        "readMore": MessageLookupByLibrary.simpleMessage("Read more"),
         "rememberMe": MessageLookupByLibrary.simpleMessage("Remember me"),
         "search": MessageLookupByLibrary.simpleMessage("Search"),
         "seeAll": MessageLookupByLibrary.simpleMessage("See all"),
@@ -102,7 +108,9 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Already have an account?"),
         "signUpTitle":
             MessageLookupByLibrary.simpleMessage("Create your\nAccount"),
+        "sizes": MessageLookupByLibrary.simpleMessage("Sizes"),
         "specialOffers": MessageLookupByLibrary.simpleMessage("Special Offers"),
+        "totalPrice": MessageLookupByLibrary.simpleMessage("Total Price"),
         "unknownErrorMessage": MessageLookupByLibrary.simpleMessage(
             "Something went wrong. Please try again."),
         "wallet": MessageLookupByLibrary.simpleMessage("Wallet"),

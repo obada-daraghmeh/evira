@@ -519,6 +519,86 @@ class FlutterIntl {
       args: [],
     );
   }
+
+  /// `Quantity`
+  String get quantity {
+    return Intl.message(
+      'Quantity',
+      name: 'quantity',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Total Price`
+  String get totalPrice {
+    return Intl.message(
+      'Total Price',
+      name: 'totalPrice',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add to Cart`
+  String get addToCart {
+    return Intl.message(
+      'Add to Cart',
+      name: 'addToCart',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sizes`
+  String get sizes {
+    return Intl.message(
+      'Sizes',
+      name: 'sizes',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Colors`
+  String get colors {
+    return Intl.message(
+      'Colors',
+      name: 'colors',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Less`
+  String get less {
+    return Intl.message(
+      'Less',
+      name: 'less',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Read more`
+  String get readMore {
+    return Intl.message(
+      'Read more',
+      name: 'readMore',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Description`
+  String get description {
+    return Intl.message(
+      'Description',
+      name: 'description',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<FlutterIntl> {

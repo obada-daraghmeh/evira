@@ -45,5 +45,13 @@
   "countSold": "{count} sold",
   "discountPercent": "{discountPercent}%",
   "countReviews": "({count} reviews)",
-  "emptyProductMsg": "Still empty — but your next great find is closer than you think."
+  "emptyProductMsg": "Still empty — but your next great find is closer than you think.",
+  "quantity": "Quantity",
+  "totalPrice": "Total Price",
+  "addToCart": "Add to Cart",
+  "sizes": "Sizes",
+  "colors": "Colors",
+  "less": "Less",
+  "readMore": "Read more",
+  "description": "Description"
 }
