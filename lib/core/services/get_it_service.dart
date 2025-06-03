@@ -10,6 +10,12 @@ import '../../features/auth/domain/usecases/sign_in.dart';
 import '../../features/auth/domain/usecases/sign_out.dart';
 import '../../features/auth/domain/usecases/sign_up.dart';
 import '../../features/auth/presentation/bloc/auth_bloc.dart';
+import '../../features/cart/data/datasources/cart_remote_data_source.dart';
+import '../../features/cart/data/repositories/cart_repository_impl.dart';
+import '../../features/cart/domain/repositories/cart_repository.dart';
+import '../../features/cart/domain/usecases/add_to_cart.dart';
+import '../../features/cart/domain/usecases/get_cart_items.dart';
+import '../../features/cart/domain/usecases/remove_from_cart.dart';
 import '../../features/category/data/datasources/category_remote_data_source.dart';
 import '../../features/category/data/repositories/category_repository_impl.dart';
 import '../../features/category/domain/repositories/category_repository.dart';
@@ -32,6 +38,7 @@ import '../../features/product/domain/usecases/fetch_products.dart';
 import '../../features/product_details/presentation/controllers/color/color_cubit.dart';
 import '../../features/product_details/presentation/controllers/size/size_cubit.dart';
 import '../controllers/auth_status/auth_status_cubit.dart';
+import '../controllers/cart/cart_bloc.dart';
 import '../controllers/category/category_bloc.dart';
 import '../controllers/product/product_bloc.dart';
 import '../controllers/quantity/quantity_cubit.dart';
@@ -78,6 +85,9 @@ class GetItService {
       )
       ..registerFactory<NavigationLocalDataSource>(
         () => NavigationLocalDataSourceImpl(),
+      )
+      ..registerFactory<CartRemoteDataSource>(
+        () => CartRemoteDataSourceImpl(getIt()),
       );
   }
 
@@ -89,7 +99,8 @@ class GetItService {
       ..registerFactory<ProductRepository>(() => ProductRepositoryImpl())
       ..registerFactory<CategoryProductsRepository>(
         () => CategoryProductsRepositoryImpl(),
-      );
+      )
+      ..registerFactory<CartRepository>(() => CartRepositoryImpl());
   }
 
   void _initUseCases() {
@@ -106,7 +117,10 @@ class GetItService {
       ..registerFactory<FetchProductsUseCase>(() => FetchProductsUseCase())
       ..registerFactory<FetchProductsByCategoryUseCase>(
         () => FetchProductsByCategoryUseCase(),
-      );
+      )
+      ..registerFactory<AddToCartUseCase>(() => AddToCartUseCase())
+      ..registerFactory<GetCartItemsUseCase>(() => GetCartItemsUseCase())
+      ..registerFactory<RemoveFromCartUseCase>(() => RemoveFromCartUseCase());
   }
 
   void _initBlocs() {
@@ -120,6 +134,7 @@ class GetItService {
       ..registerFactory<CategoryProductsBloc>(() => CategoryProductsBloc())
       ..registerFactory<QuantityCubit>(() => QuantityCubit())
       ..registerFactory<SizeCubit>(() => SizeCubit())
-      ..registerFactory<ColorCubit>(() => ColorCubit());
+      ..registerFactory<ColorCubit>(() => ColorCubit())
+      ..registerFactory<CartBloc>(() => CartBloc());
   }
 }

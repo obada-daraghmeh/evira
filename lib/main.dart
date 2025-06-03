@@ -1,3 +1,4 @@
+import 'package:evira/core/controllers/cart/cart_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
@@ -29,6 +30,7 @@ Future<void> main() async {
         BlocProvider(create: (_) => getIt<ThemeModeCubit>()),
         BlocProvider(create: (_) => getIt<AuthStatusCubit>()),
         BlocProvider(create: (_) => getIt<AuthBloc>()..add(AuthCheckStatus())),
+        BlocProvider(create: (context) => getIt<CartBloc>()),
       ],
       child: const MyApp(),
     ),
