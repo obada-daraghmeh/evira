@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../features/auth/presentation/pages/sign_in_page.dart';
 import '../../features/auth/presentation/pages/sign_up_page.dart';
+import '../../features/cart/presentation/pages/cart_page.dart';
 import '../../features/category_products/presentation/pages/category_products_page.dart';
 import '../../features/home/presentation/pages/home_page.dart';
 import '../../features/navigation/presentation/pages/navigation_page.dart';
@@ -48,8 +49,7 @@ List<RouteBase> routes = [
           GoRoute(
             path: PathsConst.cart,
             name: RoutesConst.cart,
-            builder: (context, state) =>
-                const Scaffold(body: Center(child: Text('Cart'))),
+            builder: (context, state) => const CartPage(),
           ),
         ],
       ),

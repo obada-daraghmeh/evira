@@ -41,6 +41,8 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m9(price) => "₪${price}";
 
+  static String m10(size) => "Size = ${size}";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "accountCreationFailedMessage": MessageLookupByLibrary.simpleMessage(
@@ -48,7 +50,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "addToCart": MessageLookupByLibrary.simpleMessage("Add to Cart"),
         "afternoon": MessageLookupByLibrary.simpleMessage("Afternoon"),
         "back": MessageLookupByLibrary.simpleMessage("Back"),
+        "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
         "cart": MessageLookupByLibrary.simpleMessage("Cart"),
+        "cartSuccessMsg": MessageLookupByLibrary.simpleMessage(
+            "Great choice! It’s in your cart 🎉"),
+        "checkout": MessageLookupByLibrary.simpleMessage("Checkout"),
+        "color": MessageLookupByLibrary.simpleMessage("Color"),
         "colors": MessageLookupByLibrary.simpleMessage("Colors"),
         "confirmPassword":
             MessageLookupByLibrary.simpleMessage("Confirm Password"),
@@ -57,6 +64,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "description": MessageLookupByLibrary.simpleMessage("Description"),
         "discountPercent": m2,
         "email": MessageLookupByLibrary.simpleMessage("Email"),
+        "emptyCartMsg": MessageLookupByLibrary.simpleMessage(
+            "Your cart is empty — time to add something you love!"),
         "emptyProductMsg": MessageLookupByLibrary.simpleMessage(
             "Still empty — but your next great find is closer than you think."),
         "enterYourField": m3,
@@ -77,6 +86,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "minimumLength": m8,
         "morning": MessageLookupByLibrary.simpleMessage("Morning"),
         "mostPopular": MessageLookupByLibrary.simpleMessage("Most popular"),
+        "myCart": MessageLookupByLibrary.simpleMessage("My Cart"),
         "name": MessageLookupByLibrary.simpleMessage("Name"),
         "notifications": MessageLookupByLibrary.simpleMessage("Notifications"),
         "orContinueWith":
@@ -92,6 +102,9 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Re-enter your password"),
         "readMore": MessageLookupByLibrary.simpleMessage("Read more"),
         "rememberMe": MessageLookupByLibrary.simpleMessage("Remember me"),
+        "remove": MessageLookupByLibrary.simpleMessage("Remove"),
+        "removeFromCart":
+            MessageLookupByLibrary.simpleMessage("Remove From Cart?"),
         "search": MessageLookupByLibrary.simpleMessage("Search"),
         "seeAll": MessageLookupByLibrary.simpleMessage("See all"),
         "sessionExpiredMessage": MessageLookupByLibrary.simpleMessage(
@@ -108,6 +121,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Already have an account?"),
         "signUpTitle":
             MessageLookupByLibrary.simpleMessage("Create your\nAccount"),
+        "sizeSize": m10,
         "sizes": MessageLookupByLibrary.simpleMessage("Sizes"),
         "specialOffers": MessageLookupByLibrary.simpleMessage("Special Offers"),
         "totalPrice": MessageLookupByLibrary.simpleMessage("Total Price"),

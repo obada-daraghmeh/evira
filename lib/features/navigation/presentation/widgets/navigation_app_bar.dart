@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../cart/presentation/widgets/cart_app_bar.dart';
 import '../../domain/entities/navigation_page_type.dart';
 
 PreferredSizeWidget? navigationAppBar(NavigationPageType type) {
@@ -7,7 +8,7 @@ PreferredSizeWidget? navigationAppBar(NavigationPageType type) {
     case NavigationPageType.home:
       return null;
     case NavigationPageType.cart:
-      return AppBar(title: const Text('Cart'));
+      return const CartAppBar();
     case NavigationPageType.orders:
       return AppBar(title: const Text('Orders'));
     case NavigationPageType.wallet:

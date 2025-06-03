@@ -1,5 +1,7 @@
 import 'dart:ui';
 
+import '../../../features/cart/domain/entities/cart.dart';
+
 class ProductHelpers {
   static double calcTotalPrice({
     required double price,
@@ -14,4 +16,12 @@ class ProductHelpers {
 
   static Color colorFromHexCode(String hexCode) =>
       Color(int.parse('0xFF${hexCode.substring(1)}'));
+
+  static double calculateTotal(List<Cart> cartItems) {
+    double total = 0;
+    for (var item in cartItems) {
+      total += item.price! * item.quantity;
+    }
+    return total;
+  }
 }

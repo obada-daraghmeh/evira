@@ -599,6 +599,96 @@ class FlutterIntl {
       args: [],
     );
   }
+
+  /// `Color`
+  String get color {
+    return Intl.message(
+      'Color',
+      name: 'color',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Size = {size}`
+  String sizeSize(Object size) {
+    return Intl.message(
+      'Size = $size',
+      name: 'sizeSize',
+      desc: '',
+      args: [size],
+    );
+  }
+
+  /// `Your cart is empty — time to add something you love!`
+  String get emptyCartMsg {
+    return Intl.message(
+      'Your cart is empty — time to add something you love!',
+      name: 'emptyCartMsg',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Remove`
+  String get remove {
+    return Intl.message(
+      'Remove',
+      name: 'remove',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `My Cart`
+  String get myCart {
+    return Intl.message(
+      'My Cart',
+      name: 'myCart',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Checkout`
+  String get checkout {
+    return Intl.message(
+      'Checkout',
+      name: 'checkout',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Great choice! It’s in your cart 🎉`
+  String get cartSuccessMsg {
+    return Intl.message(
+      'Great choice! It’s in your cart 🎉',
+      name: 'cartSuccessMsg',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Remove From Cart?`
+  String get removeFromCart {
+    return Intl.message(
+      'Remove From Cart?',
+      name: 'removeFromCart',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cancel`
+  String get cancel {
+    return Intl.message(
+      'Cancel',
+      name: 'cancel',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<FlutterIntl> {

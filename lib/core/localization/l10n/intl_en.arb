@@ -53,5 +53,14 @@
   "colors": "Colors",
   "less": "Less",
   "readMore": "Read more",
-  "description": "Description"
+  "description": "Description",
+  "color": "Color",
+  "sizeSize": "Size = {size}",
+  "emptyCartMsg": "Your cart is empty — time to add something you love!",
+  "remove": "Remove",
+  "myCart": "My Cart",
+  "checkout": "Checkout",
+  "cartSuccessMsg": "Great choice! It’s in your cart 🎉",
+  "removeFromCart": "Remove From Cart?",
+  "cancel": "Cancel"
 }

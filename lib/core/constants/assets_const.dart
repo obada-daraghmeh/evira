@@ -41,6 +41,7 @@ class AssetsConst {
       '${_boldIconsPath}image_broken_bold$_svg';
   static const String editBold = '${_boldIconsPath}edit_bold$_svg';
   static const String checkBold = '${_boldIconsPath}check_bold$_svg';
+  static const String arrowRightBold = '${_boldIconsPath}arrow_right_bold$_svg';
 
   /// `Outline Icons`
   static const String home = '${_outlineIconsPath}home$_svg';
@@ -52,6 +53,7 @@ class AssetsConst {
   static const String notification = '${_outlineIconsPath}notification$_svg';
   static const String search = '${_outlineIconsPath}search$_svg';
   static const String filter = '${_outlineIconsPath}filter$_svg';
+  static const String delete = '${_outlineIconsPath}delete$_svg';
 
   /// `Colored Icons`
   static const String facebook = '${_coloredIconsPath}facebook$_svg';
@@ -59,4 +61,5 @@ class AssetsConst {
   static const String apple = '${_coloredIconsPath}apple$_svg';
   static const String starBulk = '${_coloredIconsPath}star_bulk$_svg';
   static const String emptyBox = '${_coloredIconsPath}empty_box$_svg';
+  static const String emptyCart = '${_coloredIconsPath}empty_cart$_svg';
 }
