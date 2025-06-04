@@ -2,9 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../../core/controllers/cart/cart_bloc.dart';
 import '../../../../core/services/get_it_service.dart';
 import '../../../../core/shared/components/error_message.dart';
+import '../../../../core/utils/extensions/auth_state_extension.dart';
 import '../../../../core/utils/extensions/theme_extension.dart';
+import '../../domain/entities/navigation_page_type.dart';
 import '../cubit/navigation_cubit.dart';
 import '../widgets/navigation_app_bar.dart';
 import '../widgets/navigation_bar_item.dart';
@@ -34,6 +37,12 @@ class NavigationPage extends StatelessWidget {
               currentIndex: currentIndex,
               onTap: (index) {
                 navigationShell.goBranch(index);
+                if (pages[index] == NavigationPageType.cart) {
+                  // Refresh the cart
+                  context.read<CartBloc>().add(
+                    GetCartItems(userId: context.currentUser.id),
+                  );
+                }
               },
               items: bottomBarItems
                   .map(
