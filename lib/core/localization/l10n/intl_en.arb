@@ -62,5 +62,16 @@
   "checkout": "Checkout",
   "cartSuccessMsg": "Great choice! It’s in your cart 🎉",
   "removeFromCart": "Remove From Cart?",
-  "cancel": "Cancel"
+  "cancel": "Cancel",
+  "address": "Address",
+  "payments": "Payments",
+  "security": "Security",
+  "language": "Language",
+  "themeMode": "Theme Mode",
+  "privacyPolicy": "Privacy Policy",
+  "helpCenter": "Help Center",
+  "inviteFriends": "Invite Friends",
+  "settings": "Settings",
+  "logout": "Logout",
+  "editProfile": "Edit Profile"
 }

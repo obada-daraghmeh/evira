@@ -37,6 +37,15 @@ import '../../features/product/domain/repositories/product_repository.dart';
 import '../../features/product/domain/usecases/fetch_products.dart';
 import '../../features/product_details/presentation/controllers/color/color_cubit.dart';
 import '../../features/product_details/presentation/controllers/size/size_cubit.dart';
+import '../../features/profile/data/datasources/profile_remote_data_source.dart';
+import '../../features/profile/data/repositories/profile_repository_impl.dart';
+import '../../features/profile/domain/repositories/profile_repository.dart';
+import '../../features/profile/domain/usecases/fetch_profile_menu_option_item.dart';
+import '../../features/profile/domain/usecases/fetch_setting_menu_option_item.dart';
+import '../../features/profile/domain/usecases/update_profile.dart';
+import '../../features/profile/domain/usecases/update_profile_avatar.dart';
+import '../../features/profile/presentation/controllers/menu_option/menu_option_cubit.dart';
+import '../../features/profile/presentation/controllers/profile/profile_bloc.dart';
 import '../controllers/auth_status/auth_status_cubit.dart';
 import '../controllers/cart/cart_bloc.dart';
 import '../controllers/category/category_bloc.dart';
@@ -88,6 +97,9 @@ class GetItService {
       )
       ..registerFactory<CartRemoteDataSource>(
         () => CartRemoteDataSourceImpl(getIt()),
+      )
+      ..registerFactory<ProfileRemoteDataSource>(
+        () => ProfileRemoteDataSourceImpl(getIt()),
       );
   }
 
@@ -100,7 +112,8 @@ class GetItService {
       ..registerFactory<CategoryProductsRepository>(
         () => CategoryProductsRepositoryImpl(),
       )
-      ..registerFactory<CartRepository>(() => CartRepositoryImpl());
+      ..registerFactory<CartRepository>(() => CartRepositoryImpl())
+      ..registerFactory<ProfileRepository>(() => ProfileRepositoryImpl());
   }
 
   void _initUseCases() {
@@ -120,7 +133,17 @@ class GetItService {
       )
       ..registerFactory<AddToCartUseCase>(() => AddToCartUseCase())
       ..registerFactory<GetCartItemsUseCase>(() => GetCartItemsUseCase())
-      ..registerFactory<RemoveFromCartUseCase>(() => RemoveFromCartUseCase());
+      ..registerFactory<RemoveFromCartUseCase>(() => RemoveFromCartUseCase())
+      ..registerFactory<FetchProfileMenuOptionUseCase>(
+        () => FetchProfileMenuOptionUseCase(),
+      )
+      ..registerFactory<FetchSettingMenuOptionUseCase>(
+        () => FetchSettingMenuOptionUseCase(),
+      )
+      ..registerFactory<UpdateProfileUseCase>(() => UpdateProfileUseCase())
+      ..registerFactory<UpdateProfileAvatarUseCase>(
+        () => UpdateProfileAvatarUseCase(),
+      );
   }
 
   void _initBlocs() {
@@ -135,6 +158,8 @@ class GetItService {
       ..registerFactory<QuantityCubit>(() => QuantityCubit())
       ..registerFactory<SizeCubit>(() => SizeCubit())
       ..registerFactory<ColorCubit>(() => ColorCubit())
-      ..registerFactory<CartBloc>(() => CartBloc());
+      ..registerFactory<CartBloc>(() => CartBloc())
+      ..registerFactory<ProfileBloc>(() => ProfileBloc())
+      ..registerFactory<MenuOptionCubit>(() => MenuOptionCubit());
   }
 }

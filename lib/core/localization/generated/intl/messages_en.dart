@@ -48,6 +48,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "accountCreationFailedMessage": MessageLookupByLibrary.simpleMessage(
             "Account creation failed. Please check your email to confirm your account or try again later."),
         "addToCart": MessageLookupByLibrary.simpleMessage("Add to Cart"),
+        "address": MessageLookupByLibrary.simpleMessage("Address"),
         "afternoon": MessageLookupByLibrary.simpleMessage("Afternoon"),
         "back": MessageLookupByLibrary.simpleMessage("Back"),
         "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
@@ -63,6 +64,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "countSold": m1,
         "description": MessageLookupByLibrary.simpleMessage("Description"),
         "discountPercent": m2,
+        "editProfile": MessageLookupByLibrary.simpleMessage("Edit Profile"),
         "email": MessageLookupByLibrary.simpleMessage("Email"),
         "emptyCartMsg": MessageLookupByLibrary.simpleMessage(
             "Your cart is empty — time to add something you love!"),
@@ -76,13 +78,17 @@ class MessageLookup extends MessageLookupByLibrary {
         "forgotPassword":
             MessageLookupByLibrary.simpleMessage("Forgot the password?"),
         "goodTimeOfDay": m6,
+        "helpCenter": MessageLookupByLibrary.simpleMessage("Help Center"),
         "home": MessageLookupByLibrary.simpleMessage("Home"),
         "invalidField": m7,
         "invalidName": MessageLookupByLibrary.simpleMessage(
             "Name can only contain letters and spaces"),
         "invalidPassword": MessageLookupByLibrary.simpleMessage(
             "Password must contain uppercase, lowercase, number, and special character"),
+        "inviteFriends": MessageLookupByLibrary.simpleMessage("Invite Friends"),
+        "language": MessageLookupByLibrary.simpleMessage("Language"),
         "less": MessageLookupByLibrary.simpleMessage("Less"),
+        "logout": MessageLookupByLibrary.simpleMessage("Logout"),
         "minimumLength": m8,
         "morning": MessageLookupByLibrary.simpleMessage("Morning"),
         "mostPopular": MessageLookupByLibrary.simpleMessage("Most popular"),
@@ -95,7 +101,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "password": MessageLookupByLibrary.simpleMessage("Password"),
         "passwordsDoNotMatch":
             MessageLookupByLibrary.simpleMessage("Passwords do not match"),
+        "payments": MessageLookupByLibrary.simpleMessage("Payments"),
         "priceInILS": m9,
+        "privacyPolicy": MessageLookupByLibrary.simpleMessage("Privacy Policy"),
         "profile": MessageLookupByLibrary.simpleMessage("Profile"),
         "quantity": MessageLookupByLibrary.simpleMessage("Quantity"),
         "reEnterYourPassword":
@@ -106,9 +114,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "removeFromCart":
             MessageLookupByLibrary.simpleMessage("Remove From Cart?"),
         "search": MessageLookupByLibrary.simpleMessage("Search"),
+        "security": MessageLookupByLibrary.simpleMessage("Security"),
         "seeAll": MessageLookupByLibrary.simpleMessage("See all"),
         "sessionExpiredMessage": MessageLookupByLibrary.simpleMessage(
             "Your session has expired. Please sign in again."),
+        "settings": MessageLookupByLibrary.simpleMessage("Settings"),
         "signIn": MessageLookupByLibrary.simpleMessage("Sign In"),
         "signInFailedMessage": MessageLookupByLibrary.simpleMessage(
             "Sign-in failed. Please check your credentials or try again later."),
@@ -124,6 +134,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "sizeSize": m10,
         "sizes": MessageLookupByLibrary.simpleMessage("Sizes"),
         "specialOffers": MessageLookupByLibrary.simpleMessage("Special Offers"),
+        "themeMode": MessageLookupByLibrary.simpleMessage("Theme Mode"),
         "totalPrice": MessageLookupByLibrary.simpleMessage("Total Price"),
         "unknownErrorMessage": MessageLookupByLibrary.simpleMessage(
             "Something went wrong. Please try again."),

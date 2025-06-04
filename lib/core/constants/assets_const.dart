@@ -54,6 +54,16 @@ class AssetsConst {
   static const String search = '${_outlineIconsPath}search$_svg';
   static const String filter = '${_outlineIconsPath}filter$_svg';
   static const String delete = '${_outlineIconsPath}delete$_svg';
+  static const String info = '${_outlineIconsPath}info$_svg';
+  static const String language = '${_outlineIconsPath}language$_svg';
+  static const String location = '${_outlineIconsPath}location$_svg';
+  static const String lock = '${_outlineIconsPath}lock$_svg';
+  static const String logout = '${_outlineIconsPath}logout$_svg';
+  static const String more = '${_outlineIconsPath}more$_svg';
+  static const String multiUser = '${_outlineIconsPath}multi_user$_svg';
+  static const String shieldDone = '${_outlineIconsPath}shield_done$_svg';
+  static const String setting = '${_outlineIconsPath}setting$_svg';
+  static const String eye = '${_outlineIconsPath}eye$_svg';
 
   /// `Colored Icons`
   static const String facebook = '${_coloredIconsPath}facebook$_svg';
