@@ -11,7 +11,6 @@ import '../../../../core/utils/helpers/show_toast.dart';
 import '../widgets/cart_card.dart';
 import '../widgets/cart_card_skeleton.dart';
 import '../widgets/cart_check_out.dart';
-import '../widgets/cart_check_out_skeleton.dart';
 
 class CartPage extends StatelessWidget {
   const CartPage({super.key});
@@ -31,7 +30,7 @@ class CartPage extends StatelessWidget {
               children: [
                 Expanded(
                   child: ListView.separated(
-                    itemCount: 3,
+                    itemCount: 4,
                     itemBuilder: (_, _) => Padding(
                       padding: context.padding.pH24,
                       child: const CartCardSkeleton(),
@@ -40,7 +39,6 @@ class CartPage extends StatelessWidget {
                         SizedBox(height: context.spacing.s16),
                   ),
                 ),
-                const CartCheckOutSkeleton(),
               ],
             );
           }
