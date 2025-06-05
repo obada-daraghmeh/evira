@@ -47,6 +47,11 @@ import '../../features/profile/domain/usecases/update_profile.dart';
 import '../../features/profile/domain/usecases/update_profile_avatar.dart';
 import '../../features/profile/presentation/controllers/menu_option/menu_option_cubit.dart';
 import '../../features/profile/presentation/controllers/profile/profile_bloc.dart';
+import '../../features/search/data/datasources/search_remote_data_source.dart';
+import '../../features/search/data/repositories/search_repository_impl.dart';
+import '../../features/search/domain/repositories/search_repository.dart';
+import '../../features/search/domain/usecases/search_by_title.dart';
+import '../../features/search/presentation/bloc/search_bloc.dart';
 import '../controllers/auth_status/auth_status_cubit.dart';
 import '../controllers/cart/cart_bloc.dart';
 import '../controllers/category/category_bloc.dart';
@@ -104,6 +109,9 @@ class GetItService {
       )
       ..registerFactory<ProfileLocalDataSource>(
         () => ProfileLocalDataSourceImpl(),
+      )
+      ..registerFactory<SearchRemoteDataSource>(
+        () => SearchRemoteDataSourceImpl(getIt()),
       );
   }
 
@@ -117,7 +125,8 @@ class GetItService {
         () => CategoryProductsRepositoryImpl(),
       )
       ..registerFactory<CartRepository>(() => CartRepositoryImpl())
-      ..registerFactory<ProfileRepository>(() => ProfileRepositoryImpl());
+      ..registerFactory<ProfileRepository>(() => ProfileRepositoryImpl())
+      ..registerFactory<SearchRepository>(() => SearchRepositoryImpl());
   }
 
   void _initUseCases() {
@@ -147,7 +156,8 @@ class GetItService {
       ..registerFactory<UpdateProfileUseCase>(() => UpdateProfileUseCase())
       ..registerFactory<UpdateProfileAvatarUseCase>(
         () => UpdateProfileAvatarUseCase(),
-      );
+      )
+      ..registerFactory<SearchByTitleUseCase>(() => SearchByTitleUseCase());
   }
 
   void _initBlocs() {
@@ -164,6 +174,7 @@ class GetItService {
       ..registerFactory<ColorCubit>(() => ColorCubit())
       ..registerFactory<CartBloc>(() => CartBloc())
       ..registerFactory<ProfileBloc>(() => ProfileBloc())
-      ..registerFactory<MenuOptionCubit>(() => MenuOptionCubit());
+      ..registerFactory<MenuOptionCubit>(() => MenuOptionCubit())
+      ..registerFactory<SearchBloc>(() => SearchBloc());
   }
 }
