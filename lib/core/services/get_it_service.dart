@@ -37,6 +37,7 @@ import '../../features/product/domain/repositories/product_repository.dart';
 import '../../features/product/domain/usecases/fetch_products.dart';
 import '../../features/product_details/presentation/controllers/color/color_cubit.dart';
 import '../../features/product_details/presentation/controllers/size/size_cubit.dart';
+import '../../features/profile/data/datasources/profile_local_data_source.dart';
 import '../../features/profile/data/datasources/profile_remote_data_source.dart';
 import '../../features/profile/data/repositories/profile_repository_impl.dart';
 import '../../features/profile/domain/repositories/profile_repository.dart';
@@ -100,6 +101,9 @@ class GetItService {
       )
       ..registerFactory<ProfileRemoteDataSource>(
         () => ProfileRemoteDataSourceImpl(getIt()),
+      )
+      ..registerFactory<ProfileLocalDataSource>(
+        () => ProfileLocalDataSourceImpl(),
       );
   }
 

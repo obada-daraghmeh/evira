@@ -64,6 +64,7 @@ class AssetsConst {
   static const String shieldDone = '${_outlineIconsPath}shield_done$_svg';
   static const String setting = '${_outlineIconsPath}setting$_svg';
   static const String eye = '${_outlineIconsPath}eye$_svg';
+  static const String chevronRight = '${_outlineIconsPath}chevron_right$_svg';
 
   /// `Colored Icons`
   static const String facebook = '${_coloredIconsPath}facebook$_svg';

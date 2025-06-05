@@ -11,14 +11,14 @@ part 'menu_option_state.dart';
 class MenuOptionCubit extends Cubit<MenuOptionState> {
   MenuOptionCubit() : super(MenuOptionInitial());
 
-  void fetchProfileMenuOptions() {
+  void get fetchProfileMenuOptions {
     final profileMenu = getIt<FetchProfileMenuOptionUseCase>().call();
     emit(
       MenuOptionLoaded(profileMenuOptions: profileMenu, settingMenuOptions: []),
     );
   }
 
-  void fetchSettingMenuOptions() {
+  void get fetchSettingMenuOptions {
     final settingMenu = getIt<FetchSettingMenuOptionUseCase>().call();
     emit(
       MenuOptionLoaded(profileMenuOptions: [], settingMenuOptions: settingMenu),

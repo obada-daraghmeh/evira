@@ -73,5 +73,9 @@
   "inviteFriends": "Invite Friends",
   "settings": "Settings",
   "logout": "Logout",
-  "editProfile": "Edit Profile"
+  "editProfile": "Edit Profile",
+  "titleUpdatedSuccessfully": "{title} updated successfully",
+  "avatar": "Avatar",
+  "logoutHint": "Are you sure you want to logout of your account?",
+  "changeAvatar": "Change avatar"
 }

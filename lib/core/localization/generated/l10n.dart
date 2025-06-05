@@ -799,6 +799,46 @@ class FlutterIntl {
       args: [],
     );
   }
+
+  /// `{title} updated successfully`
+  String titleUpdatedSuccessfully(Object title) {
+    return Intl.message(
+      '$title updated successfully',
+      name: 'titleUpdatedSuccessfully',
+      desc: '',
+      args: [title],
+    );
+  }
+
+  /// `Avatar`
+  String get avatar {
+    return Intl.message(
+      'Avatar',
+      name: 'avatar',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Are you sure you want to logout of your account?`
+  String get logoutHint {
+    return Intl.message(
+      'Are you sure you want to logout of your account?',
+      name: 'logoutHint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Change avatar`
+  String get changeAvatar {
+    return Intl.message(
+      'Change avatar',
+      name: 'changeAvatar',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<FlutterIntl> {

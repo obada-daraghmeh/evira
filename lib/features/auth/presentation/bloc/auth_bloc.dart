@@ -61,12 +61,12 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     emit(AuthLoading());
     final response = await getIt<CurrentUserUseCase>().call(NoParams());
 
-    response.fold((failure) => emit(Unauthenticated()), (user) {
+    response.fold((failure) => emit(UnAuthenticated()), (user) {
       if (user != null) {
         getIt<AuthStatusCubit>().updateAuthStatus(user);
         emit(Authenticated(user));
       } else {
-        emit(Unauthenticated());
+        emit(UnAuthenticated());
       }
     });
   }
@@ -79,7 +79,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     final response = await getIt<SignOutUseCase>().call(NoParams());
     response.fold((failure) => emit(AuthFailure(failure.message)), (_) {
       getIt<AuthStatusCubit>().updateAuthStatus(null);
-      emit(Unauthenticated());
+      emit(UnAuthenticated());
     });
   }
 }

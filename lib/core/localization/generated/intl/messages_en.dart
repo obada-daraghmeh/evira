@@ -43,6 +43,8 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m10(size) => "Size = ${size}";
 
+  static String m11(title) => "${title} updated successfully";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "accountCreationFailedMessage": MessageLookupByLibrary.simpleMessage(
@@ -50,11 +52,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "addToCart": MessageLookupByLibrary.simpleMessage("Add to Cart"),
         "address": MessageLookupByLibrary.simpleMessage("Address"),
         "afternoon": MessageLookupByLibrary.simpleMessage("Afternoon"),
+        "avatar": MessageLookupByLibrary.simpleMessage("Avatar"),
         "back": MessageLookupByLibrary.simpleMessage("Back"),
         "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
         "cart": MessageLookupByLibrary.simpleMessage("Cart"),
         "cartSuccessMsg": MessageLookupByLibrary.simpleMessage(
             "Great choice! It’s in your cart 🎉"),
+        "changeAvatar": MessageLookupByLibrary.simpleMessage("Change avatar"),
         "checkout": MessageLookupByLibrary.simpleMessage("Checkout"),
         "color": MessageLookupByLibrary.simpleMessage("Color"),
         "colors": MessageLookupByLibrary.simpleMessage("Colors"),
@@ -89,6 +93,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "language": MessageLookupByLibrary.simpleMessage("Language"),
         "less": MessageLookupByLibrary.simpleMessage("Less"),
         "logout": MessageLookupByLibrary.simpleMessage("Logout"),
+        "logoutHint": MessageLookupByLibrary.simpleMessage(
+            "Are you sure you want to logout of your account?"),
         "minimumLength": m8,
         "morning": MessageLookupByLibrary.simpleMessage("Morning"),
         "mostPopular": MessageLookupByLibrary.simpleMessage("Most popular"),
@@ -135,6 +141,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "sizes": MessageLookupByLibrary.simpleMessage("Sizes"),
         "specialOffers": MessageLookupByLibrary.simpleMessage("Special Offers"),
         "themeMode": MessageLookupByLibrary.simpleMessage("Theme Mode"),
+        "titleUpdatedSuccessfully": m11,
         "totalPrice": MessageLookupByLibrary.simpleMessage("Total Price"),
         "unknownErrorMessage": MessageLookupByLibrary.simpleMessage(
             "Something went wrong. Please try again."),

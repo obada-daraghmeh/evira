@@ -3,14 +3,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/controllers/category/category_bloc.dart';
 import '../../../../core/controllers/product/product_bloc.dart';
-import '../../../../core/controllers/theme_mode/theme_mode_cubit.dart';
 import '../../../../core/services/get_it_service.dart';
-import '../../../../core/shared/components/loading_button.dart';
 import '../../../../core/shared/components/section_header.dart';
 import '../../../../core/utils/extensions/constants_extension.dart';
 import '../../../../core/utils/extensions/intl_extension.dart';
-import '../../../../core/utils/extensions/theme_extension.dart';
-import '../../../auth/presentation/bloc/auth_bloc.dart';
 import '../widgets/category_section.dart';
 import '../widgets/home_app_bar.dart';
 import '../widgets/home_offers_slider.dart';
@@ -51,22 +47,6 @@ class HomePage extends StatelessWidget {
                     showSeeAll: true,
                   ),
                   const ProductSection(),
-                  // Temp widgets for test
-                  Switch(
-                    value:
-                        context.watch<ThemeModeCubit>().state == ThemeMode.dark,
-                    onChanged: (value) {
-                      context.read<ThemeModeCubit>().toggleThemeMode;
-                    },
-                  ),
-                  LoadingButton(
-                    text: 'logout',
-                    onPressed: () =>
-                        context.read<AuthBloc>().add(AuthSignOut()),
-                    isLoading: context.read<AuthBloc>().state is AuthLoading,
-                    height: context.spacing.s48,
-                    backgroundColor: context.colorScheme.error,
-                  ),
                 ],
               ),
             ),

@@ -8,6 +8,7 @@ import '../../features/category_products/presentation/pages/category_products_pa
 import '../../features/home/presentation/pages/home_page.dart';
 import '../../features/navigation/presentation/pages/navigation_page.dart';
 import '../../features/product_details/presentation/pages/product_details_page.dart';
+import '../../features/profile/presentation/pages/profile_page.dart';
 import '../constants/routes_const.dart';
 import '../shared/features/entities/category.dart';
 import '../shared/features/entities/product.dart';
@@ -81,8 +82,7 @@ List<RouteBase> routes = [
           GoRoute(
             path: PathsConst.profile,
             name: RoutesConst.profile,
-            builder: (context, state) =>
-                const Scaffold(body: Center(child: Text('Profile'))),
+            builder: (context, state) => const ProfilePage(),
           ),
         ],
       ),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../constants/assets_const.dart';
 import '../../utils/extensions/constants_extension.dart';
+import '../../utils/extensions/intl_extension.dart';
 import '../../utils/extensions/theme_extension.dart';
 import '../widgets/custom_icon.dart';
 import '../widgets/custom_network_image.dart';
@@ -28,15 +29,15 @@ class Avatar extends StatelessWidget {
         : context.iconSize.lg;
 
     return Stack(
-      alignment: Alignment.center,
       clipBehavior: Clip.none,
+      alignment: Alignment.center,
       children: [
         Container(
-          height: avatarSize,
           width: avatarSize,
+          height: avatarSize,
           decoration: BoxDecoration(
-            color: context.colorScheme.surfaceContainerHighest,
             shape: BoxShape.circle,
+            color: context.colorScheme.surfaceContainerHighest,
           ),
           child: imageUrl != null
               ? ClipOval(
@@ -55,14 +56,23 @@ class Avatar extends StatelessWidget {
           ),
         if (isEditable)
           Positioned(
-            bottom: -context.spacing.s10,
-            right: -context.spacing.s10,
-            child: IconButton(
-              onPressed: onPressed,
-              icon: CustomIcon(
-                icon: AssetsConst.editBold,
-                size: context.iconSize.lg,
-                // customColor: context.colorScheme.onSurface,
+            bottom: -context.spacing.s6,
+            right: -context.spacing.s6,
+            child: Container(
+              decoration: BoxDecoration(
+                color: context.colorScheme.surface,
+                shape: BoxShape.circle,
+              ),
+              child: IconButton(
+                onPressed: onPressed,
+                visualDensity: VisualDensity.compact,
+                hoverColor: Colors.transparent,
+                highlightColor: Colors.transparent,
+                tooltip: context.l10n.changeAvatar,
+                icon: CustomIcon(
+                  icon: AssetsConst.editBold,
+                  size: context.iconSize.lg,
+                ),
               ),
             ),
           ),

@@ -38,8 +38,9 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
     final response = await getIt<UpdateProfileAvatarUseCase>().call(
       UpdateProfileAvatarParams(userId: event.userId, file: event.file),
     );
-    response.fold((failure) => emit(ProfileFailure(failure.message)), (url) {
-      emit(ProfileAvatarUpdated(url));
-    });
+    response.fold(
+      (failure) => emit(ProfileFailure(failure.message)),
+      (url) => emit(ProfileAvatarUpdated(url)),
+    );
   }
 }
