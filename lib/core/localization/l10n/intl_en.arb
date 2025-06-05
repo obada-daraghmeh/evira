@@ -77,5 +77,6 @@
   "titleUpdatedSuccessfully": "{title} updated successfully",
   "avatar": "Avatar",
   "logoutHint": "Are you sure you want to logout of your account?",
-  "changeAvatar": "Change avatar"
+  "changeAvatar": "Change avatar",
+  "update": "Update"
 }

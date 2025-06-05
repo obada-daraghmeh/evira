@@ -145,6 +145,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "totalPrice": MessageLookupByLibrary.simpleMessage("Total Price"),
         "unknownErrorMessage": MessageLookupByLibrary.simpleMessage(
             "Something went wrong. Please try again."),
+        "update": MessageLookupByLibrary.simpleMessage("Update"),
         "wallet": MessageLookupByLibrary.simpleMessage("Wallet"),
         "wishlist": MessageLookupByLibrary.simpleMessage("Wishlist")
       };

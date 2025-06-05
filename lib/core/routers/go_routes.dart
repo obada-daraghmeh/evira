@@ -8,6 +8,7 @@ import '../../features/category_products/presentation/pages/category_products_pa
 import '../../features/home/presentation/pages/home_page.dart';
 import '../../features/navigation/presentation/pages/navigation_page.dart';
 import '../../features/product_details/presentation/pages/product_details_page.dart';
+import '../../features/profile/presentation/pages/edit_profile_page.dart';
 import '../../features/profile/presentation/pages/profile_page.dart';
 import '../../features/profile/presentation/pages/settings_page.dart';
 import '../constants/routes_const.dart';
@@ -110,9 +111,9 @@ List<RouteBase> routes = [
     name: RoutesConst.settings,
     builder: (context, state) => const SettingsPage(),
   ),
-  // GoRoute(
-  //   path: PathsConst.editProfile,
-  //   name: RoutesConst.editProfile,
-  //   builder: (context, state) => const EditProfilePage(),
-  // ),
+  GoRoute(
+    path: PathsConst.editProfile,
+    name: RoutesConst.editProfile,
+    builder: (context, state) => const EditProfilePage(),
+  ),
 ];
