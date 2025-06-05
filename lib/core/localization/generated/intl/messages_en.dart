@@ -60,6 +60,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Great choice! It’s in your cart 🎉"),
         "changeAvatar": MessageLookupByLibrary.simpleMessage("Change avatar"),
         "checkout": MessageLookupByLibrary.simpleMessage("Checkout"),
+        "clearAll": MessageLookupByLibrary.simpleMessage("Clear All"),
         "color": MessageLookupByLibrary.simpleMessage("Color"),
         "colors": MessageLookupByLibrary.simpleMessage("Colors"),
         "confirmPassword":
@@ -100,6 +101,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "mostPopular": MessageLookupByLibrary.simpleMessage("Most popular"),
         "myCart": MessageLookupByLibrary.simpleMessage("My Cart"),
         "name": MessageLookupByLibrary.simpleMessage("Name"),
+        "noResultsFound":
+            MessageLookupByLibrary.simpleMessage("No results found"),
+        "noResultsFoundSubtitle": MessageLookupByLibrary.simpleMessage(
+            "We couldn’t find anything matching your search. Try a different keyword."),
+        "noResultsFoundTitle":
+            MessageLookupByLibrary.simpleMessage("No results found"),
         "notifications": MessageLookupByLibrary.simpleMessage("Notifications"),
         "orContinueWith":
             MessageLookupByLibrary.simpleMessage("or continue with"),
@@ -115,6 +122,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "reEnterYourPassword":
             MessageLookupByLibrary.simpleMessage("Re-enter your password"),
         "readMore": MessageLookupByLibrary.simpleMessage("Read more"),
+        "recent": MessageLookupByLibrary.simpleMessage("Recent"),
         "rememberMe": MessageLookupByLibrary.simpleMessage("Remember me"),
         "remove": MessageLookupByLibrary.simpleMessage("Remove"),
         "removeFromCart":

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../features/search/presentation/bloc/search_bloc.dart';
 import '../../constants/assets_const.dart';
 import '../../utils/extensions/intl_extension.dart';
 import '../widgets/custom_icon.dart';
@@ -22,7 +24,9 @@ class SearchTextField extends StatelessWidget {
           hint: context.l10n.search,
           prefixIcon: AssetsConst.search,
           suffixIcon: CustomIcon(icon: AssetsConst.filter),
-          onChanged: (value) {},
+          onChanged: (value) {
+            context.read<SearchBloc>().add(SearchByTitle(title: value));
+          },
         ),
       ),
     );

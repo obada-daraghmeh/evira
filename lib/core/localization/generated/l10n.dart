@@ -849,6 +849,56 @@ class FlutterIntl {
       args: [],
     );
   }
+
+  /// `Recent`
+  String get recent {
+    return Intl.message(
+      'Recent',
+      name: 'recent',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Clear All`
+  String get clearAll {
+    return Intl.message(
+      'Clear All',
+      name: 'clearAll',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No results found`
+  String get noResultsFound {
+    return Intl.message(
+      'No results found',
+      name: 'noResultsFound',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No results found`
+  String get noResultsFoundTitle {
+    return Intl.message(
+      'No results found',
+      name: 'noResultsFoundTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `We couldn’t find anything matching your search. Try a different keyword.`
+  String get noResultsFoundSubtitle {
+    return Intl.message(
+      'We couldn’t find anything matching your search. Try a different keyword.',
+      name: 'noResultsFoundSubtitle',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<FlutterIntl> {
