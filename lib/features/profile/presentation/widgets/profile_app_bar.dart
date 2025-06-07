@@ -15,7 +15,7 @@ class ProfileAppBar extends StatelessWidget implements PreferredSizeWidget {
       title: context.l10n.profile,
       actions: [
         IconButton(
-          onPressed: () {},
+          onPressed: () => debugPrint('more pressed'),
           icon: const CustomIcon(icon: AssetsConst.more),
         ),
       ],

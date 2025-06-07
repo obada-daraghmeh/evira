@@ -13,11 +13,11 @@ part 'product_state.dart';
 
 class ProductBloc extends Bloc<ProductEvent, ProductState> {
   ProductBloc() : super(ProductInitial()) {
-    on<ProductsFetched>(_onProductsFetched);
+    on<FetchProducts>(_onFetchProducts);
   }
 
-  Future<void> _onProductsFetched(
-    ProductsFetched event,
+  Future<void> _onFetchProducts(
+    FetchProducts event,
     Emitter<ProductState> emit,
   ) async {
     await _fetchProducts(

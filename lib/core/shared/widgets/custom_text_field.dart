@@ -52,6 +52,8 @@ class CustomTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     bool isObscure = obscureText;
+    final Color iconCustomColor = context.colorScheme.onSurfaceVariant
+        .withValues(alpha: 0.5);
 
     return StatefulBuilder(
       builder: (context, setState) {
@@ -75,20 +77,15 @@ class CustomTextField extends StatelessWidget {
             hintText: hint,
             prefixIcon: prefixIcon == null
                 ? null
-                : CustomIcon(
-                    icon: prefixIcon!,
-                    customColor: context.colorScheme.onSurfaceVariant
-                        .withValues(alpha: 0.5),
-                  ),
+                : CustomIcon(icon: prefixIcon!, customColor: iconCustomColor),
             suffixIcon: showToggleObscure
                 ? IconButton(
                     icon: isObscure
                         ? CustomIcon(
                             icon: AssetsConst.eyeBold,
-                            customColor: context.colorScheme.onSurfaceVariant
-                                .withValues(alpha: 0.5),
+                            customColor: iconCustomColor,
                           )
-                        : CustomIcon(icon: AssetsConst.eyeSlashBold),
+                        : const CustomIcon(icon: AssetsConst.eyeSlashBold),
                     onPressed: () => setState(() => isObscure = !isObscure),
                   )
                 : suffixIcon,

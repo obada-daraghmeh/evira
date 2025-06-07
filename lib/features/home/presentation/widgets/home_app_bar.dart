@@ -61,13 +61,13 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
           ),
           const Spacer(),
           IconButton(
-            icon: CustomIcon(icon: AssetsConst.notification),
-            onPressed: () {},
+            icon: const CustomIcon(icon: AssetsConst.notification),
+            onPressed: () => debugPrint('Notification pressed'),
             tooltip: context.l10n.notifications,
           ),
           IconButton(
-            icon: CustomIcon(icon: AssetsConst.heart),
-            onPressed: () {},
+            icon: const CustomIcon(icon: AssetsConst.heart),
+            onPressed: () => debugPrint('Wishlist pressed'),
             tooltip: context.l10n.wishlist,
           ),
         ],

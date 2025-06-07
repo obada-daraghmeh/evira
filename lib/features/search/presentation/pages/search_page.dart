@@ -39,7 +39,7 @@ class SearchPage extends StatelessWidget {
                     ),
                   ),
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () => debugPrint('clear all pressed'),
                     child: Text(
                       context.l10n.clearAll,
                       style: context.textTheme.bodyLarge?.copyWith(

@@ -96,7 +96,7 @@ class _SignInPageState extends State<SignInPage> {
                     ),
                     Center(
                       child: TextButton(
-                        onPressed: () {},
+                        onPressed: () => debugPrint('forgot password'),
                         child: Text(context.l10n.forgotPassword),
                       ),
                     ),

@@ -23,7 +23,7 @@ class RatingAndReviews extends StatelessWidget {
     return Row(
       spacing: context.spacing.s4,
       children: [
-        CustomIcon(icon: AssetsConst.starBulk),
+        const CustomIcon(icon: AssetsConst.starBulk),
         Text(rating.toString(), style: context.textTheme.labelMedium),
         if (hasReviews)
           Text(

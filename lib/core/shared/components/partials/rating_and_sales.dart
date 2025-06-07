@@ -16,7 +16,7 @@ class RatingAndSales extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         RatingAndReviews(rating: rating),
-        SizedBox(height: context.spacing.s16, child: VerticalDivider()),
+        SizedBox(height: context.spacing.s16, child: const VerticalDivider()),
         SalesNumberChip(count: count),
       ],
     );

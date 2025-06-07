@@ -34,8 +34,8 @@ class NavigationLocalDataSourceImpl implements NavigationLocalDataSource {
     ),
     BottomBarItemModel(
       label: _intl.orders,
-      icon: AssetsConst.buy,
-      activeIcon: AssetsConst.buyBold,
+      icon: AssetsConst.order,
+      activeIcon: AssetsConst.orderBold,
     ),
     BottomBarItemModel(
       label: _intl.wallet,

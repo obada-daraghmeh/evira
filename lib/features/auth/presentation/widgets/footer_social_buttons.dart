@@ -12,9 +12,18 @@ class FooterSocialButtons extends StatelessWidget {
     return Row(
       spacing: context.spacing.s24,
       children: [
-        _buildSocialButton(AssetsConst.facebook, () {}),
-        _buildSocialButton(AssetsConst.google, () {}),
-        _buildSocialButton(AssetsConst.apple, () {}),
+        _buildSocialButton(
+          AssetsConst.facebook,
+          () => debugPrint('facebook pressed'),
+        ),
+        _buildSocialButton(
+          AssetsConst.google,
+          () => debugPrint('google pressed'),
+        ),
+        _buildSocialButton(
+          AssetsConst.apple,
+          () => debugPrint('apple pressed'),
+        ),
       ],
     );
   }

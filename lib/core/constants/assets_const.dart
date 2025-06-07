@@ -32,7 +32,7 @@ class AssetsConst {
   static const String checkInSquareBold =
       '${_boldIconsPath}check_in_square_bold$_svg';
   static const String homeBold = '${_boldIconsPath}home_bold$_svg';
-  static const String buyBold = '${_boldIconsPath}buy_bold$_svg';
+  static const String orderBold = '${_boldIconsPath}order_bold$_svg';
   static const String cartBold = '${_boldIconsPath}cart_bold$_svg';
   static const String walletBold = '${_boldIconsPath}wallet_bold$_svg';
   static const String dangerBold = '${_boldIconsPath}danger_bold$_svg';
@@ -45,7 +45,7 @@ class AssetsConst {
 
   /// `Outline Icons`
   static const String home = '${_outlineIconsPath}home$_svg';
-  static const String buy = '${_outlineIconsPath}buy$_svg';
+  static const String order = '${_outlineIconsPath}order$_svg';
   static const String cart = '${_outlineIconsPath}cart$_svg';
   static const String wallet = '${_outlineIconsPath}wallet$_svg';
   static const String profile = '${_outlineIconsPath}profile$_svg';

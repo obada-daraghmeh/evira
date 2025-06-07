@@ -54,7 +54,7 @@ class BaseAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   IconButton _buildBackButton(BuildContext context) {
     return IconButton(
-      icon: CustomIcon(icon: AssetsConst.arrowLeftBold),
+      icon: const CustomIcon(icon: AssetsConst.arrowLeftBold),
       onPressed: () => context.pop(),
       tooltip: context.l10n.back,
     );

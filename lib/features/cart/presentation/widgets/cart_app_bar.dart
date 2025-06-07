@@ -15,7 +15,7 @@ class CartAppBar extends StatelessWidget implements PreferredSizeWidget {
       title: context.l10n.myCart,
       actions: [
         IconButton(
-          onPressed: () {},
+          onPressed: () => debugPrint('Search pressed'),
           icon: const CustomIcon(icon: AssetsConst.search),
         ),
       ],

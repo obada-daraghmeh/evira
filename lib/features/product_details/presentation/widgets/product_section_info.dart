@@ -28,8 +28,8 @@ class ProductSectionInfo extends StatelessWidget {
               ),
             ),
             IconButton(
-              onPressed: () {},
-              icon: CustomIcon(icon: AssetsConst.heart),
+              onPressed: () => debugPrint('favorite pressed'),
+              icon: const CustomIcon(icon: AssetsConst.heart),
             ),
           ],
         ),
@@ -37,7 +37,11 @@ class ProductSectionInfo extends StatelessWidget {
           spacing: context.spacing.s16,
           children: [
             SalesNumberChip(count: product.salesNumber),
-            RatingAndReviews(rating: 4.5, hasReviews: true, reviews: 4764),
+            const RatingAndReviews(
+              rating: 4.5,
+              hasReviews: true,
+              reviews: 4764,
+            ),
           ],
         ),
         SizedBox(height: context.spacing.s8),

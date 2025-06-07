@@ -12,6 +12,7 @@ import '../../widgets/custom_network_image.dart';
 class ProductImageWithFavorite extends StatelessWidget {
   final String imageUrl;
   final double discount;
+
   const ProductImageWithFavorite({
     super.key,
     required this.imageUrl,
@@ -49,7 +50,7 @@ class ProductImageWithFavorite extends StatelessWidget {
       top: context.spacing.s8,
       right: context.spacing.s8,
       child: IconButton.filled(
-        onPressed: () {},
+        onPressed: () => debugPrint('favorite pressed'),
         icon: CustomIcon(
           icon: AssetsConst.heart,
           customColor: context.colorScheme.onPrimary,

@@ -22,9 +22,7 @@ class HomePage extends StatelessWidget {
         BlocProvider(
           create: (_) => getIt<CategoryBloc>()..add(FetchCategories()),
         ),
-        BlocProvider(
-          create: (_) => getIt<ProductBloc>()..add(ProductsFetched()),
-        ),
+        BlocProvider(create: (_) => getIt<ProductBloc>()..add(FetchProducts())),
       ],
       child: CustomScrollView(
         slivers: [

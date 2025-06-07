@@ -32,8 +32,8 @@ class CategoryProductsPage extends StatelessWidget {
           title: category.name,
           actions: [
             IconButton(
-              onPressed: () {},
-              icon: CustomIcon(icon: AssetsConst.search),
+              onPressed: () => debugPrint('Search pressed'),
+              icon: const CustomIcon(icon: AssetsConst.search),
               tooltip: context.l10n.search,
             ),
           ],

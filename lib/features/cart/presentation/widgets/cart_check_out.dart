@@ -64,7 +64,7 @@ class CartCheckOut extends StatelessWidget {
                 iconAtStart: false,
                 iconColor: context.colorScheme.onPrimary,
                 loaderColor: context.colorScheme.primary,
-                onPressed: () {},
+                onPressed: () => debugPrint('Checkout pressed'),
               ),
             ),
           ],

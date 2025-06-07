@@ -19,7 +19,7 @@ class RecentListTile extends StatelessWidget {
       ),
       trailing: IconButton(
         icon: const CustomIcon(icon: AssetsConst.close),
-        onPressed: () {},
+        onPressed: () => debugPrint('close pressed'),
       ),
       contentPadding: EdgeInsets.zero,
     );

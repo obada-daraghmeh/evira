@@ -66,9 +66,7 @@ class _HomeOffersSliderState extends State<HomeOffersSlider> {
       autoPlay: true,
       autoPlayInterval: const Duration(seconds: 10),
       enlargeCenterPage: true,
-      onPageChanged: (index, reason) {
-        setState(() => _currentIndex = index);
-      },
+      onPageChanged: (index, reason) => setState(() => _currentIndex = index),
     );
   }
 }
