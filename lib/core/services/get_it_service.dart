@@ -50,13 +50,14 @@ import '../../features/profile/presentation/controllers/profile/profile_bloc.dar
 import '../../features/search/data/datasources/search_remote_data_source.dart';
 import '../../features/search/data/repositories/search_repository_impl.dart';
 import '../../features/search/domain/repositories/search_repository.dart';
+import '../../features/search/domain/usecases/fetch_suggestions.dart';
 import '../../features/search/domain/usecases/search_by_title.dart';
-import '../../features/search/presentation/bloc/search_bloc.dart';
 import '../controllers/auth_status/auth_status_cubit.dart';
 import '../controllers/cart/cart_bloc.dart';
 import '../controllers/category/category_bloc.dart';
 import '../controllers/product/product_bloc.dart';
 import '../controllers/quantity/quantity_cubit.dart';
+import '../controllers/search/search_bloc.dart';
 import '../controllers/theme_mode/theme_mode_cubit.dart';
 import '../errors/exceptions/exception.dart';
 
@@ -156,6 +157,9 @@ class GetItService {
       ..registerFactory<UpdateProfileUseCase>(() => UpdateProfileUseCase())
       ..registerFactory<UpdateProfileAvatarUseCase>(
         () => UpdateProfileAvatarUseCase(),
+      )
+      ..registerFactory<FetchSuggestionsUseCase>(
+        () => FetchSuggestionsUseCase(),
       )
       ..registerFactory<SearchByTitleUseCase>(() => SearchByTitleUseCase());
   }

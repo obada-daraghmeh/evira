@@ -26,6 +26,7 @@ class PaddingConst {
   EdgeInsets get pL24R16 =>
       EdgeInsets.only(left: _sizes.s24, right: _sizes.s16);
   EdgeInsets get pL8 => EdgeInsets.only(left: _sizes.s8);
+  EdgeInsets get pR8 => EdgeInsets.only(right: _sizes.s8);
 
   /// `Padding Horizontal/Vertical`
   EdgeInsets get pH4V2 =>

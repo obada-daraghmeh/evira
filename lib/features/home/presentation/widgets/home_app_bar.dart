@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
 import '../../../../core/constants/assets_const.dart';
-import '../../../../core/constants/routes_const.dart';
 import '../../../../core/shared/components/avatar.dart';
 import '../../../../core/shared/components/search_text_field.dart';
 import '../../../../core/shared/widgets/custom_icon.dart';
+import '../../../../core/shared/widgets/custom_search_delegate.dart';
 import '../../../../core/utils/extensions/auth_state_extension.dart';
 import '../../../../core/utils/extensions/constants_extension.dart';
 import '../../../../core/utils/extensions/intl_extension.dart';
@@ -83,7 +82,9 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
           alignment: Alignment.bottomCenter,
           child: SearchTextField(
             absorbing: true,
-            onTap: () => context.pushNamed(RoutesConst.search),
+            onTap: () {
+              showSearch(context: context, delegate: CustomSearchDelegate());
+            },
           ),
         ),
       ),

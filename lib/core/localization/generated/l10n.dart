@@ -899,6 +899,26 @@ class FlutterIntl {
       args: [],
     );
   }
+
+  /// `Clear`
+  String get clear {
+    return Intl.message(
+      'Clear',
+      name: 'clear',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No suggestions match\n"{query}"`
+  String noSuggestionsMatch(Object query) {
+    return Intl.message(
+      'No suggestions match\n"$query"',
+      name: 'noSuggestionsMatch',
+      desc: '',
+      args: [query],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<FlutterIntl> {

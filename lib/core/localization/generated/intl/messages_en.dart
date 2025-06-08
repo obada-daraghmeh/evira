@@ -39,11 +39,13 @@ class MessageLookup extends MessageLookupByLibrary {
   static String m8(filed, length) =>
       "${filed} must be at least ${length} characters long";
 
-  static String m9(price) => "₪${price}";
+  static String m9(query) => "No suggestions match\n\"${query}\"";
 
-  static String m10(size) => "Size = ${size}";
+  static String m10(price) => "₪${price}";
 
-  static String m11(title) => "${title} updated successfully";
+  static String m11(size) => "Size = ${size}";
+
+  static String m12(title) => "${title} updated successfully";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
@@ -60,6 +62,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Great choice! It’s in your cart 🎉"),
         "changeAvatar": MessageLookupByLibrary.simpleMessage("Change avatar"),
         "checkout": MessageLookupByLibrary.simpleMessage("Checkout"),
+        "clear": MessageLookupByLibrary.simpleMessage("Clear"),
         "clearAll": MessageLookupByLibrary.simpleMessage("Clear All"),
         "color": MessageLookupByLibrary.simpleMessage("Color"),
         "colors": MessageLookupByLibrary.simpleMessage("Colors"),
@@ -107,6 +110,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "We couldn’t find anything matching your search. Try a different keyword."),
         "noResultsFoundTitle":
             MessageLookupByLibrary.simpleMessage("No results found"),
+        "noSuggestionsMatch": m9,
         "notifications": MessageLookupByLibrary.simpleMessage("Notifications"),
         "orContinueWith":
             MessageLookupByLibrary.simpleMessage("or continue with"),
@@ -115,7 +119,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "passwordsDoNotMatch":
             MessageLookupByLibrary.simpleMessage("Passwords do not match"),
         "payments": MessageLookupByLibrary.simpleMessage("Payments"),
-        "priceInILS": m9,
+        "priceInILS": m10,
         "privacyPolicy": MessageLookupByLibrary.simpleMessage("Privacy Policy"),
         "profile": MessageLookupByLibrary.simpleMessage("Profile"),
         "quantity": MessageLookupByLibrary.simpleMessage("Quantity"),
@@ -145,11 +149,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Already have an account?"),
         "signUpTitle":
             MessageLookupByLibrary.simpleMessage("Create your\nAccount"),
-        "sizeSize": m10,
+        "sizeSize": m11,
         "sizes": MessageLookupByLibrary.simpleMessage("Sizes"),
         "specialOffers": MessageLookupByLibrary.simpleMessage("Special Offers"),
         "themeMode": MessageLookupByLibrary.simpleMessage("Theme Mode"),
-        "titleUpdatedSuccessfully": m11,
+        "titleUpdatedSuccessfully": m12,
         "totalPrice": MessageLookupByLibrary.simpleMessage("Total Price"),
         "unknownErrorMessage": MessageLookupByLibrary.simpleMessage(
             "Something went wrong. Please try again."),

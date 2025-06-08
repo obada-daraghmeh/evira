@@ -14,3 +14,5 @@ class SearchByTitle extends SearchEvent {
   @override
   List<Object> get props => [title];
 }
+
+class FetchSuggestions extends SearchEvent {}

@@ -9,6 +9,7 @@ final logger = Logger();
 
 abstract class SearchRemoteDataSource {
   Future<List<ProductModel>> searchByTitle({required String title});
+  Future<List<ProductModel>> get suggestions;
 }
 
 class SearchRemoteDataSourceImpl implements SearchRemoteDataSource {
@@ -36,6 +37,28 @@ class SearchRemoteDataSourceImpl implements SearchRemoteDataSource {
     } catch (e, stackTrace) {
       logger.e(
         'Unexpected error in searchByTitle(title: $title)',
+        error: e,
+        stackTrace: stackTrace,
+      );
+      throw ServerException(e.toString());
+    }
+  }
+
+  @override
+  Future<List<ProductModel>> get suggestions async {
+    try {
+      final response = await _client
+          .from(SupabaseConst.products)
+          .select('*')
+          .order('created_at', ascending: false)
+          .limit(5);
+
+      return response.map((json) => ProductModel.fromJson(json)).toList();
+    } on PostgrestException catch (e) {
+      throw ServerException(e.message);
+    } catch (e, stackTrace) {
+      logger.e(
+        'Unexpected error in suggestions',
         error: e,
         stackTrace: stackTrace,
       );

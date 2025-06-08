@@ -20,4 +20,14 @@ class SearchRepositoryImpl implements SearchRepository {
       return Left(ServerFailure(e.toString()));
     }
   }
+
+  @override
+  Future<Either<Failure, List<Product>>> get suggestions async {
+    try {
+      final response = await getIt<SearchRemoteDataSource>().suggestions;
+      return Right(response);
+    } catch (e) {
+      return Left(ServerFailure(e.toString()));
+    }
+  }
 }

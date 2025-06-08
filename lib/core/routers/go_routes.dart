@@ -11,7 +11,6 @@ import '../../features/product_details/presentation/pages/product_details_page.d
 import '../../features/profile/presentation/pages/edit_profile_page.dart';
 import '../../features/profile/presentation/pages/profile_page.dart';
 import '../../features/profile/presentation/pages/settings_page.dart';
-import '../../features/search/presentation/pages/search_page.dart';
 import '../constants/routes_const.dart';
 import '../shared/features/entities/category.dart';
 import '../shared/features/entities/product.dart';
@@ -116,10 +115,5 @@ List<RouteBase> routes = [
     path: PathsConst.editProfile,
     name: RoutesConst.editProfile,
     builder: (context, state) => const EditProfilePage(),
-  ),
-  GoRoute(
-    path: PathsConst.search,
-    name: RoutesConst.search,
-    builder: (context, state) => const SearchPage(),
   ),
 ];
