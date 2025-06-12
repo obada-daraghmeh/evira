@@ -85,5 +85,7 @@
   "noResultsFoundTitle": "No results found",
   "noResultsFoundSubtitle": "We couldn’t find anything matching your search. Try a different keyword.",
   "clear": "Clear",
-  "noSuggestionsMatch": "No suggestions match\n\"{query}\""
+  "noSuggestionsMatch": "No matching suggestions were found\nfor ",
+  "recentSearches": "Recent searches",
+  "suggestions": "Suggestions"
 }

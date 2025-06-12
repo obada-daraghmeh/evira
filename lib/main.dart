@@ -11,7 +11,6 @@ import 'core/controllers/theme_mode/theme_mode_cubit.dart';
 import 'core/localization/generated/l10n.dart';
 import 'core/routers/go_router.dart';
 import 'core/services/get_it_service.dart';
-import 'core/services/storage_service.dart';
 import 'core/theme/theme.dart';
 import 'core/utils/controllers/bloc_observer.dart';
 import 'core/utils/create_text_theme.dart';
@@ -20,8 +19,7 @@ import 'features/auth/presentation/bloc/auth_bloc.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await dotenv.load(fileName: ".env");
-  await GetItService().init();
-  await StorageService().init();
+  await GetItService().init;
   Bloc.observer = AppBlocObserver();
 
   runApp(

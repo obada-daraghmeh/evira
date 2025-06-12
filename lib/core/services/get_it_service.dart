@@ -1,6 +1,4 @@
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:get_it/get_it.dart';
-import 'package:supabase_flutter/supabase_flutter.dart';
 
 import '../../features/auth/data/datasources/auth_remote_data_source.dart';
 import '../../features/auth/data/repositories/auth_repository_impl.dart';
@@ -47,9 +45,14 @@ import '../../features/profile/domain/usecases/update_profile.dart';
 import '../../features/profile/domain/usecases/update_profile_avatar.dart';
 import '../../features/profile/presentation/controllers/menu_option/menu_option_cubit.dart';
 import '../../features/profile/presentation/controllers/profile/profile_bloc.dart';
+import '../../features/search/data/datasources/search_local_data_source.dart';
 import '../../features/search/data/datasources/search_remote_data_source.dart';
 import '../../features/search/data/repositories/search_repository_impl.dart';
 import '../../features/search/domain/repositories/search_repository.dart';
+import '../../features/search/domain/usecases/add_to_history.dart';
+import '../../features/search/domain/usecases/clear_history.dart';
+import '../../features/search/domain/usecases/delete_from_history.dart';
+import '../../features/search/domain/usecases/fetch_history.dart';
 import '../../features/search/domain/usecases/fetch_suggestions.dart';
 import '../../features/search/domain/usecases/search_by_title.dart';
 import '../controllers/auth_status/auth_status_cubit.dart';
@@ -59,33 +62,26 @@ import '../controllers/product/product_bloc.dart';
 import '../controllers/quantity/quantity_cubit.dart';
 import '../controllers/search/search_bloc.dart';
 import '../controllers/theme_mode/theme_mode_cubit.dart';
-import '../errors/exceptions/exception.dart';
+import 'storage_service.dart';
 
 final getIt = GetIt.instance;
 
 class GetItService {
-  Future<void> init() async {
-    await _initSupabase();
-    _initServices();
-    _initRepositories();
-    _initUseCases();
-    _initBlocs();
+  Future<void> get init async {
+    await _initStorages;
+    _initServices;
+    _initRepositories;
+    _initUseCases;
+    _initBlocs;
   }
 
-  Future<void> _initSupabase() async {
-    try {
-      final supabase = await Supabase.initialize(
-        url: dotenv.env['SUPABASE_URL']!,
-        anonKey: dotenv.env['SUPABASE_ANON_KEY']!,
-      );
-
-      getIt.registerLazySingleton<SupabaseClient>(() => supabase.client);
-    } on ServerException catch (e) {
-      throw ServerException(e.message);
-    }
+  Future<void> get _initStorages async {
+    await StorageService.initHydrated;
+    await StorageService.initHive;
+    await StorageService.initSupabase;
   }
 
-  void _initServices() {
+  void get _initServices {
     getIt
       ..registerFactory<AuthRemoteDataSource>(
         () => AuthRemoteDataSourceImpl(getIt()),
@@ -113,10 +109,13 @@ class GetItService {
       )
       ..registerFactory<SearchRemoteDataSource>(
         () => SearchRemoteDataSourceImpl(getIt()),
+      )
+      ..registerFactory<SearchLocalDataSource>(
+        () => SearchLocalDataSourceImpl(),
       );
   }
 
-  void _initRepositories() {
+  void get _initRepositories {
     getIt
       ..registerFactory<AuthRepository>(() => AuthRepositoryImpl())
       ..registerFactory<NavigationRepository>(() => NavigationRepositoryImpl())
@@ -130,7 +129,7 @@ class GetItService {
       ..registerFactory<SearchRepository>(() => SearchRepositoryImpl());
   }
 
-  void _initUseCases() {
+  void get _initUseCases {
     getIt
       ..registerFactory<SignUpUseCase>(() => SignUpUseCase())
       ..registerFactory<SignInUseCase>(() => SignInUseCase())
@@ -161,10 +160,16 @@ class GetItService {
       ..registerFactory<FetchSuggestionsUseCase>(
         () => FetchSuggestionsUseCase(),
       )
-      ..registerFactory<SearchByTitleUseCase>(() => SearchByTitleUseCase());
+      ..registerFactory<SearchByTitleUseCase>(() => SearchByTitleUseCase())
+      ..registerFactory<AddToHistoryUseCase>(() => AddToHistoryUseCase())
+      ..registerFactory<FetchHistoryUseCase>(() => FetchHistoryUseCase())
+      ..registerFactory<DeleteFromHistoryUseCase>(
+        () => DeleteFromHistoryUseCase(),
+      )
+      ..registerFactory<ClearHistoryUseCase>(() => ClearHistoryUseCase());
   }
 
-  void _initBlocs() {
+  void get _initBlocs {
     getIt
       ..registerLazySingleton<ThemeModeCubit>(() => ThemeModeCubit())
       ..registerLazySingleton<AuthBloc>(() => AuthBloc())

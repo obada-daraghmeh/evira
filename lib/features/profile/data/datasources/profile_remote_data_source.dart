@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:logger/logger.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
-import '../../../../core/constants/supabase_const.dart';
+import '../../../../core/constants/backend_const.dart';
 import '../../../../core/errors/exceptions/exception.dart';
 import '../../../../core/localization/generated/l10n.dart';
 import '../../../../core/shared/features/models/user_model.dart';
@@ -29,7 +29,7 @@ class ProfileRemoteDataSourceImpl implements ProfileRemoteDataSource {
       if (user == null) throw Exception('No authenticated user');
 
       final response = await _client
-          .from(SupabaseConst.profiles)
+          .from(BackendConst.profiles)
           .update({'username': username})
           .eq('id', user.id)
           .select()
@@ -59,15 +59,15 @@ class ProfileRemoteDataSourceImpl implements ProfileRemoteDataSource {
       final filePath = '${userId}_$timestamp.$fileExt';
 
       await _client.storage
-          .from(SupabaseConst.avatarsBucket)
+          .from(BackendConst.avatarsBucket)
           .upload(filePath, file, fileOptions: const FileOptions(upsert: true));
 
       final url = _client.storage
-          .from(SupabaseConst.avatarsBucket)
+          .from(BackendConst.avatarsBucket)
           .getPublicUrl(filePath);
 
       await _client
-          .from(SupabaseConst.profiles)
+          .from(BackendConst.profiles)
           .update({'avatar_url': url})
           .eq('id', userId);
 

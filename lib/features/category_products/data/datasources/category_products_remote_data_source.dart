@@ -1,7 +1,7 @@
 import 'package:logger/logger.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
-import '../../../../core/constants/supabase_const.dart';
+import '../../../../core/constants/backend_const.dart';
 import '../../../../core/errors/exceptions/exception.dart';
 import '../../../../core/shared/features/models/product_model.dart';
 
@@ -22,7 +22,7 @@ class CategoryProductsRemoteDataSourceImpl
   }) async {
     try {
       final response = await _client
-          .from(SupabaseConst.products)
+          .from(BackendConst.products)
           .select('''
           *,
           colors (

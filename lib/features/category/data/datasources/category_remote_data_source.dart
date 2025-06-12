@@ -1,7 +1,7 @@
 import 'package:logger/logger.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
-import '../../../../core/constants/supabase_const.dart';
+import '../../../../core/constants/backend_const.dart';
 import '../../../../core/errors/exceptions/exception.dart';
 import '../models/category_model.dart';
 
@@ -18,7 +18,7 @@ class CategoryRemoteDataSourceImpl implements CategoryRemoteDataSource {
   @override
   Future<List<CategoryModel>> get fetchCategories async {
     try {
-      final response = await _client.from(SupabaseConst.categories).select();
+      final response = await _client.from(BackendConst.categories).select();
       return response.map((e) => CategoryModel.fromJson(e)).toList();
     } on PostgrestException catch (e) {
       throw ServerException(e.message);

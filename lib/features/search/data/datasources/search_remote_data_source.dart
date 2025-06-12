@@ -1,7 +1,7 @@
 import 'package:logger/logger.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
-import '../../../../core/constants/supabase_const.dart';
+import '../../../../core/constants/backend_const.dart';
 import '../../../../core/errors/exceptions/exception.dart';
 import '../../../../core/shared/features/models/product_model.dart';
 
@@ -9,7 +9,7 @@ final logger = Logger();
 
 abstract class SearchRemoteDataSource {
   Future<List<ProductModel>> searchByTitle({required String title});
-  Future<List<ProductModel>> get suggestions;
+  Future<List<String>> get suggestions;
 }
 
 class SearchRemoteDataSourceImpl implements SearchRemoteDataSource {
@@ -20,7 +20,7 @@ class SearchRemoteDataSourceImpl implements SearchRemoteDataSource {
   Future<List<ProductModel>> searchByTitle({required String title}) async {
     try {
       final response = await _client
-          .from(SupabaseConst.products)
+          .from(BackendConst.products)
           .select('''
           *,
           colors (
@@ -45,15 +45,16 @@ class SearchRemoteDataSourceImpl implements SearchRemoteDataSource {
   }
 
   @override
-  Future<List<ProductModel>> get suggestions async {
+  Future<List<String>> get suggestions async {
     try {
+      // TODO: need to get suggestions with better logic, like by rating or views ...etc
       final response = await _client
-          .from(SupabaseConst.products)
-          .select('*')
+          .from(BackendConst.products)
+          .select('title')
           .order('created_at', ascending: false)
           .limit(5);
 
-      return response.map((json) => ProductModel.fromJson(json)).toList();
+      return response.map((json) => json['title'] as String).toList();
     } on PostgrestException catch (e) {
       throw ServerException(e.message);
     } catch (e, stackTrace) {

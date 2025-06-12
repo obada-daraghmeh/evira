@@ -4,25 +4,38 @@ abstract class SearchState extends Equatable {
   const SearchState();
 
   @override
-  List<Object> get props => [];
+  List<Object?> get props => [];
 }
 
 class SearchInitial extends SearchState {}
 
 class SearchLoading extends SearchState {}
 
-class SearchLoaded extends SearchState {
-  final List<Product> products;
-  const SearchLoaded(this.products);
+class SearchSuggestionsLoaded extends SearchState {
+  final List<String> suggestions;
+  final List<String> history;
+
+  const SearchSuggestionsLoaded({
+    this.suggestions = const [],
+    this.history = const [],
+  });
 
   @override
-  List<Object> get props => [products];
+  List<Object?> get props => [suggestions, history];
+}
+
+class SearchResultsLoaded extends SearchState {
+  final List<Product> products;
+  const SearchResultsLoaded({required this.products});
+
+  @override
+  List<Object?> get props => [products];
 }
 
 class SearchFailure extends SearchState {
   final String message;
-  const SearchFailure(this.message);
+  const SearchFailure({required this.message});
 
   @override
-  List<Object> get props => [message];
+  List<Object?> get props => [message];
 }

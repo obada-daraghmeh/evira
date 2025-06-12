@@ -2,7 +2,7 @@ import 'package:fpdart/fpdart.dart';
 import 'package:logger/logger.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
-import '../../../../core/constants/supabase_const.dart';
+import '../../../../core/constants/backend_const.dart';
 import '../../../../core/errors/exceptions/exception.dart';
 import '../models/cart_model.dart';
 
@@ -25,7 +25,7 @@ class CartRemoteDataSourceImpl implements CartRemoteDataSource {
   Future<Unit> addToCart({required CartModel cartModel}) async {
     try {
       final existing = await _client
-          .from(SupabaseConst.cartItems)
+          .from(BackendConst.cartItems)
           .select()
           .eq('user_id', cartModel.userId)
           .eq('product_id', cartModel.productId)
@@ -38,14 +38,14 @@ class CartRemoteDataSourceImpl implements CartRemoteDataSource {
 
         if (existingQty != cartModel.quantity) {
           await _client
-              .from(SupabaseConst.cartItems)
+              .from(BackendConst.cartItems)
               .update({'quantity': cartModel.quantity})
               .eq('id', existing['id']);
         }
         return unit;
       }
 
-      await _client.from(SupabaseConst.cartItems).insert(cartModel.toJson());
+      await _client.from(BackendConst.cartItems).insert(cartModel.toJson());
       return unit;
     } on PostgrestException catch (e) {
       throw ServerException(e.message);
@@ -63,7 +63,7 @@ class CartRemoteDataSourceImpl implements CartRemoteDataSource {
   Future<List<CartModel>> getCartItems({required String userId}) async {
     try {
       final response = await _client
-          .from(SupabaseConst.cartItems)
+          .from(BackendConst.cartItems)
           .select(
             '*, products(title, price, discount, thumbnail_url, colors(hex_code, images(image_url)))',
           )
@@ -87,7 +87,7 @@ class CartRemoteDataSourceImpl implements CartRemoteDataSource {
   Future<Unit> removeFromCart({required String id}) {
     try {
       return _client
-          .from(SupabaseConst.cartItems)
+          .from(BackendConst.cartItems)
           .delete()
           .eq('id', id)
           .then((_) => unit);

@@ -1,4 +1,4 @@
-class SupabaseConst {
+class BackendConst {
   /// `Tables`
   static const String profiles = 'profiles';
   static const String categories = 'categories';
@@ -9,4 +9,8 @@ class SupabaseConst {
   static const String avatarsBucket = 'avatars';
   static const String categoriesBucket = 'categories';
   static const String productsBucket = 'products';
+
+  /// `Boxes`
+  static const String searchHistoryBox = 'search_history';
+  static const String searchHistoryKey = 'recent_searches';
 }

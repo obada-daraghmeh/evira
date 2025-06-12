@@ -16,3 +16,21 @@ class SearchByTitle extends SearchEvent {
 }
 
 class FetchSuggestions extends SearchEvent {}
+
+class AddToHistory extends SearchEvent {
+  final String title;
+  const AddToHistory({required this.title});
+
+  @override
+  List<Object> get props => [title];
+}
+
+class DeleteFromHistory extends SearchEvent {
+  final String title;
+  const DeleteFromHistory({required this.title});
+
+  @override
+  List<Object> get props => [title];
+}
+
+class ClearHistory extends SearchEvent {}

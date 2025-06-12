@@ -1,6 +1,6 @@
 import 'package:supabase_flutter/supabase_flutter.dart';
 
-import '../../../../core/constants/supabase_const.dart';
+import '../../../../core/constants/backend_const.dart';
 import '../../../../core/errors/exceptions/exception.dart';
 import '../../../../core/shared/features/models/product_model.dart';
 
@@ -15,7 +15,7 @@ class ProductRemoteDataSourceImpl implements ProductRemoteDataSource {
   @override
   Future<List<ProductModel>> get products async {
     try {
-      final response = await _client.from(SupabaseConst.products).select('''
+      final response = await _client.from(BackendConst.products).select('''
           *,
           colors (
             hex_code, name,

@@ -910,13 +910,33 @@ class FlutterIntl {
     );
   }
 
-  /// `No suggestions match\n"{query}"`
-  String noSuggestionsMatch(Object query) {
+  /// `No matching suggestions were found\nfor `
+  String get noSuggestionsMatch {
     return Intl.message(
-      'No suggestions match\n"$query"',
+      'No matching suggestions were found\nfor ',
       name: 'noSuggestionsMatch',
       desc: '',
-      args: [query],
+      args: [],
+    );
+  }
+
+  /// `Recent searches`
+  String get recentSearches {
+    return Intl.message(
+      'Recent searches',
+      name: 'recentSearches',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Suggestions`
+  String get suggestions {
+    return Intl.message(
+      'Suggestions',
+      name: 'suggestions',
+      desc: '',
+      args: [],
     );
   }
 }
