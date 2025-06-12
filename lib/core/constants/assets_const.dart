@@ -66,6 +66,8 @@ class AssetsConst {
   static const String eye = '${_outlineIconsPath}eye$_svg';
   static const String chevronRight = '${_outlineIconsPath}chevron_right$_svg';
   static const String close = '${_outlineIconsPath}close$_svg';
+  static const String idea = '${_outlineIconsPath}idea$_svg';
+  static const String searchList = '${_outlineIconsPath}search_list$_svg';
 
   /// `Colored Icons`
   static const String facebook = '${_coloredIconsPath}facebook$_svg';

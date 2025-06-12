@@ -920,16 +920,6 @@ class FlutterIntl {
     );
   }
 
-  /// `Recent searches`
-  String get recentSearches {
-    return Intl.message(
-      'Recent searches',
-      name: 'recentSearches',
-      desc: '',
-      args: [],
-    );
-  }
-
   /// `Suggestions`
   String get suggestions {
     return Intl.message(

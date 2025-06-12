@@ -126,8 +126,6 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Re-enter your password"),
         "readMore": MessageLookupByLibrary.simpleMessage("Read more"),
         "recent": MessageLookupByLibrary.simpleMessage("Recent"),
-        "recentSearches":
-            MessageLookupByLibrary.simpleMessage("Recent searches"),
         "rememberMe": MessageLookupByLibrary.simpleMessage("Remember me"),
         "remove": MessageLookupByLibrary.simpleMessage("Remove"),
         "removeFromCart":
