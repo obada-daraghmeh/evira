@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../constants/assets_const.dart';
 import '../../controllers/wishlist/wishlist_cubit.dart';
+import '../../utils/extensions/intl_extension.dart';
 import '../../utils/extensions/theme_extension.dart';
 import '../widgets/custom_icon.dart';
 
@@ -33,6 +34,9 @@ class FavoriteButton extends StatelessWidget {
           customColor: context.colorScheme.onPrimary,
         ),
       ),
+      tooltip: isFavorite
+          ? context.l10n.removeFromWishlist
+          : context.l10n.addToWishlist,
       style: IconButton.styleFrom(backgroundColor: context.colorScheme.primary),
     );
   }

@@ -81,9 +81,12 @@ class _ProductSectionImageState extends State<ProductSectionImage> {
               controller: _pageController,
               itemCount: widget.product.images.length,
               onPageChanged: (index) => setState(() => _currentPage = index),
-              itemBuilder: (_, index) => CustomNetworkImage(
-                imageUrl: widget.product.images[index],
-                fit: BoxFit.contain,
+              itemBuilder: (_, index) => Hero(
+                tag: widget.product.thumbnailUrl,
+                child: CustomNetworkImage(
+                  imageUrl: widget.product.images[index],
+                  fit: BoxFit.contain,
+                ),
               ),
             ),
           ),

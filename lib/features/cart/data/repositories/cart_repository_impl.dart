@@ -8,12 +8,12 @@ import '../datasources/cart_remote_data_source.dart';
 import '../models/cart_model.dart';
 
 class CartRepositoryImpl implements CartRepository {
+  final _remoteDataSource = getIt<CartRemoteDataSource>();
+
   @override
   Future<Either<Failure, Unit>> addToCart({required Cart cart}) async {
     try {
-      await getIt<CartRemoteDataSource>().addToCart(
-        cartModel: CartModel.fromEntity(cart),
-      );
+      await _remoteDataSource.addToCart(cartModel: CartModel.fromEntity(cart));
       return Right(unit);
     } catch (e) {
       return Left(ServerFailure(e.toString()));
@@ -25,9 +25,7 @@ class CartRepositoryImpl implements CartRepository {
     required String userId,
   }) async {
     try {
-      final response = await getIt<CartRemoteDataSource>().getCartItems(
-        userId: userId,
-      );
+      final response = await _remoteDataSource.getCartItems(userId: userId);
       return Right(response);
     } catch (e) {
       return Left(ServerFailure(e.toString()));
@@ -37,7 +35,7 @@ class CartRepositoryImpl implements CartRepository {
   @override
   Future<Either<Failure, Unit>> removeFromCart({required String id}) async {
     try {
-      await getIt<CartRemoteDataSource>().removeFromCart(id: id);
+      await _remoteDataSource.removeFromCart(id: id);
       return Right(unit);
     } catch (e) {
       return Left(ServerFailure(e.toString()));

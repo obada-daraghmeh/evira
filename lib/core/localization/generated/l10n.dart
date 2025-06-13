@@ -939,6 +939,26 @@ class FlutterIntl {
       args: [],
     );
   }
+
+  /// `Remove From Wishlist`
+  String get removeFromWishlist {
+    return Intl.message(
+      'Remove From Wishlist',
+      name: 'removeFromWishlist',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add to Wishlist`
+  String get addToWishlist {
+    return Intl.message(
+      'Add to Wishlist',
+      name: 'addToWishlist',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<FlutterIntl> {

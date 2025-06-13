@@ -22,12 +22,12 @@ class SearchRemoteDataSourceImpl implements SearchRemoteDataSource {
       final response = await _client
           .from(BackendConst.products)
           .select('''
-          *,
-          colors (
-            hex_code, name,
-            images (image_url)
-          ),
-          sizes (size)
+            *,
+            colors (
+              hex_code, name,
+              images (image_url)
+            ),
+            sizes (size)
           ''')
           .ilike('title', '%$title%');
 

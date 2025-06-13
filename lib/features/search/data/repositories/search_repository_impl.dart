@@ -8,14 +8,15 @@ import '../datasources/search_local_data_source.dart';
 import '../datasources/search_remote_data_source.dart';
 
 class SearchRepositoryImpl implements SearchRepository {
+  final _remoteDataSource = getIt<SearchRemoteDataSource>();
+  final _localDataSource = getIt<SearchLocalDataSource>();
+
   @override
   Future<Either<Failure, List<Product>>> searchByTitle({
     required String title,
   }) async {
     try {
-      final response = await getIt<SearchRemoteDataSource>().searchByTitle(
-        title: title,
-      );
+      final response = await _remoteDataSource.searchByTitle(title: title);
       return Right(response);
     } catch (e) {
       return Left(ServerFailure(e.toString()));
@@ -25,7 +26,7 @@ class SearchRepositoryImpl implements SearchRepository {
   @override
   Future<Either<Failure, List<String>>> get suggestions async {
     try {
-      final response = await getIt<SearchRemoteDataSource>().suggestions;
+      final response = await _remoteDataSource.suggestions;
       return Right(response);
     } catch (e) {
       return Left(ServerFailure(e.toString()));
@@ -35,7 +36,7 @@ class SearchRepositoryImpl implements SearchRepository {
   @override
   Future<Either<Failure, Unit>> addToHistory({required String title}) async {
     try {
-      await getIt<SearchLocalDataSource>().addToHistory(title: title);
+      await _localDataSource.addToHistory(title: title);
       return Right(unit);
     } catch (e) {
       return Left(ServerFailure(e.toString()));
@@ -45,7 +46,7 @@ class SearchRepositoryImpl implements SearchRepository {
   @override
   Future<Either<Failure, Unit>> get clearHistory async {
     try {
-      await getIt<SearchLocalDataSource>().clearHistory;
+      await _localDataSource.clearHistory;
       return Right(unit);
     } catch (e) {
       return Left(ServerFailure(e.toString()));
@@ -57,7 +58,7 @@ class SearchRepositoryImpl implements SearchRepository {
     required String title,
   }) async {
     try {
-      await getIt<SearchLocalDataSource>().deleteFromHistory(title: title);
+      await _localDataSource.deleteFromHistory(title: title);
       return Right(unit);
     } catch (e) {
       return Left(ServerFailure(e.toString()));
@@ -67,7 +68,7 @@ class SearchRepositoryImpl implements SearchRepository {
   @override
   Future<Either<Failure, List<String>>> get fetchHistory async {
     try {
-      final response = await getIt<SearchLocalDataSource>().fetchHistory;
+      final response = await _localDataSource.fetchHistory;
       return Right(response);
     } catch (e) {
       return Left(ServerFailure(e.toString()));

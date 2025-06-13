@@ -20,7 +20,7 @@ class EmptyMessage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Column(
-        spacing: context.spacing.s24,
+        spacing: context.spacing.s12,
         mainAxisSize: MainAxisSize.min,
         children: [
           CustomIcon(icon: icon, isColoredIcon: true, size: iconSize ?? 100),

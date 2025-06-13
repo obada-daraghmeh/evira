@@ -10,28 +10,24 @@ final logger = Logger();
 
 abstract class CartRemoteDataSource {
   Future<Unit> addToCart({required CartModel cartModel});
-
   Future<List<CartModel>> getCartItems({required String userId});
-
   Future<Unit> removeFromCart({required String id});
 }
 
 class CartRemoteDataSourceImpl implements CartRemoteDataSource {
   final SupabaseClient _client;
-
   const CartRemoteDataSourceImpl(this._client);
 
   @override
   Future<Unit> addToCart({required CartModel cartModel}) async {
     try {
-      final existing = await _client
-          .from(BackendConst.cartItems)
-          .select()
-          .eq('user_id', cartModel.userId)
-          .eq('product_id', cartModel.productId)
-          .eq('size', cartModel.size)
-          .eq('color', cartModel.color)
-          .maybeSingle();
+      final existing =
+          await _client.from(BackendConst.cartItems).select().match({
+            'user_id': cartModel.userId,
+            'product_id': cartModel.productId,
+            'size': cartModel.size,
+            'color': cartModel.color,
+          }).maybeSingle();
 
       if (existing != null) {
         final existingQty = existing['quantity'] as int;
@@ -64,9 +60,19 @@ class CartRemoteDataSourceImpl implements CartRemoteDataSource {
     try {
       final response = await _client
           .from(BackendConst.cartItems)
-          .select(
-            '*, products(title, price, discount, thumbnail_url, colors(hex_code, images(image_url)))',
-          )
+          .select('''
+            *,
+            products(
+              title,
+              price,
+              discount,
+              thumbnail_url,
+              colors (
+                hex_code,
+                images(image_url)
+              )
+            )
+          ''')
           .eq('user_id', userId)
           .order('created_at', ascending: false);
 

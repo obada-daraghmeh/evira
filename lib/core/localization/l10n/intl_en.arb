@@ -87,5 +87,7 @@
   "clear": "Clear",
   "noSuggestionsMatch": "No matching suggestions were found\nfor ",
   "suggestions": "Suggestions",
-  "emptyWishlist": "Your wishlist is empty — time to add something you love!"
+  "emptyWishlist": "Your wishlist is empty — time to add something you love!",
+  "removeFromWishlist": "Remove From Wishlist",
+  "addToWishlist": "Add to Wishlist"
 }

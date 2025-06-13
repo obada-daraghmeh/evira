@@ -8,6 +8,7 @@ import '../datasources/product_remote_data_source.dart';
 
 class ProductRepositoryImpl implements ProductRepository {
   final _remoteDataSource = getIt<ProductRemoteDataSource>();
+
   @override
   Future<Either<Failure, List<Product>>> get products async {
     try {

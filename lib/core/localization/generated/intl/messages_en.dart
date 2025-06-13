@@ -50,6 +50,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "accountCreationFailedMessage": MessageLookupByLibrary.simpleMessage(
             "Account creation failed. Please check your email to confirm your account or try again later."),
         "addToCart": MessageLookupByLibrary.simpleMessage("Add to Cart"),
+        "addToWishlist":
+            MessageLookupByLibrary.simpleMessage("Add to Wishlist"),
         "address": MessageLookupByLibrary.simpleMessage("Address"),
         "afternoon": MessageLookupByLibrary.simpleMessage("Afternoon"),
         "avatar": MessageLookupByLibrary.simpleMessage("Avatar"),
@@ -132,6 +134,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "remove": MessageLookupByLibrary.simpleMessage("Remove"),
         "removeFromCart":
             MessageLookupByLibrary.simpleMessage("Remove From Cart?"),
+        "removeFromWishlist":
+            MessageLookupByLibrary.simpleMessage("Remove From Wishlist"),
         "search": MessageLookupByLibrary.simpleMessage("Search"),
         "security": MessageLookupByLibrary.simpleMessage("Security"),
         "seeAll": MessageLookupByLibrary.simpleMessage("See all"),

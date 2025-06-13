@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/controllers/product/product_bloc.dart';
-import '../../../../core/shared/components/error_message.dart';
+import '../../../../core/shared/components/empty_product_message.dart';
 import '../../../../core/shared/components/grid_view_generate.dart';
 import '../../../../core/shared/components/product_card.dart';
 import '../../../../core/shared/components/product_card_skeleton.dart';
@@ -40,7 +40,7 @@ class ProductSection extends StatelessWidget {
           );
         }
 
-        return const ErrorMessage();
+        return const EmptyProductMessage();
       },
     );
   }

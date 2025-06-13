@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/constants/assets_const.dart';
 import '../../../../core/services/get_it_service.dart';
 import '../../../../core/shared/components/base_app_bar.dart';
-import '../../../../core/shared/components/empty_message.dart';
+import '../../../../core/shared/components/empty_product_message.dart';
 import '../../../../core/shared/components/grid_view_generate.dart';
 import '../../../../core/shared/components/product_card.dart';
 import '../../../../core/shared/components/product_card_skeleton.dart';
@@ -67,10 +67,7 @@ class CategoryProductsPage extends StatelessWidget {
                 );
               }
 
-              return EmptyMessage(
-                icon: AssetsConst.emptyBox,
-                message: context.l10n.emptyProductMsg,
-              );
+              return const EmptyProductMessage();
             },
           ),
         ),

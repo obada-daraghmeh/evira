@@ -75,7 +75,7 @@ class AssetsConst {
   static const String google = '${_coloredIconsPath}google$_svg';
   static const String apple = '${_coloredIconsPath}apple$_svg';
   static const String starBulk = '${_coloredIconsPath}star_bulk$_svg';
-  static const String emptyBox = '${_coloredIconsPath}empty_box$_svg';
   static const String emptyCart = '${_coloredIconsPath}empty_cart$_svg';
   static const String emptySearch = '${_coloredIconsPath}empty_search$_svg';
+  static const String empty = '${_coloredIconsPath}empty$_svg';
 }

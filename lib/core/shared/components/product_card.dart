@@ -23,11 +23,7 @@ class ProductCard extends StatelessWidget {
           spacing: context.spacing.s8,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            ProductImageWithFavorite(
-              imageUrl: product.thumbnailUrl,
-              discount: product.discount,
-              productId: product.id,
-            ),
+            ProductImageWithFavorite(product: product),
             ProductInfo(product: product),
           ],
         ),

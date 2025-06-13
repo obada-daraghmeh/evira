@@ -24,14 +24,14 @@ class CategoryProductsRemoteDataSourceImpl
       final response = await _client
           .from(BackendConst.products)
           .select('''
-          *,
-          colors (
-            hex_code, name,
-            images (image_url)
-          ),
-          sizes (size)
+            *,
+            colors (
+              hex_code, name,
+              images (image_url)
+            ),
+            sizes (size)
           ''')
-          .match({'category_id': categoryId});
+          .eq('category_id', categoryId);
 
       return response.map((json) => ProductModel.fromJson(json)).toList();
     } on PostgrestException catch (e) {
