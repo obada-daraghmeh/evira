@@ -76,6 +76,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Your cart is empty — time to add something you love!"),
         "emptyProductMsg": MessageLookupByLibrary.simpleMessage(
             "Still empty — but your next great find is closer than you think."),
+        "emptyWishlist": MessageLookupByLibrary.simpleMessage(
+            "Your wishlist is empty — time to add something you love!"),
         "enterYourField": m3,
         "fetchUserFailedMessage": MessageLookupByLibrary.simpleMessage(
             "Unable to retrieve user data. Please try again."),

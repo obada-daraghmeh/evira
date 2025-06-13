@@ -32,6 +32,7 @@ class AssetsConst {
   static const String checkInSquareBold =
       '${_boldIconsPath}check_in_square_bold$_svg';
   static const String homeBold = '${_boldIconsPath}home_bold$_svg';
+  static const String heartBold = '${_boldIconsPath}heart_bold$_svg';
   static const String orderBold = '${_boldIconsPath}order_bold$_svg';
   static const String cartBold = '${_boldIconsPath}cart_bold$_svg';
   static const String walletBold = '${_boldIconsPath}wallet_bold$_svg';

@@ -8,6 +8,7 @@ import 'package:toastification/toastification.dart';
 import 'core/controllers/auth_status/auth_status_cubit.dart';
 import 'core/controllers/cart/cart_bloc.dart';
 import 'core/controllers/theme_mode/theme_mode_cubit.dart';
+import 'core/controllers/wishlist/wishlist_cubit.dart';
 import 'core/localization/generated/l10n.dart';
 import 'core/routers/go_router.dart';
 import 'core/services/get_it_service.dart';
@@ -29,6 +30,7 @@ Future<void> main() async {
         BlocProvider(create: (_) => getIt<AuthStatusCubit>()),
         BlocProvider(create: (_) => getIt<AuthBloc>()..add(AuthCheckStatus())),
         BlocProvider(create: (_) => getIt<CartBloc>()),
+        BlocProvider(create: (_) => getIt<WishlistCubit>()..fetchWishlist),
       ],
       child: const MyApp(),
     ),

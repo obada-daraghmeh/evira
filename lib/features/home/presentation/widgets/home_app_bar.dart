@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../core/constants/assets_const.dart';
+import '../../../../core/constants/routes_const.dart';
 import '../../../../core/shared/components/avatar.dart';
 import '../../../../core/shared/components/search_text_field.dart';
 import '../../../../core/shared/widgets/custom_icon.dart';
@@ -66,7 +68,7 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
           ),
           IconButton(
             icon: const CustomIcon(icon: AssetsConst.heart),
-            onPressed: () => debugPrint('Wishlist pressed'),
+            onPressed: () => context.pushNamed(RoutesConst.wishlist),
             tooltip: context.l10n.wishlist,
           ),
         ],

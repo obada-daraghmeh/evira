@@ -4,6 +4,7 @@ class BackendConst {
   static const String categories = 'categories';
   static const String products = 'products';
   static const String cartItems = 'cart_items';
+  static const String wishlist = 'wishlist';
 
   /// `Buckets`
   static const String avatarsBucket = 'avatars';

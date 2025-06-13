@@ -26,6 +26,7 @@ class ProductCard extends StatelessWidget {
             ProductImageWithFavorite(
               imageUrl: product.thumbnailUrl,
               discount: product.discount,
+              productId: product.id,
             ),
             ProductInfo(product: product),
           ],

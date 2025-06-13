@@ -929,6 +929,16 @@ class FlutterIntl {
       args: [],
     );
   }
+
+  /// `Your wishlist is empty — time to add something you love!`
+  String get emptyWishlist {
+    return Intl.message(
+      'Your wishlist is empty — time to add something you love!',
+      name: 'emptyWishlist',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<FlutterIntl> {

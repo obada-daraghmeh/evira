@@ -33,6 +33,7 @@ import '../../features/product/data/datasources/product_remote_data_source.dart'
 import '../../features/product/data/repositories/product_repository_impl.dart';
 import '../../features/product/domain/repositories/product_repository.dart';
 import '../../features/product/domain/usecases/fetch_products.dart';
+import '../../features/product/domain/usecases/fetch_products_by_ids.dart';
 import '../../features/product_details/presentation/controllers/color/color_cubit.dart';
 import '../../features/product_details/presentation/controllers/size/size_cubit.dart';
 import '../../features/profile/data/datasources/profile_local_data_source.dart';
@@ -55,6 +56,12 @@ import '../../features/search/domain/usecases/delete_from_history.dart';
 import '../../features/search/domain/usecases/fetch_history.dart';
 import '../../features/search/domain/usecases/fetch_suggestions.dart';
 import '../../features/search/domain/usecases/search_by_title.dart';
+import '../../features/wishlist/data/datasources/wishlist_remote_data_source.dart';
+import '../../features/wishlist/data/repositories/wishlist_repository_impl.dart';
+import '../../features/wishlist/domain/repositories/wishlist_repository.dart';
+import '../../features/wishlist/domain/usecases/add_to_wishlist.dart';
+import '../../features/wishlist/domain/usecases/fetch_wishlist.dart';
+import '../../features/wishlist/domain/usecases/remove_from_wishlist.dart';
 import '../controllers/auth_status/auth_status_cubit.dart';
 import '../controllers/cart/cart_bloc.dart';
 import '../controllers/category/category_bloc.dart';
@@ -62,6 +69,7 @@ import '../controllers/product/product_bloc.dart';
 import '../controllers/quantity/quantity_cubit.dart';
 import '../controllers/search/search_bloc.dart';
 import '../controllers/theme_mode/theme_mode_cubit.dart';
+import '../controllers/wishlist/wishlist_cubit.dart';
 import 'storage_service.dart';
 
 final getIt = GetIt.instance;
@@ -112,6 +120,9 @@ class GetItService {
       )
       ..registerFactory<SearchLocalDataSource>(
         () => SearchLocalDataSourceImpl(),
+      )
+      ..registerFactory<WishlistRemoteDataSource>(
+        () => WishlistRemoteDataSourceImpl(getIt()),
       );
   }
 
@@ -126,7 +137,8 @@ class GetItService {
       )
       ..registerFactory<CartRepository>(() => CartRepositoryImpl())
       ..registerFactory<ProfileRepository>(() => ProfileRepositoryImpl())
-      ..registerFactory<SearchRepository>(() => SearchRepositoryImpl());
+      ..registerFactory<SearchRepository>(() => SearchRepositoryImpl())
+      ..registerFactory<WishlistRepository>(() => WishlistRepositoryImpl());
   }
 
   void get _initUseCases {
@@ -166,7 +178,15 @@ class GetItService {
       ..registerFactory<DeleteFromHistoryUseCase>(
         () => DeleteFromHistoryUseCase(),
       )
-      ..registerFactory<ClearHistoryUseCase>(() => ClearHistoryUseCase());
+      ..registerFactory<ClearHistoryUseCase>(() => ClearHistoryUseCase())
+      ..registerFactory<FetchWishlistUseCase>(() => FetchWishlistUseCase())
+      ..registerFactory<AddToWishlistUseCase>(() => AddToWishlistUseCase())
+      ..registerFactory<RemoveFromWishlistUseCase>(
+        () => RemoveFromWishlistUseCase(),
+      )
+      ..registerFactory<FetchProductsByIdsUseCase>(
+        () => FetchProductsByIdsUseCase(),
+      );
   }
 
   void get _initBlocs {
@@ -184,6 +204,7 @@ class GetItService {
       ..registerFactory<CartBloc>(() => CartBloc())
       ..registerFactory<ProfileBloc>(() => ProfileBloc())
       ..registerFactory<MenuOptionCubit>(() => MenuOptionCubit())
-      ..registerFactory<SearchBloc>(() => SearchBloc());
+      ..registerFactory<SearchBloc>(() => SearchBloc())
+      ..registerFactory<WishlistCubit>(() => WishlistCubit());
   }
 }

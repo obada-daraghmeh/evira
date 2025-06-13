@@ -12,6 +12,7 @@ class RoutesConst {
   static const productDetails = 'productDetails';
   static const editProfile = 'editProfile';
   static const settings = 'settings';
+  static const wishlist = 'wishlist';
 }
 
 class PathsConst {
@@ -28,4 +29,5 @@ class PathsConst {
   static const productDetails = '/product_details';
   static const editProfile = '/edit_profile';
   static const settings = '/settings';
+  static const wishlist = '/wishlist';
 }

@@ -1,20 +1,21 @@
 import 'package:flutter/material.dart';
 
-import '../../../constants/assets_const.dart';
 import '../../../utils/extensions/constants_extension.dart';
 import '../../../utils/extensions/intl_extension.dart';
 import '../../../utils/extensions/media_query_extension.dart';
 import '../../../utils/extensions/theme_extension.dart';
 import '../../../utils/helpers/product_helpers.dart';
-import '../../widgets/custom_icon.dart';
 import '../../widgets/custom_network_image.dart';
+import '../favorite_button.dart';
 
 class ProductImageWithFavorite extends StatelessWidget {
+  final String productId;
   final String imageUrl;
   final double discount;
 
   const ProductImageWithFavorite({
     super.key,
+    required this.productId,
     required this.imageUrl,
     this.discount = 0.0,
   });
@@ -49,16 +50,7 @@ class ProductImageWithFavorite extends StatelessWidget {
     return Positioned(
       top: context.spacing.s8,
       right: context.spacing.s8,
-      child: IconButton.filled(
-        onPressed: () => debugPrint('favorite pressed'),
-        icon: CustomIcon(
-          icon: AssetsConst.heart,
-          customColor: context.colorScheme.onPrimary,
-        ),
-        style: IconButton.styleFrom(
-          backgroundColor: context.colorScheme.primary,
-        ),
-      ),
+      child: FavoriteButton(productId: productId),
     );
   }
 
