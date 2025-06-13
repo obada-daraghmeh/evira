@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/constants/assets_const.dart';
+import '../../../../core/shared/components/favorite_button.dart';
 import '../../../../core/shared/components/partials/rating_and_reviews.dart';
 import '../../../../core/shared/components/partials/sales_number_chip.dart';
 import '../../../../core/shared/features/entities/product.dart';
-import '../../../../core/shared/widgets/custom_icon.dart';
 import '../../../../core/utils/extensions/constants_extension.dart';
 import '../../../../core/utils/extensions/theme_extension.dart';
 
@@ -27,10 +26,7 @@ class ProductSectionInfo extends StatelessWidget {
                 ),
               ),
             ),
-            IconButton(
-              onPressed: () => debugPrint('favorite pressed'),
-              icon: const CustomIcon(icon: AssetsConst.heart),
-            ),
+            FavoriteButton(productId: product.id),
           ],
         ),
         Row(
