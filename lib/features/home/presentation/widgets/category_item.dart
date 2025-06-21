@@ -44,7 +44,7 @@ class CategoryItem extends StatelessWidget {
             ),
           ),
           Text(
-            Formatter.upperFirst(category.localizedName('en')),
+            Formatter.upperFirst(category.getLocalizedName('en')),
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
             style: context.textTheme.bodyLarge?.copyWith(

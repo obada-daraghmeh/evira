@@ -1,45 +1,26 @@
 import 'package:equatable/equatable.dart';
 
-import '../../../utils/helpers/locale_helper.dart';
+import '../../../../core/utils/helpers/locale_helper.dart';
 
-class Category extends Equatable {
+class Brand extends Equatable {
   final String id;
-  final String? parentId;
   final Map<String, dynamic> name;
   final String slug;
   final Map<String, dynamic>? description;
-  final int? sortOrder;
   final bool? isActive;
-  final bool? isFeatured;
-  final String iconUrl;
-  final String? imageUrl;
+  final String logoUrl;
 
-  const Category({
+  const Brand({
     required this.id,
-    this.parentId,
     required this.name,
     required this.slug,
     this.description,
-    this.sortOrder,
     this.isActive,
-    this.isFeatured,
-    required this.iconUrl,
-    this.imageUrl,
+    required this.logoUrl,
   });
 
   @override
-  List<Object?> get props => [
-    id,
-    parentId,
-    name,
-    slug,
-    description,
-    sortOrder,
-    isActive,
-    isFeatured,
-    iconUrl,
-    imageUrl,
-  ];
+  List<Object?> get props => [id, name, slug, description, isActive, logoUrl];
 
   String getLocalizedName(String locale) =>
       LocaleHelper.localizedValue(name, locale);

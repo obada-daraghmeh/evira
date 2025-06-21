@@ -8,6 +8,11 @@ import '../../features/auth/domain/usecases/sign_in.dart';
 import '../../features/auth/domain/usecases/sign_out.dart';
 import '../../features/auth/domain/usecases/sign_up.dart';
 import '../../features/auth/presentation/bloc/auth_bloc.dart';
+import '../../features/brand/data/datasources/brand_remote_data_source.dart';
+import '../../features/brand/data/repositories/brand_repository_impl.dart';
+import '../../features/brand/domain/repositories/brand_repository.dart';
+import '../../features/brand/domain/usecases/fetch_brands.dart';
+import '../../features/brand/presentation/bloc/brand_bloc.dart';
 import '../../features/cart/data/datasources/cart_remote_data_source.dart';
 import '../../features/cart/data/repositories/cart_repository_impl.dart';
 import '../../features/cart/domain/repositories/cart_repository.dart';
@@ -97,6 +102,9 @@ class GetItService {
       ..registerFactory<CategoryRemoteDataSource>(
         () => CategoryRemoteDataSourceImpl(getIt()),
       )
+      ..registerFactory<BrandRemoteDataSource>(
+        () => BrandRemoteDataSourceImpl(getIt()),
+      )
       ..registerFactory<ProductRemoteDataSource>(
         () => ProductRemoteDataSourceImpl(getIt()),
       )
@@ -131,6 +139,7 @@ class GetItService {
       ..registerFactory<AuthRepository>(() => AuthRepositoryImpl())
       ..registerFactory<NavigationRepository>(() => NavigationRepositoryImpl())
       ..registerFactory<CategoryRepository>(() => CategoryRepositoryImpl())
+      ..registerFactory<BrandRepository>(() => BrandRepositoryImpl())
       ..registerFactory<ProductRepository>(() => ProductRepositoryImpl())
       ..registerFactory<CategoryProductsRepository>(
         () => CategoryProductsRepositoryImpl(),
@@ -152,6 +161,7 @@ class GetItService {
         () => FetchBottomBarItemsUseCase(),
       )
       ..registerFactory<FetchCategoriesUseCase>(() => FetchCategoriesUseCase())
+      ..registerFactory<FetchBrandsUseCase>(() => FetchBrandsUseCase())
       ..registerFactory<FetchProductsUseCase>(() => FetchProductsUseCase())
       ..registerFactory<FetchProductsByCategoryUseCase>(
         () => FetchProductsByCategoryUseCase(),
@@ -196,6 +206,7 @@ class GetItService {
       ..registerLazySingleton<AuthStatusCubit>(() => AuthStatusCubit())
       ..registerFactory<NavigationCubit>(() => NavigationCubit())
       ..registerLazySingleton<CategoryBloc>(() => CategoryBloc())
+      ..registerLazySingleton<BrandBloc>(() => BrandBloc())
       ..registerLazySingleton<ProductBloc>(() => ProductBloc())
       ..registerFactory<CategoryProductsBloc>(() => CategoryProductsBloc())
       ..registerFactory<QuantityCubit>(() => QuantityCubit())
