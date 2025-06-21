@@ -29,7 +29,7 @@ class CategoryProductsPage extends StatelessWidget {
 
       child: Scaffold(
         appBar: BaseAppBar(
-          title: category.name,
+          title: category.name.entries.first.value,
           actions: [
             IconButton(
               onPressed: () => debugPrint('Search pressed'),

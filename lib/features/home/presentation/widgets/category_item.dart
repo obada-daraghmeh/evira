@@ -36,7 +36,7 @@ class CategoryItem extends StatelessWidget {
                   BlendMode.srcIn,
                 ),
                 child: CustomNetworkImage(
-                  imageUrl: category.imageUrl,
+                  imageUrl: category.iconUrl,
                   skeltonBorderRadius: context.spacing.s50,
                   size: context.iconSize.lg,
                 ),
@@ -44,7 +44,7 @@ class CategoryItem extends StatelessWidget {
             ),
           ),
           Text(
-            Formatter.upperFirst(category.name),
+            Formatter.upperFirst(category.localizedName('en')),
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
             style: context.textTheme.bodyLarge?.copyWith(
