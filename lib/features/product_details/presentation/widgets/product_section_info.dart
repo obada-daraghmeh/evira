@@ -20,7 +20,7 @@ class ProductSectionInfo extends StatelessWidget {
           children: [
             Expanded(
               child: Text(
-                product.title,
+                product.getLocalizedName('en'),
                 style: context.textTheme.titleLarge?.copyWith(
                   fontWeight: FontWeight.bold,
                 ),
@@ -32,7 +32,8 @@ class ProductSectionInfo extends StatelessWidget {
         Row(
           spacing: context.spacing.s16,
           children: [
-            SalesNumberChip(count: product.salesNumber),
+            SalesNumberChip(count: 0),
+            // SalesNumberChip(count: product.salesNumber),
             const RatingAndReviews(
               rating: 4.5,
               hasReviews: true,

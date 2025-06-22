@@ -11,10 +11,7 @@ import '../../../../core/utils/extensions/auth_state_extension.dart';
 import '../../../../core/utils/extensions/constants_extension.dart';
 import '../../../../core/utils/extensions/intl_extension.dart';
 import '../../../../core/utils/extensions/theme_extension.dart';
-import '../../../../core/utils/helpers/show_toast.dart';
 import '../../../cart/domain/entities/cart.dart';
-import '../controllers/color/color_cubit.dart';
-import '../controllers/size/size_cubit.dart';
 
 class ProductSectionAddToCart extends StatelessWidget {
   final Product product;
@@ -23,26 +20,26 @@ class ProductSectionAddToCart extends StatelessWidget {
   void _handleAddToCart(BuildContext context) {
     final cartBloc = context.read<CartBloc>();
     final quantity = context.read<QuantityCubit>().state.quantity;
-    final sizeIndex = context.read<SizeCubit>().state.index;
-    final colorIndex = context.read<ColorCubit>().state.index;
+    // final sizeIndex = context.read<SizeCubit>().state.index;
+    // final colorIndex = context.read<ColorCubit>().state.index;
 
-    final isValidSize = sizeIndex >= 0 && sizeIndex < product.sizes.length;
-    final isValidColor = colorIndex >= 0 && colorIndex < product.colors.length;
+    // final isValidSize = sizeIndex >= 0 && sizeIndex < product.sizes.length;
+    // final isValidColor = colorIndex >= 0 && colorIndex < product.colors.length;
 
-    if (!isValidSize || !isValidColor) {
-      ShowToast.showErrorToast(message: 'Please select size and color');
-      return;
-    }
+    // if (!isValidSize || !isValidColor) {
+    //   ShowToast.showErrorToast(message: 'Please select size and color');
+    //   return;
+    // }
 
-    final selectedSize = product.sizes[sizeIndex].size;
-    final selectedColor = product.colors[colorIndex].hexCode;
+    // final selectedSize = product.sizes[sizeIndex].size;
+    // final selectedColor = product.colors[colorIndex].hexCode;
 
     final cartItem = Cart(
       userId: context.currentUser.id,
       productId: product.id,
       quantity: quantity,
-      size: selectedSize,
-      color: selectedColor,
+      size: 'selectedSize',
+      color: 'selectedColor',
     );
 
     cartBloc.add(AddToCart(cart: cartItem));
@@ -56,7 +53,7 @@ class ProductSectionAddToCart extends StatelessWidget {
         children: [
           Expanded(
             flex: 1,
-            child: TotalPrice(price: product.price, discount: product.discount),
+            child: TotalPrice(price: product.basePrice, discount: 0),
           ),
           Expanded(
             flex: 2,

@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 
 import '../../../utils/extensions/constants_extension.dart';
-import '../../../utils/extensions/intl_extension.dart';
 import '../../../utils/extensions/media_query_extension.dart';
 import '../../../utils/extensions/theme_extension.dart';
-import '../../../utils/helpers/product_helpers.dart';
 import '../../features/entities/product.dart';
 import '../../widgets/custom_network_image.dart';
 import '../favorite_button.dart';
@@ -19,7 +17,7 @@ class ProductImageWithFavorite extends StatelessWidget {
       children: [
         _buildImageContainer(context),
         _buildFavoriteButton(context),
-        if (product.discount != 0.0) _buildDiscountRibbon(context),
+        // if (product.discount != 0.0) _buildDiscountRibbon(context),
       ],
     );
   }
@@ -36,9 +34,9 @@ class ProductImageWithFavorite extends StatelessWidget {
         borderRadius: context.borderRadius.borderRadius24,
       ),
       child: Hero(
-        tag: product.thumbnailUrl,
+        tag: product.imageCoverUrl,
         child: CustomNetworkImage(
-          imageUrl: product.thumbnailUrl,
+          imageUrl: product.imageCoverUrl,
           fit: BoxFit.cover,
         ),
       ),
@@ -53,26 +51,27 @@ class ProductImageWithFavorite extends StatelessWidget {
     );
   }
 
-  Positioned _buildDiscountRibbon(BuildContext context) {
-    return Positioned(
-      top: context.spacing.s8,
-      left: context.spacing.s8,
-      child: Container(
-        padding: context.padding.pH8,
-        decoration: BoxDecoration(
-          color: context.colorScheme.primary,
-          borderRadius: context.borderRadius.borderRadius8,
-        ),
-        child: Text(
-          context.l10n.discountPercent(
-            ProductHelpers.calcDiscount(product.discount),
-          ),
-          style: context.textTheme.bodySmall?.copyWith(
-            color: context.colorScheme.onPrimary,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-      ),
-    );
-  }
+  // Positioned _buildDiscountRibbon(BuildContext context) {
+  //   return Positioned(
+  //     top: context.spacing.s8,
+  //     left: context.spacing.s8,
+  //     child: Container(
+  //       padding: context.padding.pH8,
+  //       decoration: BoxDecoration(
+  //         color: context.colorScheme.primary,
+  //         borderRadius: context.borderRadius.borderRadius8,
+  //       ),
+  //       child: Text(
+  //         context.l10n.discountPercent(
+  //           0,
+  //           // ProductHelpers.calcDiscount(product.discount),
+  //         ),
+  //         style: context.textTheme.bodySmall?.copyWith(
+  //           color: context.colorScheme.onPrimary,
+  //           fontWeight: FontWeight.bold,
+  //         ),
+  //       ),
+  //     ),
+  //   );
+  // }
 }

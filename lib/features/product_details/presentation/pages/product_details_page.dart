@@ -18,7 +18,6 @@ import '../widgets/product_section_add_to_cart.dart';
 import '../widgets/product_section_description.dart';
 import '../widgets/product_section_image.dart';
 import '../widgets/product_section_info.dart';
-import '../widgets/product_section_variants.dart';
 
 class ProductDetailsPage extends StatelessWidget {
   final Product product;
@@ -54,12 +53,14 @@ class ProductDetailsPage extends StatelessWidget {
                 minChildSize: 0.42,
                 children: [
                   ProductSectionInfo(product: product),
-                  ProductSectionDescription(description: product.description),
-                  SizedBox(height: context.spacing.s16),
-                  ProductSectionVariants(
-                    sizes: product.sizes,
-                    colors: product.colors,
+                  ProductSectionDescription(
+                    description: product.getLocalizedDescription('en'),
                   ),
+                  SizedBox(height: context.spacing.s16),
+                  // ProductSectionVariants(
+                  //   sizes: product.sizes,
+                  //   colors: product.colors,
+                  // ),
                   SizedBox(height: context.spacing.s16),
                   const ProductQuantitySelector(),
                 ],

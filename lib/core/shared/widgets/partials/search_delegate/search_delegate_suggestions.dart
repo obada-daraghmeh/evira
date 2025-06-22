@@ -31,7 +31,7 @@ class SearchDelegateSuggestions extends StatelessWidget {
           return ListView.builder(
             itemCount: suggestions.length,
             itemBuilder: (context, index) {
-              final title = suggestions[index].title;
+              final title = suggestions[index].getLocalizedName('en');
               return ListTile(
                 title: HighlightText(query: query, title: title),
                 onTap: () => onTap(title),

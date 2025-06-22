@@ -6,7 +6,6 @@ import '../../../../core/shared/features/entities/product.dart';
 import '../../../../core/shared/widgets/custom_network_image.dart';
 import '../../../../core/utils/extensions/constants_extension.dart';
 import '../../../../core/utils/extensions/media_query_extension.dart';
-import '../../../../core/utils/helpers/product_helpers.dart';
 import '../controllers/color/color_cubit.dart';
 
 class ProductSectionImage extends StatefulWidget {
@@ -19,8 +18,8 @@ class ProductSectionImage extends StatefulWidget {
 
 class _ProductSectionImageState extends State<ProductSectionImage> {
   final PageController _pageController = PageController();
-  int _currentPage = 0;
-  int? _selectedColorIndex;
+  // int _currentPage = 0;
+  // int? _selectedColorIndex;
 
   @override
   void dispose() {
@@ -28,35 +27,36 @@ class _ProductSectionImageState extends State<ProductSectionImage> {
     super.dispose();
   }
 
-  void _onSelectedColor(int index) {
-    if (_selectedColorIndex == index) return;
+  // void _onSelectedColor(int index) {
+  //   if (_selectedColorIndex == index) return;
 
-    _selectedColorIndex = index;
-    final colorImages = widget.product.colors[index].images;
-    if (colorImages.isEmpty) return;
+  //   _selectedColorIndex = index;
+  //   // final colorImages = widget.product.colors[index].images;
+  //   // if (colorImages.isEmpty) return;
 
-    final targetIndex = widget.product.images.indexWhere(colorImages.contains);
-    if (targetIndex == -1) return;
+  //   // final targetIndex = widget.product.images.indexWhere(colorImages.contains);
+  //   // if (targetIndex == -1) return;
 
-    _pageController.animateToPage(
-      targetIndex,
-      duration: const Duration(milliseconds: 300),
-      curve: Curves.easeInOut,
-    );
+  //   // _pageController.animateToPage(
+  //   //   targetIndex,
+  //   //   duration: const Duration(milliseconds: 300),
+  //   //   curve: Curves.easeInOut,
+  //   // );
 
-    setState(() => _currentPage = targetIndex);
-  }
+  //   // setState(() => _currentPage = targetIndex);
+  // }
 
-  Color get _currentGlowColor {
-    final index = _selectedColorIndex ?? _currentPage;
-    final hex = widget.product.colors[index].hexCode;
-    return ProductHelpers.colorFromHexCode(hex).withValues(alpha: 0.4);
-  }
+  // Color get _currentGlowColor {
+  //   final index = _selectedColorIndex ?? _currentPage;
+  //   // final hex = widget.product.colors[index].hexCode;
+  //   // return ProductHelpers.colorFromHexCode(hex).withValues(alpha: 0.4);
+  // }
 
   @override
   Widget build(BuildContext context) {
     return BlocListener<ColorCubit, ColorState>(
-      listener: (_, state) => _onSelectedColor(state.index),
+      // listener: (_, state) => _onSelectedColor(state.index),
+      listener: (_, state) {},
       child: Stack(
         alignment: Alignment.bottomCenter,
         children: [
@@ -65,11 +65,11 @@ class _ProductSectionImageState extends State<ProductSectionImage> {
               duration: const Duration(milliseconds: 400),
               curve: Curves.easeInOut,
               decoration: BoxDecoration(
-                gradient: RadialGradient(
-                  colors: [_currentGlowColor, Colors.transparent],
-                  radius: 0.7,
-                  center: Alignment.center,
-                ),
+                // gradient: RadialGradient(
+                //   colors: [_currentGlowColor, Colors.transparent],
+                //   radius: 0.7,
+                //   center: Alignment.center,
+                // ),
               ),
             ),
           ),
@@ -78,23 +78,23 @@ class _ProductSectionImageState extends State<ProductSectionImage> {
             height: context.sWidth,
             padding: context.padding.pV48,
             child: PageView.builder(
-              controller: _pageController,
-              itemCount: widget.product.images.length,
-              onPageChanged: (index) => setState(() => _currentPage = index),
+              // controller: _pageController,
+              // itemCount: widget.product.images.length,
+              itemCount: 1,
+              // onPageChanged: (index) => setState(() => _currentPage = index),
               itemBuilder: (_, index) => Hero(
-                tag: widget.product.thumbnailUrl,
-                child: CustomNetworkImage(
-                  imageUrl: widget.product.images[index],
-                  fit: BoxFit.contain,
-                ),
+                tag: 'widget.product.thumbnailUrl',
+                child: CustomNetworkImage(imageUrl: '', fit: BoxFit.contain),
               ),
             ),
           ),
           Positioned(
             bottom: context.spacing.s16,
             child: DotsIndicator(
-              length: widget.product.images.length,
-              currentPage: _currentPage,
+              // length: widget.product.images.length,
+              length: 3,
+              // currentPage: _currentPage,
+              currentPage: 1,
             ),
           ),
         ],
