@@ -1,5 +1,7 @@
 import 'package:equatable/equatable.dart';
-import 'package:evira/core/utils/helpers/locale_helper.dart';
+
+import '../../../../features/product/domain/entities/product_variants.dart';
+import '../../../utils/helpers/locale_helper.dart';
 
 class Product extends Equatable {
   final String id;
@@ -12,6 +14,7 @@ class Product extends Equatable {
   final bool hasVariants;
   final bool? isActive;
   final String imageCoverUrl;
+  final List<ProductVariants>? variants;
 
   const Product({
     required this.id,
@@ -24,7 +27,14 @@ class Product extends Equatable {
     required this.hasVariants,
     this.isActive,
     required this.imageCoverUrl,
+    this.variants,
   });
+
+  String getLocalizedName(String locale) =>
+      LocaleHelper.localizedValue(name, locale);
+
+  String getLocalizedDescription(String locale) =>
+      LocaleHelper.localizedValue(description, locale);
 
   @override
   List<Object?> get props => [
@@ -38,11 +48,6 @@ class Product extends Equatable {
     hasVariants,
     isActive,
     imageCoverUrl,
+    variants,
   ];
-
-  String getLocalizedName(String locale) =>
-      LocaleHelper.localizedValue(name, locale);
-
-  String getLocalizedDescription(String locale) =>
-      LocaleHelper.localizedValue(description, locale);
 }

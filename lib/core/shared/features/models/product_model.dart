@@ -1,3 +1,4 @@
+import '../../../../features/product/data/models/product_variants_model.dart';
 import '../entities/product.dart';
 
 class ProductModel extends Product {
@@ -12,13 +13,19 @@ class ProductModel extends Product {
     required super.hasVariants,
     super.isActive,
     required super.imageCoverUrl,
+    super.variants,
   });
 
   factory ProductModel.fromJson(Map<String, dynamic> json) {
+    final variantJson = json['product_variants'] as List<dynamic>?;
+    final variants = variantJson
+        ?.map((v) => ProductVariantsModel.fromJson(v as Map<String, dynamic>))
+        .toList();
+
     return ProductModel(
       id: json['id'] as String,
       categoryId: json['category_id'] as String,
-      brandId: json['brand_id'] as String? ?? '',
+      brandId: json['brand_id'] as String?,
       name: json['name'] as Map<String, dynamic>,
       slug: json['slug'] as String,
       description: json['description'] as Map<String, dynamic>? ?? {},
@@ -26,6 +33,7 @@ class ProductModel extends Product {
       hasVariants: json['has_variants'] as bool,
       isActive: json['is_active'] as bool? ?? true,
       imageCoverUrl: json['image_cover_url'] as String,
+      variants: variants,
     );
   }
 }

@@ -57,6 +57,7 @@ class ProductDetailsPage extends StatelessWidget {
                     description: product.getLocalizedDescription('en'),
                   ),
                   SizedBox(height: context.spacing.s16),
+
                   // ProductSectionVariants(
                   //   sizes: product.sizes,
                   //   colors: product.colors,

@@ -14,13 +14,18 @@ class ProductRemoteDataSourceImpl implements ProductRemoteDataSource {
   const ProductRemoteDataSourceImpl(this._client);
 
   static String get _query => '''
+    id, category_id, brand_id, name, slug, description, 
+    base_price, is_active, has_variants, image_cover_url,
+    product_variants (
+      *,
+      variant_values (
+        attribute_values (
           *,
-          colors (
-            hex_code, name,
-            images (image_url)
-          ),
-          sizes (size)
-          ''';
+          attribute:attributes (*)
+        )
+      )
+    )
+  ''';
 
   @override
   Future<List<ProductModel>> get products async {
