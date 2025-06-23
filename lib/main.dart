@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:go_router/go_router.dart';
 import 'package:toastification/toastification.dart';
 
-import 'core/controllers/auth_status/auth_status_cubit.dart';
+import 'core/controllers/auth_status/auth_status_cubit.dart' hide Authenticated;
 import 'core/controllers/cart/cart_bloc.dart';
 import 'core/controllers/theme_mode/theme_mode_cubit.dart';
 import 'core/controllers/wishlist/wishlist_cubit.dart';
@@ -18,17 +19,29 @@ import 'core/utils/create_text_theme.dart';
 import 'features/auth/presentation/bloc/auth_bloc.dart';
 
 Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
+  WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+  FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
+
   await dotenv.load(fileName: ".env");
   await GetItService().init;
   Bloc.observer = AppBlocObserver();
+
+  final authBloc = getIt<AuthBloc>();
+  final authStatusCubit = getIt<AuthStatusCubit>();
+
+  authBloc.add(AuthCheckStatus());
+  await authBloc.stream.firstWhere(
+    (state) => state is Authenticated || state is Unauthenticated,
+  );
+
+  FlutterNativeSplash.remove();
 
   runApp(
     MultiBlocProvider(
       providers: [
         BlocProvider(create: (_) => getIt<ThemeModeCubit>()),
-        BlocProvider(create: (_) => getIt<AuthStatusCubit>()),
-        BlocProvider(create: (_) => getIt<AuthBloc>()..add(AuthCheckStatus())),
+        BlocProvider(create: (_) => authStatusCubit),
+        BlocProvider(create: (_) => authBloc),
         BlocProvider(create: (_) => getIt<CartBloc>()),
         BlocProvider(create: (_) => getIt<WishlistCubit>()..fetchWishlist),
       ],
