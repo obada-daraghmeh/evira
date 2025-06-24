@@ -11,7 +11,6 @@ import 'core/controllers/cart/cart_bloc.dart';
 import 'core/controllers/theme_mode/theme_mode_cubit.dart';
 import 'core/controllers/wishlist/wishlist_cubit.dart';
 import 'core/localization/generated/l10n.dart';
-import 'core/routers/go_router.dart';
 import 'core/services/get_it_service.dart';
 import 'core/theme/theme.dart';
 import 'core/utils/controllers/bloc_observer.dart';
@@ -61,7 +60,6 @@ class MyApp extends StatelessWidget {
       "Urbanist",
     );
     final MaterialTheme theme = MaterialTheme(textTheme);
-    final GoRouter router = createRouter(context.read<AuthStatusCubit>());
 
     return ToastificationWrapper(
       child: BlocBuilder<ThemeModeCubit, ThemeMode>(
@@ -71,7 +69,7 @@ class MyApp extends StatelessWidget {
             theme: theme.light(),
             darkTheme: theme.dark(),
             themeMode: themeMode,
-            routerConfig: router,
+            routerConfig: getIt<GoRouter>(),
             locale: const Locale('en'),
             localizationsDelegates: [
               FlutterIntl.delegate,

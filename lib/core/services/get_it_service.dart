@@ -1,4 +1,6 @@
+import 'package:evira/core/routers/go_router.dart';
 import 'package:get_it/get_it.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../features/auth/data/datasources/auth_remote_data_source.dart';
 import '../../features/auth/data/repositories/auth_repository_impl.dart';
@@ -86,6 +88,7 @@ class GetItService {
     _initRepositories;
     _initUseCases;
     _initBlocs;
+    getIt.registerSingleton<GoRouter>(createRouter(getIt<AuthStatusCubit>()));
   }
 
   Future<void> get _initStorages async {
