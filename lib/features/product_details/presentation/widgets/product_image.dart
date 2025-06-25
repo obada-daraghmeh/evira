@@ -8,15 +8,15 @@ import '../../../../core/utils/extensions/constants_extension.dart';
 import '../../../../core/utils/extensions/media_query_extension.dart';
 import '../controllers/color/color_cubit.dart';
 
-class ProductSectionImage extends StatefulWidget {
+class ProductImage extends StatefulWidget {
   final Product product;
-  const ProductSectionImage({super.key, required this.product});
+  const ProductImage({super.key, required this.product});
 
   @override
-  State<ProductSectionImage> createState() => _ProductSectionImageState();
+  State<ProductImage> createState() => _ProductImageState();
 }
 
-class _ProductSectionImageState extends State<ProductSectionImage> {
+class _ProductImageState extends State<ProductImage> {
   final PageController _pageController = PageController();
   // int _currentPage = 0;
   // int? _selectedColorIndex;

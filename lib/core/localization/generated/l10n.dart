@@ -550,26 +550,6 @@ class FlutterIntl {
     );
   }
 
-  /// `Sizes`
-  String get sizes {
-    return Intl.message(
-      'Sizes',
-      name: 'sizes',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Colors`
-  String get colors {
-    return Intl.message(
-      'Colors',
-      name: 'colors',
-      desc: '',
-      args: [],
-    );
-  }
-
   /// `Less`
   String get less {
     return Intl.message(
@@ -610,13 +590,13 @@ class FlutterIntl {
     );
   }
 
-  /// `Size = {size}`
-  String sizeSize(Object size) {
+  /// `{attribute} = {value}`
+  String attributeValue(Object attribute, Object value) {
     return Intl.message(
-      'Size = $size',
-      name: 'sizeSize',
+      '$attribute = $value',
+      name: 'attributeValue',
       desc: '',
-      args: [size],
+      args: [attribute, value],
     );
   }
 
@@ -871,16 +851,6 @@ class FlutterIntl {
   }
 
   /// `No results found`
-  String get noResultsFound {
-    return Intl.message(
-      'No results found',
-      name: 'noResultsFound',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `No results found`
   String get noResultsFoundTitle {
     return Intl.message(
       'No results found',
@@ -955,6 +925,66 @@ class FlutterIntl {
     return Intl.message(
       'Add to Wishlist',
       name: 'addToWishlist',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Select {attribute}`
+  String selectAttribute(Object attribute) {
+    return Intl.message(
+      'Select $attribute',
+      name: 'selectAttribute',
+      desc: '',
+      args: [attribute],
+    );
+  }
+
+  /// `Size`
+  String get size {
+    return Intl.message(
+      'Size',
+      name: 'size',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your Selection`
+  String get yourSelection {
+    return Intl.message(
+      'Your Selection',
+      name: 'yourSelection',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Attribute`
+  String get attribute {
+    return Intl.message(
+      'Attribute',
+      name: 'attribute',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Value`
+  String get value {
+    return Intl.message(
+      'Value',
+      name: 'value',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please select size and color`
+  String get pleaseSelectSizeAndColor {
+    return Intl.message(
+      'Please select size and color',
+      name: 'pleaseSelectSizeAndColor',
       desc: '',
       args: [],
     );

@@ -9,7 +9,7 @@ sealed class ColorState extends Equatable {
 }
 
 final class ColorInitial extends ColorState {
-  const ColorInitial() : super(0);
+  const ColorInitial() : super(-1);
 }
 
 final class ColorSelected extends ColorState {

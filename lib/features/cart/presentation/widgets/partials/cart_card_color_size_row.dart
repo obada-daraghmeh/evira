@@ -37,7 +37,10 @@ class CartCardColorSizeRow extends StatelessWidget {
             color: context.colorScheme.outlineVariant,
           ),
         ),
-        Text(context.l10n.sizeSize(size), style: subduedStyle),
+        Text(
+          context.l10n.attributeValue(context.l10n.size, size),
+          style: subduedStyle,
+        ),
       ],
     );
   }

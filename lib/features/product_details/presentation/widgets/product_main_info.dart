@@ -6,10 +6,11 @@ import '../../../../core/shared/components/partials/sales_number_chip.dart';
 import '../../../../core/shared/features/entities/product.dart';
 import '../../../../core/utils/extensions/constants_extension.dart';
 import '../../../../core/utils/extensions/theme_extension.dart';
+import '../../../../core/utils/formatters/formatter.dart';
 
-class ProductSectionInfo extends StatelessWidget {
+class ProductMainInfo extends StatelessWidget {
   final Product product;
-  const ProductSectionInfo({super.key, required this.product});
+  const ProductMainInfo({super.key, required this.product});
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +21,7 @@ class ProductSectionInfo extends StatelessWidget {
           children: [
             Expanded(
               child: Text(
-                product.getLocalizedName('en'),
+                Formatter.upperFirst(product.getLocalizedName('en')),
                 style: context.textTheme.titleLarge?.copyWith(
                   fontWeight: FontWeight.bold,
                 ),
@@ -32,18 +33,10 @@ class ProductSectionInfo extends StatelessWidget {
         Row(
           spacing: context.spacing.s16,
           children: [
-            SalesNumberChip(count: 0),
-            // SalesNumberChip(count: product.salesNumber),
-            const RatingAndReviews(
-              rating: 4.5,
-              hasReviews: true,
-              reviews: 4764,
-            ),
+            const SalesNumberChip(count: 0),
+            const RatingAndReviews(rating: 0, hasReviews: true, reviews: 0),
           ],
         ),
-        SizedBox(height: context.spacing.s8),
-        const Divider(),
-        SizedBox(height: context.spacing.s8),
       ],
     );
   }

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-import '../../../../../core/utils/extensions/theme_extension.dart';
+import '../../../../core/utils/extensions/theme_extension.dart';
 
-class ProductSectionText extends StatelessWidget {
+class ProductSectionHeader extends StatelessWidget {
   final String text;
-  const ProductSectionText({super.key, required this.text});
+  const ProductSectionHeader({super.key, required this.text});
 
   @override
   Widget build(BuildContext context) {

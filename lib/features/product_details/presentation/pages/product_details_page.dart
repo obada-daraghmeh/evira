@@ -13,11 +13,15 @@ import '../../../../core/utils/extensions/theme_extension.dart';
 import '../../../../core/utils/helpers/show_toast.dart';
 import '../controllers/color/color_cubit.dart';
 import '../controllers/size/size_cubit.dart';
-import '../widgets/partials/product_quantity_selector.dart';
-import '../widgets/product_section_add_to_cart.dart';
-import '../widgets/product_section_description.dart';
-import '../widgets/product_section_image.dart';
-import '../widgets/product_section_info.dart';
+import '../widgets/product_add_to_cart.dart';
+import '../widgets/product_check_out.dart';
+import '../widgets/product_description.dart';
+import '../widgets/product_image.dart';
+import '../widgets/product_main_info.dart';
+import '../widgets/product_options.dart';
+import '../widgets/product_quantity_selector.dart';
+import '../widgets/product_reviews.dart';
+import '../widgets/selection_summary_text.dart';
 
 class ProductDetailsPage extends StatelessWidget {
   final Product product;
@@ -42,33 +46,38 @@ class ProductDetailsPage extends StatelessWidget {
           }
         },
         child: Scaffold(
-          appBar: BaseAppBar(),
+          appBar: const BaseAppBar(),
           extendBodyBehindAppBar: true,
           body: Stack(
             children: [
               Container(color: context.colorScheme.surfaceContainerHighest),
-              ProductSectionImage(product: product),
+              ProductImage(product: product),
               CustomDraggableSheet(
                 initialChildSize: 0.42,
                 minChildSize: 0.42,
                 children: [
-                  ProductSectionInfo(product: product),
-                  ProductSectionDescription(
+                  ProductMainInfo(product: product),
+                  const Divider(),
+                  ProductDescription(
                     description: product.getLocalizedDescription('en'),
                   ),
-                  SizedBox(height: context.spacing.s16),
-
-                  // ProductSectionVariants(
-                  //   sizes: product.sizes,
-                  //   colors: product.colors,
-                  // ),
-                  SizedBox(height: context.spacing.s16),
+                  SizedBox(height: context.spacing.s12),
+                  if (product.hasVariants) ...[
+                    ProductOptions(product: product),
+                    SizedBox(height: context.spacing.s12),
+                  ],
                   const ProductQuantitySelector(),
+                  SizedBox(height: context.spacing.s12),
+                  SelectionSummaryText(product: product),
+                  SizedBox(height: context.spacing.s12),
+                  const ProductCheckOut(),
+                  const Divider(),
+                  const ProductReviews(),
                 ],
               ),
             ],
           ),
-          bottomNavigationBar: ProductSectionAddToCart(product: product),
+          bottomNavigationBar: ProductAddToCart(product: product),
         ),
       ),
     );

@@ -9,7 +9,7 @@ sealed class SizeState extends Equatable {
 }
 
 final class SizeInitial extends SizeState {
-  const SizeInitial() : super(0);
+  const SizeInitial() : super(-1);
 }
 
 final class SizeSelected extends SizeState {

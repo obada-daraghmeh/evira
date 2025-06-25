@@ -3,18 +3,16 @@ import 'package:flutter/material.dart';
 import '../../../../core/utils/extensions/constants_extension.dart';
 import '../../../../core/utils/extensions/intl_extension.dart';
 import '../../../../core/utils/extensions/theme_extension.dart';
-import 'partials/product_section_text.dart';
 
-class ProductSectionDescription extends StatefulWidget {
+class ProductDescription extends StatefulWidget {
   final String description;
-  const ProductSectionDescription({super.key, required this.description});
+  const ProductDescription({super.key, required this.description});
 
   @override
-  State<ProductSectionDescription> createState() =>
-      _ProductSectionDescriptionState();
+  State<ProductDescription> createState() => _ProductDescriptionState();
 }
 
-class _ProductSectionDescriptionState extends State<ProductSectionDescription> {
+class _ProductDescriptionState extends State<ProductDescription> {
   bool _isExpanded = false;
 
   @override
@@ -26,8 +24,6 @@ class _ProductSectionDescriptionState extends State<ProductSectionDescription> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        ProductSectionText(text: context.l10n.description),
-        SizedBox(height: context.spacing.s8),
         AnimatedCrossFade(
           firstChild: Text(
             widget.description,

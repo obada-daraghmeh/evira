@@ -3,6 +3,8 @@ import 'package:equatable/equatable.dart';
 import '../../../../features/product/domain/entities/product_variants.dart';
 import '../../../utils/helpers/locale_helper.dart';
 
+enum ProductAttributeType { size, color }
+
 class Product extends Equatable {
   final String id;
   final String categoryId;
@@ -35,6 +37,33 @@ class Product extends Equatable {
 
   String getLocalizedDescription(String locale) =>
       LocaleHelper.localizedValue(description, locale);
+
+  bool hasVariantAttribute(ProductAttributeType type, {String locale = 'en'}) {
+    final key = type.name.toLowerCase();
+    return variants?.any(
+          (v) => v.variantAttributes.any(
+            (attr) => attr.attributeName[locale]?.toLowerCase() == key,
+          ),
+        ) ??
+        false;
+  }
+
+  List getVariantValues(ProductAttributeType type, {String locale = 'en'}) {
+    final key = type.name.toLowerCase();
+    return variants
+            ?.expand((v) => v.variantAttributes)
+            .where((attr) => attr.attributeName[locale]?.toLowerCase() == key)
+            .map((attr) => attr.value[locale] ?? '')
+            .toSet()
+            .toList() ??
+        [];
+  }
+
+  String getSizeName(int index) =>
+      getVariantValues(ProductAttributeType.size)[index];
+
+  String getColorName(int index) =>
+      getVariantValues(ProductAttributeType.color)[index];
 
   @override
   List<Object?> get props => [
