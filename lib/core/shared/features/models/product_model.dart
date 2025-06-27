@@ -1,3 +1,5 @@
+import 'package:evira/features/product/data/models/product_image_model.dart';
+
 import '../../../../features/product/data/models/product_variants_model.dart';
 import '../entities/product.dart';
 
@@ -14,6 +16,7 @@ class ProductModel extends Product {
     super.isActive,
     required super.imageCoverUrl,
     super.variants,
+    required super.images,
   });
 
   factory ProductModel.fromJson(Map<String, dynamic> json) {
@@ -34,6 +37,14 @@ class ProductModel extends Product {
       isActive: json['is_active'] as bool? ?? true,
       imageCoverUrl: json['image_cover_url'] as String,
       variants: variants,
+      images:
+          (json['product_images'] as List<dynamic>?)
+              ?.map(
+                (img) =>
+                    ProductImageModel.fromJson(img as Map<String, dynamic>),
+              )
+              .toList() ??
+          [],
     );
   }
 }

@@ -1,5 +1,6 @@
 import 'package:equatable/equatable.dart';
 
+import '../../../../features/product/domain/entities/product_image.dart';
 import '../../../../features/product/domain/entities/product_variants.dart';
 import '../../../utils/helpers/locale_helper.dart';
 
@@ -17,6 +18,7 @@ class Product extends Equatable {
   final bool? isActive;
   final String imageCoverUrl;
   final List<ProductVariants>? variants;
+  final List<ProductImage> images;
 
   const Product({
     required this.id,
@@ -30,6 +32,7 @@ class Product extends Equatable {
     this.isActive,
     required this.imageCoverUrl,
     this.variants,
+    required this.images,
   });
 
   String getLocalizedName(String locale) =>
@@ -78,5 +81,6 @@ class Product extends Equatable {
     isActive,
     imageCoverUrl,
     variants,
+    images,
   ];
 }
