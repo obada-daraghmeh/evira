@@ -6,7 +6,8 @@ import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:go_router/go_router.dart';
 import 'package:toastification/toastification.dart';
 
-import 'core/controllers/auth_status/auth_status_cubit.dart' hide Authenticated;
+import 'core/controllers/auth_status/auth_status_cubit.dart'
+    hide Authenticated, Unauthenticated;
 import 'core/controllers/cart/cart_bloc.dart';
 import 'core/controllers/theme_mode/theme_mode_cubit.dart';
 import 'core/controllers/wishlist/wishlist_cubit.dart';
@@ -30,7 +31,7 @@ Future<void> main() async {
 
   authBloc.add(AuthCheckStatus());
   await authBloc.stream.firstWhere(
-    (state) => state is Authenticated || state is Unauthenticated,
+    (state) => state is Authenticated || state is UnAuthenticated,
   );
 
   FlutterNativeSplash.remove();
