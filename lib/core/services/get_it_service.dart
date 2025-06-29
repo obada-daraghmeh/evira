@@ -1,4 +1,3 @@
-import 'package:evira/core/routers/go_router.dart';
 import 'package:get_it/get_it.dart';
 import 'package:go_router/go_router.dart';
 
@@ -77,6 +76,7 @@ import '../controllers/quantity/quantity_cubit.dart';
 import '../controllers/search/search_bloc.dart';
 import '../controllers/theme_mode/theme_mode_cubit.dart';
 import '../controllers/wishlist/wishlist_cubit.dart';
+import '../routers/go_router.dart';
 import 'storage_service.dart';
 
 final getIt = GetIt.instance;

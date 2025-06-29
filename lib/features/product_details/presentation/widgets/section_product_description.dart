@@ -4,15 +4,16 @@ import '../../../../core/utils/extensions/constants_extension.dart';
 import '../../../../core/utils/extensions/intl_extension.dart';
 import '../../../../core/utils/extensions/theme_extension.dart';
 
-class ProductDescription extends StatefulWidget {
+class SectionProductDescription extends StatefulWidget {
   final String description;
-  const ProductDescription({super.key, required this.description});
+  const SectionProductDescription({super.key, required this.description});
 
   @override
-  State<ProductDescription> createState() => _ProductDescriptionState();
+  State<SectionProductDescription> createState() =>
+      _SectionProductDescriptionState();
 }
 
-class _ProductDescriptionState extends State<ProductDescription> {
+class _SectionProductDescriptionState extends State<SectionProductDescription> {
   bool _isExpanded = false;
 
   @override

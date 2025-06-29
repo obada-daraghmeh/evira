@@ -8,9 +8,9 @@ import '../../../../core/utils/extensions/constants_extension.dart';
 import '../../../../core/utils/extensions/theme_extension.dart';
 import '../../../../core/utils/formatters/formatter.dart';
 
-class ProductMainInfo extends StatelessWidget {
+class SectionProductMainInfo extends StatelessWidget {
   final Product product;
-  const ProductMainInfo({super.key, required this.product});
+  const SectionProductMainInfo({super.key, required this.product});
 
   @override
   Widget build(BuildContext context) {

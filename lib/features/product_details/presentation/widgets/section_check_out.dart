@@ -4,8 +4,8 @@ import '../../../../core/constants/assets_const.dart';
 import '../../../../core/shared/widgets/custom_icon.dart';
 import '../../../../core/utils/extensions/intl_extension.dart';
 
-class ProductCheckOut extends StatelessWidget {
-  const ProductCheckOut({super.key});
+class SectionCheckOut extends StatelessWidget {
+  const SectionCheckOut({super.key});
 
   @override
   Widget build(BuildContext context) {

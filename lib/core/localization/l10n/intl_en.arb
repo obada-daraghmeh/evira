@@ -89,8 +89,10 @@
   "addToWishlist": "Add to Wishlist",
   "selectAttribute": "Select {attribute}",
   "size": "Size",
-  "yourSelection": "Your Selection",
   "attribute": "Attribute",
   "value": "Value",
-  "pleaseSelectSizeAndColor": "Please select size and color"
+  "pleaseSelectSizeAndColor": "Please select size and color",
+  "details": "Details",
+  "add": "Add",
+  "share": "Share"
 }

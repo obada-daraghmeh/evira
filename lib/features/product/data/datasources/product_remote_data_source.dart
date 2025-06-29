@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 import '../../../../core/constants/backend_const.dart';
@@ -32,8 +31,14 @@ class ProductRemoteDataSourceImpl implements ProductRemoteDataSource {
   @override
   Future<List<ProductModel>> get products async {
     try {
-      final response = await _client.from(BackendConst.products).select(_query);
-      debugPrint('Fetched products: $response', wrapWidth: 1024);
+      final response = await _client
+          .from(BackendConst.products)
+          .select(_query)
+          .order(
+            'sort_order',
+            referencedTable: 'product_images',
+            ascending: true,
+          );
       return response.map((json) => ProductModel.fromJson(json)).toList();
     } on PostgrestException catch (e) {
       throw ServerException(e.message);

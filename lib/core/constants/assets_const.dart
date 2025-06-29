@@ -48,10 +48,12 @@ class AssetsConst {
   static const String home = '${_outlineIconsPath}home$_svg';
   static const String order = '${_outlineIconsPath}order$_svg';
   static const String cart = '${_outlineIconsPath}cart$_svg';
+  static const String chevronDown = '${_outlineIconsPath}chevron_down$_svg';
   static const String wallet = '${_outlineIconsPath}wallet$_svg';
   static const String profile = '${_outlineIconsPath}profile$_svg';
   static const String heart = '${_outlineIconsPath}heart$_svg';
   static const String notification = '${_outlineIconsPath}notification$_svg';
+  static const String share = '${_outlineIconsPath}share$_svg';
   static const String search = '${_outlineIconsPath}search$_svg';
   static const String filter = '${_outlineIconsPath}filter$_svg';
   static const String delete = '${_outlineIconsPath}delete$_svg';

@@ -51,6 +51,7 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "accountCreationFailedMessage": MessageLookupByLibrary.simpleMessage(
             "Account creation failed. Please check your email to confirm your account or try again later."),
+        "add": MessageLookupByLibrary.simpleMessage("Add"),
         "addToCart": MessageLookupByLibrary.simpleMessage("Add to Cart"),
         "addToWishlist":
             MessageLookupByLibrary.simpleMessage("Add to Wishlist"),
@@ -74,6 +75,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "countReviews": m1,
         "countSold": m2,
         "description": MessageLookupByLibrary.simpleMessage("Description"),
+        "details": MessageLookupByLibrary.simpleMessage("Details"),
         "discountPercent": m3,
         "editProfile": MessageLookupByLibrary.simpleMessage("Edit Profile"),
         "email": MessageLookupByLibrary.simpleMessage("Email"),
@@ -146,6 +148,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "sessionExpiredMessage": MessageLookupByLibrary.simpleMessage(
             "Your session has expired. Please sign in again."),
         "settings": MessageLookupByLibrary.simpleMessage("Settings"),
+        "share": MessageLookupByLibrary.simpleMessage("Share"),
         "signIn": MessageLookupByLibrary.simpleMessage("Sign In"),
         "signInFailedMessage": MessageLookupByLibrary.simpleMessage(
             "Sign-in failed. Please check your credentials or try again later."),
@@ -169,7 +172,6 @@ class MessageLookup extends MessageLookupByLibrary {
         "update": MessageLookupByLibrary.simpleMessage("Update"),
         "value": MessageLookupByLibrary.simpleMessage("Value"),
         "wallet": MessageLookupByLibrary.simpleMessage("Wallet"),
-        "wishlist": MessageLookupByLibrary.simpleMessage("Wishlist"),
-        "yourSelection": MessageLookupByLibrary.simpleMessage("Your Selection")
+        "wishlist": MessageLookupByLibrary.simpleMessage("Wishlist")
       };
 }

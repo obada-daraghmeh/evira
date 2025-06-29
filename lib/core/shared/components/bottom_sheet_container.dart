@@ -19,12 +19,9 @@ class BottomSheetContainer extends StatelessWidget {
       alignment: Alignment.topCenter,
       children: [
         Container(
-          padding: EdgeInsets.fromLTRB(
+          padding: EdgeInsets.all(
             context.spacing.s24,
-            context.spacing.s48,
-            context.spacing.s24,
-            hasBottomPadding ? context.spacing.s24 : 0,
-          ),
+          ).copyWith(bottom: hasBottomPadding ? context.spacing.s24 : 0),
           decoration: BoxDecoration(
             color: context.colorScheme.surface,
             borderRadius: context.borderRadius.borderRadiusVT24,
@@ -32,7 +29,7 @@ class BottomSheetContainer extends StatelessWidget {
           child: child,
         ),
         Positioned(
-          top: context.spacing.s24,
+          top: context.spacing.s12,
           child: Container(
             width: context.spacing.s48,
             height: context.spacing.s4,

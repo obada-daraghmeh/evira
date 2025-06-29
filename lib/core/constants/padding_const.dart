@@ -8,6 +8,7 @@ class PaddingConst {
   final _sizes = const SizesConst();
 
   /// `Padding All`
+  EdgeInsets get p4 => EdgeInsets.all(_sizes.s4);
   EdgeInsets get p16 => EdgeInsets.all(_sizes.s16);
   EdgeInsets get p24 => EdgeInsets.all(_sizes.s24);
 
@@ -31,4 +32,8 @@ class PaddingConst {
   /// `Padding Horizontal/Vertical`
   EdgeInsets get pH4V2 =>
       EdgeInsets.symmetric(horizontal: _sizes.s4, vertical: _sizes.s2);
+
+  /// `Padding Custom`
+  EdgeInsets get pT56B16 =>
+      EdgeInsets.only(top: _sizes.s56, bottom: _sizes.s16);
 }

@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/shared/features/entities/product.dart';
 import '../../../../core/utils/extensions/constants_extension.dart';
-import 'product_color_selector.dart';
-import 'product_size_selector.dart';
+import 'partials/color_selector.dart';
+import 'partials/size_selector.dart';
 
-class ProductOptions extends StatelessWidget {
+class SectionProductOptions extends StatelessWidget {
   final Product product;
-  const ProductOptions({super.key, required this.product});
+  const SectionProductOptions({super.key, required this.product});
 
   @override
   Widget build(BuildContext context) {
@@ -21,12 +21,18 @@ class ProductOptions extends StatelessWidget {
             switch (type) {
               case ProductAttributeType.size:
                 return [
-                  ProductSizeSelector(sizes: values),
+                  SizeSelector(sizes: values),
                   SizedBox(height: context.spacing.s12),
                 ];
               case ProductAttributeType.color:
                 return [
-                  ProductColorSelector(colors: values),
+                  ColorSelector(
+                    colors: values,
+                    imageUrls: product.images
+                        .where((i) => i.variantId != null)
+                        .map((i) => i.imageUrl)
+                        .toList(),
+                  ),
                   SizedBox(height: context.spacing.s12),
                 ];
             }

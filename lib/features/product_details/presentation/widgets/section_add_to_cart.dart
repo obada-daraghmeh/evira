@@ -16,9 +16,9 @@ import '../../../cart/domain/entities/cart.dart';
 import '../controllers/color/color_cubit.dart';
 import '../controllers/size/size_cubit.dart';
 
-class ProductAddToCart extends StatelessWidget {
+class SectionAddToCart extends StatelessWidget {
   final Product product;
-  const ProductAddToCart({super.key, required this.product});
+  const SectionAddToCart({super.key, required this.product});
 
   void _handleAddToCart(BuildContext context) {
     final controller = context.read<CartBloc>();
@@ -64,7 +64,6 @@ class ProductAddToCart extends StatelessWidget {
             child: BlocBuilder<CartBloc, CartState>(
               builder: (_, state) {
                 final isLoading = state is CartLoading;
-
                 return LoadingButton(
                   text: context.l10n.addToCart,
                   icon: AssetsConst.cartBold,

@@ -7,9 +7,9 @@ class QuantityCubit extends Cubit<QuantityState> {
   QuantityCubit({int initialQuantity = 1})
     : super(QuantityInitial(initialQuantity));
 
-  void increment() => emit(QuantityIncrement(state.quantity + 1));
+  void get increment => emit(QuantityIncrement(state.quantity + 1));
 
-  void decrement() => emit(
+  void get decrement => emit(
     QuantityDecrement(state.quantity > 1 ? state.quantity - 1 : state.quantity),
   );
 }

@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../controllers/quantity/quantity_cubit.dart';
 import '../../utils/extensions/constants_extension.dart';
+import '../../utils/extensions/intl_extension.dart';
 import '../../utils/extensions/theme_extension.dart';
 
 class QuantitySelector extends StatelessWidget {
@@ -11,21 +12,23 @@ class QuantitySelector extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = context.read<QuantityCubit>();
-    return BlocBuilder<QuantityCubit, QuantityState>(
-      builder: (context, state) {
-        return Container(
-          padding: context.padding.pH4V2,
-          decoration: BoxDecoration(
-            color: context.colorScheme.surfaceContainerHighest,
-            borderRadius: context.borderRadius.borderRadius40,
-          ),
-          child: Row(
-            mainAxisSize: MainAxisSize.min,
+    return Container(
+      padding: context.padding.p4,
+      decoration: BoxDecoration(
+        borderRadius: context.borderRadius.borderRadius16,
+        border: Border.all(
+          color: context.colorScheme.outline.withValues(alpha: 0.2),
+        ),
+      ),
+      child: BlocBuilder<QuantityCubit, QuantityState>(
+        builder: (context, state) {
+          return Row(
+            spacing: context.spacing.s8,
             children: [
               _buildQtyButton(
                 context,
                 icon: Icons.remove,
-                onPressed: () => controller.decrement(),
+                onPressed: () => controller.decrement,
               ),
               Text(
                 state.quantity.toString(),
@@ -37,12 +40,12 @@ class QuantitySelector extends StatelessWidget {
               _buildQtyButton(
                 context,
                 icon: Icons.add,
-                onPressed: () => controller.increment(),
+                onPressed: () => controller.increment,
               ),
             ],
-          ),
-        );
-      },
+          );
+        },
+      ),
     );
   }
 
@@ -55,6 +58,7 @@ class QuantitySelector extends StatelessWidget {
       onPressed: onPressed,
       icon: Icon(icon, size: context.iconSize.sm),
       visualDensity: VisualDensity.compact,
+      tooltip: icon == Icons.add ? context.l10n.add : context.l10n.remove,
     );
   }
 }

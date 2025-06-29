@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 
-import 'product_section_text.dart';
+import 'partials/section_header.dart';
 
-class ProductReviews extends StatelessWidget {
-  const ProductReviews({super.key});
+class SectionProductReviews extends StatelessWidget {
+  const SectionProductReviews({super.key});
 
   @override
   Widget build(BuildContext context) {
     return const Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        ProductSectionHeader(text: 'Reviews (0)'),
+        SectionHeader(text: 'Reviews (0)'),
         Text('Under development ...'),
       ],
     );

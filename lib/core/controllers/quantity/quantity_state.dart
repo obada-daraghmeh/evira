@@ -2,7 +2,6 @@ part of 'quantity_cubit.dart';
 
 sealed class QuantityState extends Equatable {
   final int quantity;
-
   const QuantityState(this.quantity);
 
   @override

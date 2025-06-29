@@ -950,16 +950,6 @@ class FlutterIntl {
     );
   }
 
-  /// `Your Selection`
-  String get yourSelection {
-    return Intl.message(
-      'Your Selection',
-      name: 'yourSelection',
-      desc: '',
-      args: [],
-    );
-  }
-
   /// `Attribute`
   String get attribute {
     return Intl.message(
@@ -985,6 +975,36 @@ class FlutterIntl {
     return Intl.message(
       'Please select size and color',
       name: 'pleaseSelectSizeAndColor',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Details`
+  String get details {
+    return Intl.message(
+      'Details',
+      name: 'details',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add`
+  String get add {
+    return Intl.message(
+      'Add',
+      name: 'add',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Share`
+  String get share {
+    return Intl.message(
+      'Share',
+      name: 'share',
       desc: '',
       args: [],
     );

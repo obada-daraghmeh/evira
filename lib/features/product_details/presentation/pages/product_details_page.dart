@@ -1,27 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../core/constants/assets_const.dart';
 import '../../../../core/controllers/cart/cart_bloc.dart';
 import '../../../../core/controllers/quantity/quantity_cubit.dart';
 import '../../../../core/services/get_it_service.dart';
 import '../../../../core/shared/components/base_app_bar.dart';
 import '../../../../core/shared/features/entities/product.dart';
 import '../../../../core/shared/widgets/custom_draggable_sheet.dart';
+import '../../../../core/shared/widgets/custom_icon.dart';
 import '../../../../core/utils/extensions/constants_extension.dart';
 import '../../../../core/utils/extensions/intl_extension.dart';
 import '../../../../core/utils/extensions/theme_extension.dart';
 import '../../../../core/utils/helpers/show_toast.dart';
 import '../controllers/color/color_cubit.dart';
 import '../controllers/size/size_cubit.dart';
-import '../widgets/product_add_to_cart.dart';
-import '../widgets/product_check_out.dart';
-import '../widgets/product_description.dart';
-import '../widgets/product_image.dart';
-import '../widgets/product_main_info.dart';
-import '../widgets/product_options.dart';
-import '../widgets/product_quantity_selector.dart';
-import '../widgets/product_reviews.dart';
-import '../widgets/selection_summary_text.dart';
+import '../widgets/partials/quantity_selector.dart';
+import '../widgets/section_add_to_cart.dart';
+import '../widgets/section_check_out.dart';
+import '../widgets/section_product_description.dart';
+import '../widgets/section_product_image.dart';
+import '../widgets/section_product_main_info.dart';
+import '../widgets/section_product_options.dart';
+import '../widgets/section_product_reviews.dart';
+import '../widgets/section_selection_summary.dart';
 
 class ProductDetailsPage extends StatelessWidget {
   final Product product;
@@ -46,38 +48,50 @@ class ProductDetailsPage extends StatelessWidget {
           }
         },
         child: Scaffold(
-          appBar: const BaseAppBar(),
+          appBar: BaseAppBar(
+            actions: [
+              IconButton(
+                icon: const CustomIcon(icon: AssetsConst.share),
+                onPressed: () => debugPrint('Share product'),
+                tooltip: context.l10n.share,
+              ),
+            ],
+          ),
           extendBodyBehindAppBar: true,
           body: Stack(
             children: [
               Container(color: context.colorScheme.surfaceContainerHighest),
-              ProductImage(product: product),
+              SectionProductImage(
+                imageUrls: product.images
+                    .where((i) => i.variantId == null)
+                    .map((i) => i.imageUrl)
+                    .toList(),
+              ),
               CustomDraggableSheet(
                 initialChildSize: 0.42,
                 minChildSize: 0.42,
                 children: [
-                  ProductMainInfo(product: product),
+                  SectionProductMainInfo(product: product),
                   const Divider(),
-                  ProductDescription(
+                  SectionProductDescription(
                     description: product.getLocalizedDescription('en'),
                   ),
                   SizedBox(height: context.spacing.s12),
-                  if (product.hasVariants) ...[
-                    ProductOptions(product: product),
-                    SizedBox(height: context.spacing.s12),
-                  ],
-                  const ProductQuantitySelector(),
+                  const QuantitySelector(),
                   SizedBox(height: context.spacing.s12),
-                  SelectionSummaryText(product: product),
-                  SizedBox(height: context.spacing.s12),
-                  const ProductCheckOut(),
+                  if (product.hasVariants)
+                    SectionProductOptions(product: product),
                   const Divider(),
-                  const ProductReviews(),
+                  SectionSelectionSummary(product: product),
+                  SizedBox(height: context.spacing.s12),
+                  const SectionCheckOut(),
+                  const Divider(),
+                  const SectionProductReviews(),
                 ],
               ),
             ],
           ),
-          bottomNavigationBar: ProductAddToCart(product: product),
+          bottomNavigationBar: SectionAddToCart(product: product),
         ),
       ),
     );
