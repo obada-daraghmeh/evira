@@ -24,6 +24,7 @@ class QuantitySelector extends StatelessWidget {
         builder: (context, state) {
           return Row(
             spacing: context.spacing.s8,
+            mainAxisSize: MainAxisSize.min,
             children: [
               _buildQtyButton(
                 context,

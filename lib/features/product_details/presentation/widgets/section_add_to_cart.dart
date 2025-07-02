@@ -3,16 +3,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/constants/assets_const.dart';
 import '../../../../core/controllers/cart/cart_bloc.dart';
-import '../../../../core/controllers/quantity/quantity_cubit.dart';
 import '../../../../core/shared/components/loading_button.dart';
 import '../../../../core/shared/components/total_price.dart';
 import '../../../../core/shared/features/entities/product.dart';
-import '../../../../core/utils/extensions/auth_state_extension.dart';
 import '../../../../core/utils/extensions/constants_extension.dart';
 import '../../../../core/utils/extensions/intl_extension.dart';
 import '../../../../core/utils/extensions/theme_extension.dart';
 import '../../../../core/utils/helpers/show_toast.dart';
-import '../../../cart/domain/entities/cart.dart';
 import '../controllers/color/color_cubit.dart';
 import '../controllers/size/size_cubit.dart';
 
@@ -21,9 +18,9 @@ class SectionAddToCart extends StatelessWidget {
   const SectionAddToCart({super.key, required this.product});
 
   void _handleAddToCart(BuildContext context) {
-    final controller = context.read<CartBloc>();
+    // final controller = context.read<CartBloc>();
 
-    final quantity = context.read<QuantityCubit>().state.quantity;
+    // final quantity = context.read<QuantityCubit>().state.quantity;
     final sizeIndex = context.read<SizeCubit>().state.index;
     final colorIndex = context.read<ColorCubit>().state.index;
 
@@ -35,18 +32,17 @@ class SectionAddToCart extends StatelessWidget {
       return;
     }
 
-    final selectedSize = product.getSizeName(sizeIndex);
-    final selectedColor = product.getColorName(colorIndex);
+    // final selectedSize = product.getP
 
-    final cartItem = Cart(
-      userId: context.currentUser.id,
-      productId: product.id,
-      quantity: quantity,
-      size: selectedSize,
-      color: selectedColor,
-    );
+    // final cartItem = Cart(
+    //   userId: context.currentUser.id,
+    //   productId: product.id,
+    //   quantity: quantity,
+    //   size: selectedSize,
+    //   color: selectedColor,
+    // );
 
-    controller.add(AddToCart(cart: cartItem));
+    // controller.add(AddToCart(cart: cartItem));
   }
 
   @override

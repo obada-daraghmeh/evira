@@ -57,6 +57,7 @@ class AssetsConst {
   static const String search = '${_outlineIconsPath}search$_svg';
   static const String filter = '${_outlineIconsPath}filter$_svg';
   static const String delete = '${_outlineIconsPath}delete$_svg';
+  static const String inbox = '${_outlineIconsPath}inbox$_svg';
   static const String info = '${_outlineIconsPath}info$_svg';
   static const String language = '${_outlineIconsPath}language$_svg';
   static const String location = '${_outlineIconsPath}location$_svg';

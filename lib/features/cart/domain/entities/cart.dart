@@ -1,42 +1,60 @@
 import 'package:equatable/equatable.dart';
+import 'package:evira/core/shared/features/entities/product.dart';
+import 'package:evira/core/utils/helpers/locale_helper.dart';
+
+import '../../../product/domain/entities/product_variants.dart';
 
 class Cart extends Equatable {
-  final String? id;
-  final String userId;
-  final String productId;
+  final Map<String, dynamic> name;
+  final Map<String, dynamic> categoryName;
+  final double basePrice;
   final int quantity;
-  final String size;
-  final String color;
-
-  final String? title;
-  final double? price;
-  final double? discount;
-  final String? thumbnailUrl;
+  final List<ProductVariants> variants;
+  final String image;
 
   const Cart({
-    this.id,
-    required this.userId,
-    required this.productId,
+    required this.name,
+    required this.categoryName,
+    required this.basePrice,
     required this.quantity,
-    required this.size,
-    required this.color,
-    this.title,
-    this.price,
-    this.discount,
-    this.thumbnailUrl,
+    required this.variants,
+    required this.image,
   });
+
+  double? get price => variants.isNotEmpty ? variants.first.price : basePrice;
+
+  String getLocalizedName(String locale) =>
+      LocaleHelper.localizedValue(name, locale);
+
+  String getLocalizedCategoryName(String locale) =>
+      LocaleHelper.localizedValue(categoryName, locale);
+
+  bool hasVariantAttribute(ProductAttributeType type, {String locale = 'en'}) {
+    final key = type.name.toLowerCase();
+    return variants.any(
+      (v) => v.variantAttributes.any(
+        (attr) => attr.attributeName[locale]?.toLowerCase() == key,
+      ),
+    );
+  }
+
+  List getVariantValues(ProductAttributeType type, {String locale = 'en'}) {
+    final key = type.name.toLowerCase();
+    return variants
+        .expand((v) => v.variantAttributes)
+        .where((attr) => attr.attributeName[locale]?.toLowerCase() == key)
+        .map((attr) => attr.value[locale] ?? '')
+        .toSet()
+        .toList();
+  }
 
   @override
   List<Object?> get props => [
-    id,
-    userId,
-    productId,
+    name,
+    categoryName,
+    basePrice,
     quantity,
-    size,
-    color,
-    title,
-    price,
-    discount,
-    thumbnailUrl,
+    variants,
+    image,
   ];
 }

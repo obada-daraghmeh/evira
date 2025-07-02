@@ -8,7 +8,7 @@ import '../../../../core/utils/extensions/media_query_extension.dart';
 import '../../../../core/utils/extensions/theme_extension.dart';
 import '../../../../core/utils/helpers/product_helpers.dart';
 import '../../domain/entities/cart.dart';
-import 'animated_cart_slide.dart';
+import 'animated_cart_check_out.dart';
 
 class CartCheckOut extends StatelessWidget {
   final List<Cart> items;
@@ -16,7 +16,7 @@ class CartCheckOut extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AnimatedCartSlide(
+    return AnimatedCartCheckOut(
       child: Container(
         width: context.sWidth,
         padding: context.padding.p24,

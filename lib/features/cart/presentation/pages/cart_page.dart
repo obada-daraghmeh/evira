@@ -11,6 +11,8 @@ import '../../../../core/utils/helpers/show_toast.dart';
 import '../widgets/cart_card.dart';
 import '../widgets/cart_card_skeleton.dart';
 import '../widgets/cart_check_out.dart';
+import '../widgets/cart_group_by_category.dart';
+import '../widgets/cart_remove_item_bottom_sheet.dart';
 
 class CartPage extends StatelessWidget {
   const CartPage({super.key});
@@ -51,13 +53,30 @@ class CartPage extends StatelessWidget {
                   child: ListView.separated(
                     itemCount: state.cartItems.length,
                     itemBuilder: (context, index) {
-                      final item = state.cartItems[index];
+                      final cartItem = state.cartItems[index];
                       return Padding(
                         padding: context.padding.pH24,
                         child: BlocProvider(
                           create: (_) =>
-                              QuantityCubit(initialQuantity: item.quantity),
-                          child: CartCard(cart: item),
+                              QuantityCubit(initialQuantity: cartItem.quantity),
+                          child: CartGroupByCategory(
+                            categoryName: cartItem.getLocalizedCategoryName(
+                              'en',
+                            ),
+                            child: GestureDetector(
+                              onLongPress: () {
+                                showModalBottomSheet(
+                                  context: context,
+                                  builder: (context) {
+                                    return CartRemoveItemBottomSheet(
+                                      cart: cartItem,
+                                    );
+                                  },
+                                );
+                              },
+                              child: CartCard(cartItem: cartItem),
+                            ),
+                          ),
                         ),
                       );
                     },

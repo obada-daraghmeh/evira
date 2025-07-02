@@ -56,7 +56,6 @@
   "attributeValue": "{attribute} = {value}",
   "emptyCartMsg": "Your cart is empty — time to add something you love!",
   "remove": "Remove",
-  "myCart": "My Cart",
   "checkout": "Checkout",
   "cartSuccessMsg": "Great choice! It’s in your cart 🎉",
   "removeFromCart": "Remove From Cart?",

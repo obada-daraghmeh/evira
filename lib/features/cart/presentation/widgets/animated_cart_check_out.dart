@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
-class AnimatedCartSlide extends StatefulWidget {
+class AnimatedCartCheckOut extends StatefulWidget {
   final Widget child;
-  const AnimatedCartSlide({super.key, required this.child});
+  const AnimatedCartCheckOut({super.key, required this.child});
 
   @override
-  State<AnimatedCartSlide> createState() => _AnimatedCartSlideState();
+  State<AnimatedCartCheckOut> createState() => _AnimatedCartCheckOutState();
 }
 
-class _AnimatedCartSlideState extends State<AnimatedCartSlide> {
+class _AnimatedCartCheckOutState extends State<AnimatedCartCheckOut> {
   bool _visible = false;
 
   @override

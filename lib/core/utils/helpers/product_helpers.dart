@@ -19,9 +19,9 @@ class ProductHelpers {
 
   static double calculateTotal(List<Cart> cartItems) {
     double total = 0;
-    for (var item in cartItems) {
-      total += item.price! * item.quantity;
-    }
+    // for (var item in cartItems) {
+    //   total += item.price! * item.quantity;
+    // }
     return total;
   }
 }

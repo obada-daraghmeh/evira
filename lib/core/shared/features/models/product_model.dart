@@ -24,6 +24,10 @@ class ProductModel extends Product {
     final variants = variantJson
         ?.map((v) => ProductVariantsModel.fromJson(v as Map<String, dynamic>))
         .toList();
+    final imagesJson = json['product_images'] as List<dynamic>?;
+    final images = imagesJson
+        ?.map((img) => ProductImageModel.fromJson(img as Map<String, dynamic>))
+        .toList();
 
     return ProductModel(
       id: json['id'] as String,
@@ -37,14 +41,7 @@ class ProductModel extends Product {
       isActive: json['is_active'] as bool? ?? true,
       imageCoverUrl: json['image_cover_url'] as String,
       variants: variants,
-      images:
-          (json['product_images'] as List<dynamic>?)
-              ?.map(
-                (img) =>
-                    ProductImageModel.fromJson(img as Map<String, dynamic>),
-              )
-              .toList() ??
-          [],
+      images: images ?? [],
     );
   }
 }

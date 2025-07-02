@@ -12,9 +12,9 @@ import '../../../../core/utils/helpers/show_toast.dart';
 import '../../domain/entities/cart.dart';
 import 'cart_card.dart';
 
-class RemoveCartItemBottomSheet extends StatelessWidget {
+class CartRemoveItemBottomSheet extends StatelessWidget {
   final Cart cart;
-  const RemoveCartItemBottomSheet({super.key, required this.cart});
+  const CartRemoveItemBottomSheet({super.key, required this.cart});
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +30,7 @@ class RemoveCartItemBottomSheet extends StatelessWidget {
             ),
           ),
           const Divider(),
-          CartCard(cart: cart, isReadOnly: true),
+          CartCard(cartItem: cart, isReadOnly: true),
           const Divider(),
           Row(
             spacing: context.spacing.s12,
@@ -49,9 +49,9 @@ class RemoveCartItemBottomSheet extends StatelessWidget {
                   isLoading: cartController.state is CartLoading,
                   text: context.l10n.remove,
                   onPressed: () async {
-                    cartController.add(
-                      RemoveFromCart(id: cart.id!, userId: cart.userId),
-                    );
+                    // cartController.add(
+                    //   RemoveFromCart(id: cart.id!, userId: cart.userId),
+                    // );
                     context.pop();
                     ShowToast.showSuccessToast(
                       message: 'Item deleted successfully',

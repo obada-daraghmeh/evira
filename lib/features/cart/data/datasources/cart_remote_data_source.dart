@@ -1,3 +1,4 @@
+import 'package:flutter/widgets.dart';
 import 'package:fpdart/fpdart.dart';
 import 'package:logger/logger.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
@@ -21,27 +22,27 @@ class CartRemoteDataSourceImpl implements CartRemoteDataSource {
   @override
   Future<Unit> addToCart({required CartModel cartModel}) async {
     try {
-      final existing =
-          await _client.from(BackendConst.cartItems).select().match({
-            'user_id': cartModel.userId,
-            'product_id': cartModel.productId,
-            'size': cartModel.size,
-            'color': cartModel.color,
-          }).maybeSingle();
+      // final existing =
+      //     await _client.from(BackendConst.cartItems).select().match({
+      //       'user_id': cartModel.userId,
+      //       'product_id': cartModel.productId,
+      //       'size': cartModel.size,
+      //       'color': cartModel.color,
+      //     }).maybeSingle();
 
-      if (existing != null) {
-        final existingQty = existing['quantity'] as int;
+      // if (existing != null) {
+      //   final existingQty = existing['quantity'] as int;
 
-        if (existingQty != cartModel.quantity) {
-          await _client
-              .from(BackendConst.cartItems)
-              .update({'quantity': cartModel.quantity})
-              .eq('id', existing['id']);
-        }
-        return unit;
-      }
+      //   if (existingQty != cartModel.quantity) {
+      //     await _client
+      //         .from(BackendConst.cartItems)
+      //         .update({'quantity': cartModel.quantity})
+      //         .eq('id', existing['id']);
+      //   }
+      //   return unit;
+      // }
 
-      await _client.from(BackendConst.cartItems).insert(cartModel.toJson());
+      // await _client.from(BackendConst.cartItems).insert(cartModel.toJson());
       return unit;
     } on PostgrestException catch (e) {
       throw ServerException(e.message);
@@ -59,24 +60,43 @@ class CartRemoteDataSourceImpl implements CartRemoteDataSource {
   Future<List<CartModel>> getCartItems({required String userId}) async {
     try {
       final response = await _client
-          .from(BackendConst.cartItems)
+          .from('carts')
           .select('''
-            *,
-            products(
-              title,
-              price,
-              discount,
-              thumbnail_url,
-              colors (
-                hex_code,
-                images(image_url)
+            cart_items (
+              quantity,
+              products (
+                name,
+                has_variants,
+                base_price,
+                categories(name),
+                product_variants (
+                 *,
+                  variant_values (
+                    attribute_values (
+                      *
+                    )
+                  )
+                ),
+                product_images (*)
               )
-            )
+            ) 
           ''')
           .eq('user_id', userId)
           .order('created_at', ascending: false);
 
-      return response.map((e) => CartModel.fromJson(e)).toList();
+      debugPrint('Cart items response: $response', wrapWidth: 1024);
+
+      // Flatten all cart_items from each cart entry
+      final List<CartModel> items = [];
+
+      for (final cart in response) {
+        final List<dynamic> cartItems = cart['cart_items'] ?? [];
+        for (final item in cartItems) {
+          items.add(CartModel.fromJson(item));
+        }
+      }
+
+      return items;
     } on PostgrestException catch (e) {
       throw ServerException(e.message);
     } catch (e, stackTrace) {

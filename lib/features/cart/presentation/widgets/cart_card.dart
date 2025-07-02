@@ -2,24 +2,24 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/utils/extensions/constants_extension.dart';
 import '../../domain/entities/cart.dart';
-import 'partials/cart_card_details.dart';
-import 'partials/cart_card_image.dart';
-import 'partials/cart_card_layout_builder.dart';
+import 'cart_card_container.dart';
+import 'cart_card_details.dart';
+import 'cart_card_image.dart';
 
 class CartCard extends StatelessWidget {
-  final Cart cart;
+  final Cart cartItem;
   final bool isReadOnly;
 
-  const CartCard({super.key, required this.cart, this.isReadOnly = false});
+  const CartCard({super.key, required this.cartItem, this.isReadOnly = false});
 
   @override
   Widget build(BuildContext context) {
-    return CartCardLayoutBuilder(
+    return CartCardContainer(
       child: Row(
         spacing: context.spacing.s16,
         children: [
-          CartCardImage(imageUrl: cart.thumbnailUrl ?? ''),
-          CartCardDetails(cart: cart, isReadOnly: isReadOnly),
+          CartCardImage(imageUrl: cartItem.image),
+          CartCardDetails(cartItem: cartItem, isReadOnly: isReadOnly),
         ],
       ),
     );

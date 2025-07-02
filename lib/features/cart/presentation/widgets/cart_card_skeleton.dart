@@ -2,14 +2,14 @@ import 'package:flutter/widgets.dart';
 
 import '../../../../core/shared/widgets/custom_skeleton.dart';
 import '../../../../core/utils/extensions/constants_extension.dart';
-import 'partials/cart_card_layout_builder.dart';
+import 'cart_card_container.dart';
 
 class CartCardSkeleton extends StatelessWidget {
   const CartCardSkeleton({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return CartCardLayoutBuilder(
+    return CartCardContainer(
       showSkeleton: true,
       child: Row(
         spacing: context.spacing.s16,
