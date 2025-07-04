@@ -46,36 +46,50 @@ class CartPage extends StatelessWidget {
           }
 
           if (state is CartLoaded && state.cartItems.isNotEmpty) {
+            final cartItemsByCategory = state.cartItems;
+
             return Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Expanded(
                   child: ListView.separated(
-                    itemCount: state.cartItems.length,
+                    itemCount: cartItemsByCategory.length,
                     itemBuilder: (context, index) {
-                      final cartItem = state.cartItems[index];
+                      final categoryName = cartItemsByCategory.keys.elementAt(
+                        index,
+                      );
+                      final items = cartItemsByCategory[categoryName]!;
+
                       return Padding(
                         padding: context.padding.pH24,
-                        child: BlocProvider(
-                          create: (_) =>
-                              QuantityCubit(initialQuantity: cartItem.quantity),
-                          child: CartGroupByCategory(
-                            categoryName: cartItem.getLocalizedCategoryName(
-                              'en',
-                            ),
-                            child: GestureDetector(
-                              onLongPress: () {
-                                showModalBottomSheet(
-                                  context: context,
-                                  builder: (context) {
-                                    return CartRemoveItemBottomSheet(
-                                      cart: cartItem,
-                                    );
-                                  },
-                                );
-                              },
-                              child: CartCard(cartItem: cartItem),
-                            ),
+                        child: CartGroupByCategory(
+                          itemsCount: items.length,
+                          categoryName: items.first.getLocalizedCategoryName(
+                            'en',
+                          ),
+                          child: Column(
+                            spacing: context.spacing.s16,
+                            children: [
+                              for (final item in items) ...[
+                                BlocProvider(
+                                  create: (_) => QuantityCubit(
+                                    initialQuantity: item.quantity,
+                                  ),
+                                  child: GestureDetector(
+                                    onLongPress: () {
+                                      showModalBottomSheet(
+                                        context: context,
+                                        builder: (context) =>
+                                            CartRemoveItemBottomSheet(
+                                              cart: item,
+                                            ),
+                                      );
+                                    },
+                                    child: CartCard(cartItem: item),
+                                  ),
+                                ),
+                              ],
+                            ],
                           ),
                         ),
                       );
@@ -84,7 +98,11 @@ class CartPage extends StatelessWidget {
                         SizedBox(height: context.spacing.s16),
                   ),
                 ),
-                CartCheckOut(items: state.cartItems),
+                CartCheckOut(
+                  items: cartItemsByCategory.values
+                      .expand((items) => items)
+                      .toList(),
+                ),
               ],
             );
           }

@@ -12,7 +12,7 @@ class CartInitial extends CartState {}
 class CartLoading extends CartState {}
 
 class CartLoaded extends CartState {
-  final List<Cart> cartItems;
+  final Map<String, List<Cart>> cartItems;
   const CartLoaded(this.cartItems);
 
   @override

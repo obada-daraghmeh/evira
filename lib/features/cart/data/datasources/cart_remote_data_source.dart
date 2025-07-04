@@ -1,4 +1,3 @@
-import 'package:flutter/widgets.dart';
 import 'package:fpdart/fpdart.dart';
 import 'package:logger/logger.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
@@ -11,7 +10,7 @@ final logger = Logger();
 
 abstract class CartRemoteDataSource {
   Future<Unit> addToCart({required CartModel cartModel});
-  Future<List<CartModel>> getCartItems({required String userId});
+  Future<Map<String, List<CartModel>>> getCartItems({required String userId});
   Future<Unit> removeFromCart({required String id});
 }
 
@@ -57,7 +56,9 @@ class CartRemoteDataSourceImpl implements CartRemoteDataSource {
   }
 
   @override
-  Future<List<CartModel>> getCartItems({required String userId}) async {
+  Future<Map<String, List<CartModel>>> getCartItems({
+    required String userId,
+  }) async {
     try {
       final response = await _client
           .from('carts')
@@ -72,9 +73,7 @@ class CartRemoteDataSourceImpl implements CartRemoteDataSource {
                 product_variants (
                  *,
                   variant_values (
-                    attribute_values (
-                      *
-                    )
+                    attribute_values (*)
                   )
                 ),
                 product_images (*)
@@ -84,9 +83,6 @@ class CartRemoteDataSourceImpl implements CartRemoteDataSource {
           .eq('user_id', userId)
           .order('created_at', ascending: false);
 
-      debugPrint('Cart items response: $response', wrapWidth: 1024);
-
-      // Flatten all cart_items from each cart entry
       final List<CartModel> items = [];
 
       for (final cart in response) {
@@ -96,7 +92,14 @@ class CartRemoteDataSourceImpl implements CartRemoteDataSource {
         }
       }
 
-      return items;
+      final Map<String, List<CartModel>> grouped = {};
+
+      for (final item in items) {
+        final categoryName = item.getLocalizedCategoryName('en');
+        grouped.putIfAbsent(categoryName, () => []).add(item);
+      }
+
+      return grouped;
     } on PostgrestException catch (e) {
       throw ServerException(e.message);
     } catch (e, stackTrace) {

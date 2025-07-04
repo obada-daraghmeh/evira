@@ -21,7 +21,7 @@ class CartRepositoryImpl implements CartRepository {
   }
 
   @override
-  Future<Either<Failure, List<Cart>>> getCartItems({
+  Future<Either<Failure, Map<String, List<Cart>>>> getCartItems({
     required String userId,
   }) async {
     try {

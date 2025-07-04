@@ -6,9 +6,9 @@ import '../../../../core/shared/features/classes/usecase.dart';
 import '../entities/cart.dart';
 import '../repositories/cart_repository.dart';
 
-class GetCartItemsUseCase implements UseCase<List<Cart>, String> {
+class GetCartItemsUseCase implements UseCase<Map<String, List<Cart>>, String> {
   @override
-  Future<Either<Failure, List<Cart>>> call(String userId) async {
+  Future<Either<Failure, Map<String, List<Cart>>>> call(String userId) async {
     return await getIt<CartRepository>().getCartItems(userId: userId);
   }
 }

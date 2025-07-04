@@ -620,16 +620,6 @@ class FlutterIntl {
     );
   }
 
-  /// `My Cart`
-  String get myCart {
-    return Intl.message(
-      'My Cart',
-      name: 'myCart',
-      desc: '',
-      args: [],
-    );
-  }
-
   /// `Checkout`
   String get checkout {
     return Intl.message(
@@ -1007,6 +997,18 @@ class FlutterIntl {
       name: 'share',
       desc: '',
       args: [],
+    );
+  }
+
+  /// `{itemsCount, plural, =1{1 item} other{{itemsCount} items}}`
+  String cartItemCount(num itemsCount) {
+    return Intl.plural(
+      itemsCount,
+      one: '1 item',
+      other: '$itemsCount items',
+      name: 'cartItemCount',
+      desc: '',
+      args: [itemsCount],
     );
   }
 }

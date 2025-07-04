@@ -17,7 +17,7 @@ class CartBloc extends Bloc<CartEvent, CartState> {
       final response = await getIt<AddToCartUseCase>()(event.cart);
       response.fold(
         (failure) => emit(CartFailure(failure.message)),
-        (_) => emit(CartLoaded([])),
+        (_) => emit(CartLoaded({})),
       );
     });
 

@@ -22,30 +22,33 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m0(attribute, value) => "${attribute} = ${value}";
 
-  static String m1(count) => "(${count} reviews)";
+  static String m1(itemsCount) =>
+      "${Intl.plural(itemsCount, one: '1 item', other: '${itemsCount} items')}";
 
-  static String m2(count) => "${count} sold";
+  static String m2(count) => "(${count} reviews)";
 
-  static String m3(discountPercent) => "${discountPercent}%";
+  static String m3(count) => "${count} sold";
 
-  static String m4(field) => "Enter your ${field}";
+  static String m4(discountPercent) => "${discountPercent}%";
 
-  static String m5(filed) => "${filed} field is required";
+  static String m5(field) => "Enter your ${field}";
 
-  static String m6(filed) => "This ${filed} is already taken";
+  static String m6(filed) => "${filed} field is required";
 
-  static String m7(timeOfDay) => "Good ${timeOfDay} 👋";
+  static String m7(filed) => "This ${filed} is already taken";
 
-  static String m8(filed) => "Enter a valid ${filed}";
+  static String m8(timeOfDay) => "Good ${timeOfDay} 👋";
 
-  static String m9(filed, length) =>
+  static String m9(filed) => "Enter a valid ${filed}";
+
+  static String m10(filed, length) =>
       "${filed} must be at least ${length} characters long";
 
-  static String m10(price) => "₪${price}";
+  static String m11(price) => "₪${price}";
 
-  static String m11(attribute) => "Select ${attribute}";
+  static String m12(attribute) => "Select ${attribute}";
 
-  static String m12(title) => "${title} updated successfully";
+  static String m13(title) => "${title} updated successfully";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
@@ -63,6 +66,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "back": MessageLookupByLibrary.simpleMessage("Back"),
         "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
         "cart": MessageLookupByLibrary.simpleMessage("Cart"),
+        "cartItemCount": m1,
         "cartSuccessMsg": MessageLookupByLibrary.simpleMessage(
             "Great choice! It’s in your cart 🎉"),
         "changeAvatar": MessageLookupByLibrary.simpleMessage("Change avatar"),
@@ -72,11 +76,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "color": MessageLookupByLibrary.simpleMessage("Color"),
         "confirmPassword":
             MessageLookupByLibrary.simpleMessage("Confirm Password"),
-        "countReviews": m1,
-        "countSold": m2,
+        "countReviews": m2,
+        "countSold": m3,
         "description": MessageLookupByLibrary.simpleMessage("Description"),
         "details": MessageLookupByLibrary.simpleMessage("Details"),
-        "discountPercent": m3,
+        "discountPercent": m4,
         "editProfile": MessageLookupByLibrary.simpleMessage("Edit Profile"),
         "email": MessageLookupByLibrary.simpleMessage("Email"),
         "emptyCartMsg": MessageLookupByLibrary.simpleMessage(
@@ -85,17 +89,17 @@ class MessageLookup extends MessageLookupByLibrary {
             "Still empty — but your next great find is closer than you think."),
         "emptyWishlist": MessageLookupByLibrary.simpleMessage(
             "Your wishlist is empty — time to add something you love!"),
-        "enterYourField": m4,
+        "enterYourField": m5,
         "fetchUserFailedMessage": MessageLookupByLibrary.simpleMessage(
             "Unable to retrieve user data. Please try again."),
-        "filedIsRequired": m5,
-        "filedNotUnique": m6,
+        "filedIsRequired": m6,
+        "filedNotUnique": m7,
         "forgotPassword":
             MessageLookupByLibrary.simpleMessage("Forgot the password?"),
-        "goodTimeOfDay": m7,
+        "goodTimeOfDay": m8,
         "helpCenter": MessageLookupByLibrary.simpleMessage("Help Center"),
         "home": MessageLookupByLibrary.simpleMessage("Home"),
-        "invalidField": m8,
+        "invalidField": m9,
         "invalidName": MessageLookupByLibrary.simpleMessage(
             "Name can only contain letters and spaces"),
         "invalidPassword": MessageLookupByLibrary.simpleMessage(
@@ -106,10 +110,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "logout": MessageLookupByLibrary.simpleMessage("Logout"),
         "logoutHint": MessageLookupByLibrary.simpleMessage(
             "Are you sure you want to logout of your account?"),
-        "minimumLength": m9,
+        "minimumLength": m10,
         "morning": MessageLookupByLibrary.simpleMessage("Morning"),
         "mostPopular": MessageLookupByLibrary.simpleMessage("Most popular"),
-        "myCart": MessageLookupByLibrary.simpleMessage("My Cart"),
         "name": MessageLookupByLibrary.simpleMessage("Name"),
         "noResultsFoundSubtitle": MessageLookupByLibrary.simpleMessage(
             "We couldn’t find anything matching your search. Try a different keyword."),
@@ -127,7 +130,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "payments": MessageLookupByLibrary.simpleMessage("Payments"),
         "pleaseSelectSizeAndColor": MessageLookupByLibrary.simpleMessage(
             "Please select size and color"),
-        "priceInILS": m10,
+        "priceInILS": m11,
         "privacyPolicy": MessageLookupByLibrary.simpleMessage("Privacy Policy"),
         "profile": MessageLookupByLibrary.simpleMessage("Profile"),
         "quantity": MessageLookupByLibrary.simpleMessage("Quantity"),
@@ -144,7 +147,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "search": MessageLookupByLibrary.simpleMessage("Search"),
         "security": MessageLookupByLibrary.simpleMessage("Security"),
         "seeAll": MessageLookupByLibrary.simpleMessage("See all"),
-        "selectAttribute": m11,
+        "selectAttribute": m12,
         "sessionExpiredMessage": MessageLookupByLibrary.simpleMessage(
             "Your session has expired. Please sign in again."),
         "settings": MessageLookupByLibrary.simpleMessage("Settings"),
@@ -165,7 +168,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "specialOffers": MessageLookupByLibrary.simpleMessage("Special Offers"),
         "suggestions": MessageLookupByLibrary.simpleMessage("Suggestions"),
         "themeMode": MessageLookupByLibrary.simpleMessage("Theme Mode"),
-        "titleUpdatedSuccessfully": m12,
+        "titleUpdatedSuccessfully": m13,
         "totalPrice": MessageLookupByLibrary.simpleMessage("Total Price"),
         "unknownErrorMessage": MessageLookupByLibrary.simpleMessage(
             "Something went wrong. Please try again."),

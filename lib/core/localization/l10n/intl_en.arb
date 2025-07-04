@@ -93,5 +93,6 @@
   "pleaseSelectSizeAndColor": "Please select size and color",
   "details": "Details",
   "add": "Add",
-  "share": "Share"
+  "share": "Share",
+  "cartItemCount": "{itemsCount, plural, =1{1 item} other{{itemsCount} items}}"
 }
